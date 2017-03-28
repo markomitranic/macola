@@ -1,0 +1,21 @@
+## Server Specific ##
+Maildir
+logs
+
+### WordPress ###
+wp-config.php
+macola.rs/.htaccess
+macola.rs/license.txt
+macola.rs/readme.html
+
+logs
+*.log
+npm-debug.log*
+node_modules/*
+.npm
+.eslintcache
+.node_repl_history
+*.tgz
+
+.env
+.idea/*

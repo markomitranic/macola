@@ -1,0 +1,29 @@
+{
+    "key": "group_5825ca6ea2aff",
+    "title": "Slika u postu",
+    "fields": [],
+    "location": [
+        [
+            {
+                "param": "post_category",
+                "operator": "==",
+                "value": "category:artikli"
+            },
+            {
+                "param": "post_category",
+                "operator": "==",
+                "value": "category:pro_oprema"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": 1,
+    "description": "",
+    "old_ID": 334,
+    "modified": 1478871662
+}

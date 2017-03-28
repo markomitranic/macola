@@ -1,0 +1,192 @@
+<?php $path = 'http://www.macola.rs/wp-content/themes/macola-theme/price/iphone7'; ?>
+
+<style>
+
+.boxright img {
+	margin: 50px 50px 0px 70px;
+}
+.numberinbox {
+font-size: 12px;
+border: solid 1px black;
+border-radius: 6px;
+padding: 5px 10px 5px 10px;
+margin-right: 12px;
+}
+.boxleft {
+	padding: 50px 0px 0px 0px;
+}
+.boxleft h1 {
+color: black;
+font-size: 40px;
+margin-bottom: 20px;
+}
+.pickermenu {
+	background-color: rgb(32, 117, 159);
+	height: 60px;
+	display: block;
+	width: 100%;
+	border-radius: 40px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+.pick {
+display: inline-block;
+width: 70px;
+height: 100%;
+color: white;
+font-weight: 300;
+font-size: 15px;
+background-color: transparent;
+}
+.pick:hover {
+	background-color: white;
+	color: gray;
+	transition: background 0.1s linear;
+	cursor:pointer;
+}
+#menu1 .pick {
+    flex: 1;
+}
+#menu2 .pick {
+	width:32%;
+	line-height: 60px;
+}
+#calcprice {
+	width:64%;
+	line-height: 60px;
+	display: inline-block;
+	font-size: 20px;
+	font-weight: 600;
+}
+#calcprice:hover {
+	background-color: transparent;
+	color: white;
+	cursor:pointer;
+}
+#contactbutton {
+	width:32%;
+	line-height: 60px;
+	display: inline-block;
+	background-color: #0088cc;
+}
+#contactbutton:hover {
+	background-color: #343335;
+	color: white;
+	cursor:pointer;
+}
+.colorbox {
+width: 20px;
+height: 20px;
+border-radius: 12px;
+border: solid 2px black;
+margin-bottom: 10px;
+margin-top: 7px;
+}
+.jet-color {
+	background: rgba(76,76,76,1);
+	background: -moz-linear-gradient(left, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 39%, rgba(44,44,44,1) 50%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(76,76,76,1)), color-stop(12%, rgba(89,89,89,1)), color-stop(25%, rgba(102,102,102,1)), color-stop(39%, rgba(71,71,71,1)), color-stop(50%, rgba(44,44,44,1)), color-stop(51%, rgba(0,0,0,1)), color-stop(60%, rgba(17,17,17,1)), color-stop(76%, rgba(43,43,43,1)), color-stop(91%, rgba(28,28,28,1)), color-stop(100%, rgba(19,19,19,1)));
+	background: -webkit-linear-gradient(left, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 39%, rgba(44,44,44,1) 50%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+	background: -o-linear-gradient(left, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 39%, rgba(44,44,44,1) 50%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+	background: -ms-linear-gradient(left, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 39%, rgba(44,44,44,1) 50%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+	background: linear-gradient(to right, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 39%, rgba(44,44,44,1) 50%, rgba(0,0,0,1) 51%, rgba(17,17,17,1) 60%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=1 );
+}
+</style>
+
+
+
+
+
+<script type="text/javascript">
+
+    function changeImage(color, jet = false) {
+        document.getElementById("productpickerimage").src=color;
+
+        if (jet) {
+        	$('.gb-32').fadeOut('slow');
+        } else {
+        	$('.gb-32').fadeIn('slow');
+        }
+    }
+    function changePrice(price) {
+        document.getElementById("calcprice").innerHTML=price;
+    }
+</script>
+
+
+
+
+<div class="row">
+	<div class="span6 boxright">
+	<img id="productpickerimage" src="<?php echo $path; ?>/silver.png" alt="">
+	</div>
+
+	<div class="span6 boxleft">
+		
+		<h1> iPhone 7</h1>
+		<h2><span class="numberinbox">1</span>Odaberite boju:</h2>
+
+		<div class="pickermenu centertag" id="menu1">
+			<div class="pick" id="color" onclick="changeImage('<?php echo $path; ?>/silver.png');">
+				<div class="colorbox" style="background-color:#c3c3c3;"></div>
+			</div>
+			<div class="pick" id="color" onclick="changeImage('<?php echo $path; ?>/gold.png');">
+				<div class="colorbox" style="background-color:#decebd;"></div>
+			</div>
+			<div class="pick" id="color" onclick="changeImage('<?php echo $path; ?>/rose.png');">
+				<div class="colorbox" style="background-color:#e1b6af;"></div>
+			</div>
+			<div class="pick" id="color" onclick="changeImage('<?php echo $path; ?>/space.png');">
+				<div class="colorbox" style="background-color:#767578;"></div>
+			</div>
+			<div class="pick" id="color" onclick="changeImage('<?php echo $path; ?>/jet.png', true);">
+				<div class="colorbox jet-color" style="background-color:rgba(76,76,76,1);"></div>
+			</div>
+		</div>
+
+		<h2><span class="numberinbox">2</span>Odaberite kapacitet:</h2>
+
+		<div class="pickermenu centertag" id="menu2">
+			<div class="pick gb-32" id="color" onclick="changePrice('101.790 dinara');">
+				32 GB
+			</div>
+			<div class="pick gb-128" id="color" onclick="changePrice('116.990 dinara');">
+				128 GB
+			</div>
+			<div class="pick gb-256" id="color" onclick="changePrice('131.990 dinara');">
+				256 GB
+			</div>
+		</div>
+
+		<h2><span class="numberinbox">3</span>Cena:</h2>
+		<div class="pickermenu centertag" id="menu3">
+			<div class="pick" id="calcprice">101.790 dinara</div>
+			<a href="http://www.macola.rs/kontakt/">
+				<div class="pick" id="contactbutton">Kako do nas?</div>
+			</a>
+		</div>
+		<div class="smalltext">*-Kupovina na 3 rate moguća samo karticama Banca Intesa.</div>
+
+	</div>
+</div>
+
+
+<div class="hidden">
+	<script type="text/javascript">
+		<!--//--><![CDATA[//><!--
+			var images = new Array()
+			function preload() {
+				for (i = 0; i < preload.arguments.length; i++) {
+					images[i] = new Image()
+					images[i].src = preload.arguments[i]
+				}
+			}
+			preload(
+				"<?php echo $path; ?>/silver.png",
+				"<?php echo $path; ?>/gold.png",
+				"<?php echo $path; ?>/space.png"
+			)
+		//--><!]]>
+	</script>
+</div>
