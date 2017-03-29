@@ -103,10 +103,6 @@ $pro_articles = get_posts(array(
                     </div>
 			    </div>
 
-                <div class="category-navigation">
-                    <?php dd(get_the_posts_pagination(), true); ?>
-                </div>
-
                 <div class="row-fluid">
                 <hr style="margin-bottom:20px;">
                 </div>
