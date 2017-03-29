@@ -103,10 +103,6 @@ $pro_articles = get_posts(array(
                     </div>
 			    </div>
 
-                <div class="row-fluid">
-                <hr style="margin-bottom:20px;">
-                </div>
-
                 <div class="dodaci-red">
                     <div class="pro-article-wrapper">
                         <ul>
