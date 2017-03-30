@@ -1,6 +1,14 @@
 ## Server Specific ##
-Maildir
-logs
+/*
+/*/*
+!macola.rs
+!scripts
+!scss
+!theme-starter
+!gulpfile.js
+!macola-theme
+!package.json
+!README.md
 
 ### WordPress ###
 wp-config.php
