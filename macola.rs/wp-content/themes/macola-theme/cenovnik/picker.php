@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<?php 
+<?php
 
 /**
  * Prepare variables
@@ -98,6 +97,9 @@ function get_capacities_html($models) {
     let models = <?php echo json_encode($models); ?>;
 
     setPrice(models[0]['model_price'], models[0]['broj_rata']) // Set initial price
+    setTimeout(function() {
+        pickColors(models[0].colors);
+    }, 1000);
 
     function setPrice(newprice, brojRata) {
     	let formatPrice = newprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
