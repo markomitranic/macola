@@ -6,6 +6,7 @@
 !scss
 !theme-starter
 !gulpfile.js
+!wp-config.dist.php
 !macola-theme
 !package.json
 !README.md
