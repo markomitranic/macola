@@ -82,7 +82,6 @@
      */
     function Redirect($url, $permanent = 302) {
         wp_redirect($url, $permanent);
-        //header('Location: ' . $url, true, $permanent);
         exit();
     }
 
