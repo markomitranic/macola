@@ -1,0 +1,4 @@
+[06-Aug-2014 01:05:58 Europe/Berlin] PHP Fatal error:  Call to undefined function _deprecated_file() in /home/macola/public_html/wp-includes/rss-functions.php on line 8
+[06-Aug-2014 01:23:24 Europe/Berlin] PHP Fatal error:  Call to undefined function _deprecated_file() in /home/macola/public_html/wp-includes/rss-functions.php on line 8
+[26-Oct-2014 01:16:33 Europe/Berlin] PHP Fatal error:  Call to undefined function _deprecated_file() in /home/macola/public_html/wp-includes/rss-functions.php on line 8
+[26-Oct-2014 01:17:00 Europe/Berlin] PHP Fatal error:  Call to undefined function _deprecated_file() in /home/macola/public_html/wp-includes/rss-functions.php on line 8

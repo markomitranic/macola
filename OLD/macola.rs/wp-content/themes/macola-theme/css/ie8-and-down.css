@@ -1,0 +1,9 @@
+.footer .widget-item {
+	border-left: 1px dashed #dcdcdc;
+	border-right: 1px dashed #dcdcdc;
+}
+
+.footer .widget-item:first-child {
+	border-left: 0;
+	border-right: 0;
+}

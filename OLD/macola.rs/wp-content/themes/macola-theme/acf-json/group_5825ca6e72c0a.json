@@ -1,0 +1,24 @@
+{
+    "key": "group_5825ca6e72c0a",
+    "title": "Post - Podnaslov",
+    "fields": [],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "singlepost.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": 1,
+    "description": "",
+    "old_ID": 718,
+    "modified": 1478871662
+}

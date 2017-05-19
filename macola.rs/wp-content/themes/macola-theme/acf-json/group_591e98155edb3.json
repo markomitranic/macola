@@ -1,0 +1,76 @@
+{
+    "key": "group_591e98155edb3",
+    "title": "Redirect Template",
+    "fields": [
+        {
+            "key": "field_591e9843b781c",
+            "label": "Redirect To",
+            "name": "redirect_to",
+            "type": "url",
+            "instructions": "Please enter a valid URL that will be used for redirection.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "80",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "http:\/\/www.macola.rs"
+        },
+        {
+            "key": "field_591e9876b781d",
+            "label": "Redirect Code",
+            "name": "redirect_code",
+            "type": "number",
+            "instructions": "Please enter a standardized HTTP code for redirect state.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 302,
+            "placeholder": 302,
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "single_post_redirection.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "custom_fields",
+        "discussion",
+        "comments",
+        "revisions",
+        "slug",
+        "author",
+        "format",
+        "page_attributes",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
+    "active": 1,
+    "description": "The only field that should be shown when using a redirection template.",
+    "modified": 1495177380
+}
