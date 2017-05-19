@@ -1,0 +1,24 @@
+{
+    "key": "group_5825ca6ee50e8",
+    "title": "Special - Attributes 7",
+    "fields": [],
+    "location": [
+        [
+            {
+                "param": "post_category",
+                "operator": "==",
+                "value": "category:apple_dev"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": 1,
+    "description": "",
+    "old_ID": 330,
+    "modified": 1478871662
+}

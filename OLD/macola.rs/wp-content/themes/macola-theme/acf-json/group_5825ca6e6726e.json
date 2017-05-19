@@ -1,0 +1,29 @@
+{
+    "key": "group_5825ca6e6726e",
+    "title": "excerpt",
+    "fields": [],
+    "location": [
+        [
+            {
+                "param": "current_user_role",
+                "operator": "==",
+                "value": "administrator"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "servis_izvestaj"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": 1,
+    "description": "",
+    "old_ID": 6716,
+    "modified": 1478871662
+}

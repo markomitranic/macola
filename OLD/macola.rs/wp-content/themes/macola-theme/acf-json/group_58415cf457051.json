@@ -1,0 +1,652 @@
+{
+    "key": "group_58415cf457051",
+    "title": "Cenovnik Specijalnog Artikla",
+    "fields": [
+        {
+            "placement": "top",
+            "endpoint": 0,
+            "key": "field_58415da205955",
+            "label": "Odabir Izgleda",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "multiple": 0,
+            "allow_null": 0,
+            "choices": {
+                "horizontalni": "Horizontalni Blokovi",
+                "code": "Direktan Kod",
+                "picker": "Odabir boja i modela"
+            },
+            "default_value": [
+                "picker"
+            ],
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "return_format": "value",
+            "key": "field_58415d2305954",
+            "label": "Tip cenovnika",
+            "name": "tip_cenovnika",
+            "type": "select",
+            "instructions": "Odaberite vrstu prikaza. A zatim popunite polja ispod.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "placement": "top",
+            "endpoint": 0,
+            "key": "field_58415dbb05956",
+            "label": "Unos Koda",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58415d2305954",
+                        "operator": "==",
+                        "value": "code"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 20,
+            "key": "field_58415dd105957",
+            "label": "Custom Code",
+            "name": "custom_code",
+            "type": "textarea",
+            "instructions": "Slobodno unesite kod koji \u017eelite da prika\u017eete.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 20,
+            "key": "field_5841609665170",
+            "label": "Custom Style",
+            "name": "custom_style",
+            "type": "textarea",
+            "instructions": "Slobodno unesite CSS stilove koje \u017eelite da prika\u017eete.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "placement": "top",
+            "endpoint": 0,
+            "key": "field_5841612c6bb1e",
+            "label": "Unos Horizontalno",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58415d2305954",
+                        "operator": "==",
+                        "value": "horizontalni"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "sub_fields": [
+                {
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Stari artikli na popustu:",
+                    "prepend": "",
+                    "append": "",
+                    "key": "field_584c4a6f4c67b",
+                    "label": "Section Heading",
+                    "name": "section_heading",
+                    "type": "text",
+                    "instructions": "Ukoliko je potreban neki test koji bi ovu sekciju razdvajao od ostalih, upi\u0161ite ga ovde. Ukoliko ovo polje ostavite praznim, ni\u0161ta se ne\u0107e desiti.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": 161,
+                    "min_height": 228,
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "key": "field_584166d16bb20",
+                    "label": "Slika",
+                    "name": "slika",
+                    "type": "image",
+                    "instructions": "Odaberite sliku za ovaj blok. Idealno je da u pitanju bude fotografija ure\u0111aja, kao i da ona bude barem veli\u010dine 160 x 228 px. Ukoliko prilo\u017eite ve\u0107u sliku, ona \u0107e biti automatski skra\u0107ena.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "default_value": "",
+                    "key": "field_584167786bb21",
+                    "label": "Boja Segmenta",
+                    "name": "boja_segmenta",
+                    "type": "color_picker",
+                    "instructions": "Odaberite boju za pozadinu teksta.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "default_value": "13-in\u010dni",
+                    "maxlength": "",
+                    "placeholder": "13-in\u010dni",
+                    "prepend": "",
+                    "append": "",
+                    "key": "field_584167cf6bb22",
+                    "label": "Naslov",
+                    "name": "naslov",
+                    "type": "text",
+                    "instructions": "Ovo je obi\u010dno veli\u010dina ure\u0111aja.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "default_value": "Aktuelni 13-in\u010dni MacBook Pro Retina sa Touch Bar prikazani u Novembru 2016 godine. Dvogodi\u0161nja garancija u Srbiji.",
+                    "maxlength": "",
+                    "placeholder": "Aktuelni 13-in\u010dni MacBook Pro Retina sa Touch Bar prikazani u Novembru 2016 godine. Dvogodi\u0161nja garancija u Srbiji.",
+                    "prepend": "",
+                    "append": "",
+                    "key": "field_584167f36bb23",
+                    "label": "Opis",
+                    "name": "opis",
+                    "type": "text",
+                    "instructions": "Kratak opis generacije ure\u0111aja. Po\u017eeljno je napisati kada je ure\u0111aj prikazan.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "sub_fields": [
+                        {
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "MLUQ2ZE\/a",
+                            "prepend": "",
+                            "append": "",
+                            "key": "field_584c5d2f4e660",
+                            "label": "Part Number",
+                            "name": "part_number",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            }
+                        },
+                        {
+                            "default_value": "Intel i5 Dual-Core 2.9GHz\r\nTurboBoost na 3,3GHz\r\n8GB 1866MHz LPDDR3L RAM\r\n512GB flash memorija\r\nIntel Iris 550 grafika\r\n4x Thunderbolt I\/O\r\n4x USB 3.1 port",
+                            "new_lines": "br",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "rows": 8,
+                            "key": "field_584168356bb25",
+                            "label": "Opis",
+                            "name": "opis",
+                            "type": "textarea",
+                            "instructions": "Opis i konfiguracija modela.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            }
+                        },
+                        {
+                            "default_value": 289790,
+                            "min": "",
+                            "max": "",
+                            "step": 1,
+                            "placeholder": 289790,
+                            "prepend": "",
+                            "append": "",
+                            "key": "field_584170896bb26",
+                            "label": "Cena",
+                            "name": "cena",
+                            "type": "number",
+                            "instructions": "Upi\u0161ite punu cenu sa PDV.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            }
+                        },
+                        {
+                            "default_value": 12,
+                            "min": "",
+                            "max": "",
+                            "step": 1,
+                            "placeholder": 12,
+                            "prepend": "",
+                            "append": "",
+                            "key": "field_5841748b6bb27",
+                            "label": "Broj Rata",
+                            "name": "broj_rata",
+                            "type": "number",
+                            "instructions": "Upi\u0161ite broj rata. Ukoliko ostavite ovo polje praznim, informacije o ratama ne\u0107e biti ispisane.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            }
+                        }
+                    ],
+                    "min": 0,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "Add Row",
+                    "collapsed": "",
+                    "key": "field_584168176bb24",
+                    "label": "Ponuda",
+                    "name": "ponuda",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Dodaj Model",
+            "collapsed": "",
+            "key": "field_584161436bb1f",
+            "label": "Blok",
+            "name": "blok",
+            "type": "repeater",
+            "instructions": "Ovo polje predstavlja Blokove\/Redove. Svaki red se sastoji od slike, opisa i detalja.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 20,
+            "key": "field_58419a23d5815",
+            "label": "Custom Code",
+            "name": "custom_code_horiz",
+            "type": "textarea",
+            "instructions": "Slobodno unesite kod koji \u017eelite da prika\u017eete.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "60",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 20,
+            "key": "field_58419aa490d86",
+            "label": "Custom Style",
+            "name": "custom_style_horiz",
+            "type": "textarea",
+            "instructions": "Slobodno unesite CSS stilove koje \u017eelite da prika\u017eete.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "placement": "top",
+            "endpoint": 0,
+            "key": "field_584c66380112c",
+            "label": "Unos Modela",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58415d2305954",
+                        "operator": "==",
+                        "value": "picker"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "sub_fields": [
+                {
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "32GB",
+                    "prepend": "",
+                    "append": "",
+                    "key": "field_584c6e6fce048",
+                    "label": "Model Capacity",
+                    "name": "model_capacity",
+                    "type": "text",
+                    "instructions": "Upi\u0161ite kapacitet modela.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "default_value": 0,
+                    "min": 0,
+                    "max": "",
+                    "step": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "key": "field_584c6fa6ce04a",
+                    "label": "Model Price",
+                    "name": "model_price",
+                    "type": "number",
+                    "instructions": "Upi\u0161ite cenu modela u dinarima. Ukoliko upi\u0161ete broj 0, bi\u0107e nazna\u010deno da \u0107e model biti uskoro u ponudi.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "default_value": 12,
+                    "min": 0,
+                    "max": "",
+                    "step": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "key": "field_584c6fcace04b",
+                    "label": "Broj Rata",
+                    "name": "broj_rata",
+                    "type": "number",
+                    "instructions": "Upi\u0161ite broj mese\u010dnih rata. Ukoliko upi\u0161ete 0, mogu\u0107nost pla\u0107anja na rate ne\u0107e biti ponu\u0111ena.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "layout": "vertical",
+                    "choices": {
+                        "silver": "Silver",
+                        "space_gray": "Space Gray",
+                        "gold": "Gold",
+                        "rose_gold": "Rose Gold",
+                        "jet_black": "Jet Black"
+                    },
+                    "default_value": [
+                        "silver",
+                        "space_gray",
+                        "gold",
+                        "rose_gold",
+                        "jet_black"
+                    ],
+                    "allow_custom": 1,
+                    "save_custom": 1,
+                    "toggle": 0,
+                    "return_format": "label",
+                    "key": "field_584c6ebece049",
+                    "label": "Colors",
+                    "name": "colors",
+                    "type": "checkbox",
+                    "instructions": "Odaberite u kojim sve bojama je dostupan ovaj model.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "collapsed": "",
+            "key": "field_584c6d57ce047",
+            "label": "Models",
+            "name": "iphone_models",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "placement": "top",
+            "endpoint": 0,
+            "key": "field_584c6ff3ce04c",
+            "label": "Unos Boja",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58415d2305954",
+                        "operator": "==",
+                        "value": "picker"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "sub_fields": [
+                {
+                    "return_format": "array",
+                    "preview_size": "footer",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "key": "field_584c71b10afcd",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "instructions": "Please select an image to be used for this color.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Space Gray",
+                    "prepend": "",
+                    "append": "",
+                    "key": "field_584c72260afce",
+                    "label": "Naziv Boje",
+                    "name": "naziv_boje",
+                    "type": "text",
+                    "instructions": "Pun naziv boje koji je upisan na prethodnoj stranici poput \"Space Gray\".",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    }
+                },
+                {
+                    "default_value": "#000",
+                    "key": "field_584c725d0afcf",
+                    "label": "Color",
+                    "name": "color",
+                    "type": "color_picker",
+                    "instructions": "silver : #c3c3c3  |  space_gray : #4f4f4f  |  gold : #decebd  |  rose_gold : #e1b6af  |  jet_black : #000",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Dodaj boju",
+            "collapsed": "",
+            "key": "field_584c71630afcc",
+            "label": "Boje",
+            "name": "boje",
+            "type": "repeater",
+            "instructions": "Ukoliko ste u prethodnom koraku odabrali prikaz boje, molimo vas da ovde upi\u0161ete specifikaciju.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_category",
+                "operator": "==",
+                "value": "category:apple_dev"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Formular za unos i izmenu cenovnika artikala.",
+    "modified": 1481406632
+}
