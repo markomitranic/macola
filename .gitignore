@@ -1,16 +1,3 @@
-## Server Specific ##
-/*
-/*/*
-!macola.rs
-!scripts
-!scss
-!theme-starter
-!gulpfile.js
-!wp-config.dist.php
-!macola-theme
-!package.json
-!README.md
-
 ### WordPress ###
 wp-config.php
 macola.rs/.htaccess
