@@ -1,7 +1,53 @@
 {
     "key": "group_5825ca6e6726e",
     "title": "excerpt",
-    "fields": [],
+    "fields": [
+        {
+            "key": "field_5452008495e13",
+            "label": "OG Slika",
+            "name": "og_slika",
+            "type": "image",
+            "instructions": "Idealna veličina: 1200 x 670. This image will be used for Facebook and Twitter sharing, and may be the same  as Hero Image.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "large",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_545200f695e14",
+            "label": "TheExcerpt",
+            "name": "theexcerpt",
+            "type": "textarea",
+            "instructions": "Not longer than 130 characters",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 160,
+            "rows": 4,
+            "new_lines": "",
+            "readonly": 0,
+            "disabled": 0
+        }
+    ],
     "location": [
         [
             {
@@ -21,9 +67,8 @@
     "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": [],
+    "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "old_ID": 6716,
-    "modified": 1478871662
+    "modified": 1496821439
 }

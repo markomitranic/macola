@@ -1,7 +1,32 @@
 {
     "key": "group_5825ca6e6da48",
     "title": "Post - Big Post Image",
-    "fields": [],
+    "fields": [
+        {
+            "key": "field_52567a9d89dad",
+            "label": "Single Post Big Main Picture",
+            "name": "big_post_image",
+            "type": "image",
+            "instructions": "This picture will be shown as the post Hero image. It will be used on the top of the post page, and the expected size is 1200 x 670, although it can vary slightly, but it must be wider than 980!",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": 980,
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
     "location": [
         [
             {
@@ -42,7 +67,7 @@
             {
                 "param": "post_category",
                 "operator": "==",
-                "value": "artikl_uredjaj:ipod"
+                "value": "category:apple_dev"
             }
         ],
         [
@@ -65,9 +90,8 @@
     "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": [],
+    "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "old_ID": 335,
-    "modified": 1478871662
+    "modified": 1496821342
 }
