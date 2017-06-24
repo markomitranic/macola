@@ -186,8 +186,8 @@
                     "return_format": "array",
                     "preview_size": "thumbnail",
                     "library": "all",
-                    "min_width": 161,
-                    "min_height": 228,
+                    "min_width": "",
+                    "min_height": "",
                     "min_size": "",
                     "max_width": "",
                     "max_height": "",
@@ -650,5 +650,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Formular za unos i izmenu cenovnika artikala.",
-    "modified": 1490820999
+    "modified": 1498201482
 }

@@ -7,7 +7,7 @@
             "label": "Kompatibilno sa:",
             "name": "kompatibilno",
             "type": "checkbox",
-            "instructions": "Odaberi sa kojim je ure\u0111ajima sve kompatibilan artikl.",
+            "instructions": "Odaberi sa kojim je uređajima sve kompatibilan artikl.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -17,6 +17,7 @@
             },
             "choices": {
                 "iMac": "iMac",
+                "iMac Pro": "iMac Pro",
                 "Mac mini": "Mac mini",
                 "Mac Pro": "Mac Pro",
                 "MacBook Pro": "MacBook Pro",
@@ -29,6 +30,8 @@
                 "iPhone 5s": "iPhone 5s",
                 "iPhone 6": "iPhone 6",
                 "iPhone 6 Plus": "iPhone 6 Plus",
+                "iPhone 7": "iPhone 7",
+                "iPhone 7 Plus": "iPhone 7 Plus",
                 "iPad mini": "iPad mini",
                 "iPad mini Retina": "iPad mini Retina",
                 "iPad mini 3": "iPad mini 3",
@@ -37,22 +40,28 @@
                 "iPad 4 Gen": "iPad 4 Gen",
                 "iPad Air": "iPad Air",
                 "iPad Air 2": "iPad Air 2",
+                "iPad Pro": "iPad Pro",
+                "iPad Pro 10.5-inch": "iPad Pro 10.5-inch",
+                "iPad Pro 12-inch": "iPad Pro 12-inch",
                 "iPod touch": "iPod touch",
                 "iPod classic": "iPod classic",
                 "iPod nano": "iPod nano",
                 "iPod shuffle": "iPod shuffle",
                 "Ostalo": "Ostalo"
             },
+            "allow_custom": 0,
+            "save_custom": 0,
             "default_value": [],
             "layout": "vertical",
-            "toggle": 0
+            "toggle": 0,
+            "return_format": "value"
         },
         {
             "key": "field_52ea934e0c679",
             "label": "Vezani",
             "name": "vezani",
             "type": "relationship",
-            "instructions": "Odaberi tri artikla koji \u0107e biti povezani sa ovim. (bi\u0107e prikazani u dnu strane artikla kao artikli koje preporu\u010dujemo) Ukoliko ne odabere\u0161 ni\u0161ta, bi\u0107e prikazana tri nasumi\u010dna artikla.",
+            "instructions": "Odaberi tri artikla koji će biti povezani sa ovim. (biće prikazani u dnu strane artikla kao artikli koje preporučujemo) Ukoliko ne odabereš ništa, biće prikazana tri nasumična artikla.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -92,5 +101,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1478872963
+    "modified": 1498300177
 }
