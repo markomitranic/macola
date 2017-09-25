@@ -20,8 +20,7 @@
 					<div class="widget-content centertag">
 										<div class="smalltext" style=" margin-top: 20px; ">Ukucajte adresu i pritisnite enter</div>
 
-						<h2><?php $widgetNL = new WYSIJA_NL_Widget(true);
-echo $widgetNL->widget(array('form' => 1, 'form_type' => 'php'));?></h2>
+						<h2></h2>
 
 					</div>
 				</span>
