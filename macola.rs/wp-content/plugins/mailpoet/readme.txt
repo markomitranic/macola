@@ -4,7 +4,7 @@ Tags: newsletter, email, welcome email, post notification, autoresponder, signup
 Requires at least: 4.6
 Tested up to: 4.8
 Requires PHP: 5.3
-Stable tag: 3.0.0
+Stable tag: 3.0.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -113,6 +113,31 @@ Stop by our [support site](https://www.mailpoet.com/support).
 5. Subscriber import (via a CSV file or directly from MailChimp)
 
 == Changelog ==
+
+= 3.0.6 - 2017-10-10 =
+* Fixed: subscription forms to not throw form validation engine errors;
+
+= 3.0.5 - 2017-10-10 =
+* Added: images can now be aligned left, center or right in email designer;
+
+= 3.0.4 - 2017-10-05 =
+* Fixed: dividers and spacers' height can be changed on mouse drag again;
+
+= 3.0.3 - 2017-10-03 =
+* Fixed: mixed collation error in WordPress user synchronization. Thanks Chris, Till, Robin, Robero, @Seph, @kaiwen and others for the reports!
+
+= 3.0.2 - 2017-10-03 =
+* Improved: plugin capabilities can be managed with Members plugin;
+* Improved: removes unsightly horizontal scrollbar in some parts of the newsletter editor;
+* Improved: email templates to be displayed in order of last modification;
+* Fixed: it's not possible to submit a subscription form multiple times with an existing e-mail address anymore. Thanks Suyog Palav and Bits of Freedom!
+* Fixed: users subscribed before registering on a site are synchronized during WP users sync. Thanks Nicolas!
+
+= 3.0.1 - 2017-09-26 =
+* Added: images can be resized in newsletter editor;
+* Fixed: scheduled newsletters that are unscheduled will not be mistakenly sent. Thx Georges in Provence;
+* Fixed: plugin does not time out on sites with a large number of lists and subscribers. Thanks Roy;
+* Fixed: long email addresses no longer trigger MySQL errors during subscription. Thank you Sameer Bhatt and Bits of Freedom!
 
 = 3.0.0 - 2017-09-20 =
 * Official launch of the new MailPoet. :)

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://support.mailpoet.com/\n"
-"POT-Creation-Date: 2017-09-20 14:26:19+00:00\n"
+"POT-Creation-Date: 2017-10-10 13:37:32+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,7 +30,13 @@ msgstr ""
 msgid "Invalid API version."
 msgstr ""
 
-#: lib/API/JSON/API.php:60 lib/API/JSON/API.php:87
+#: lib/API/JSON/API.php:60
+msgid ""
+"Sorry, but we couldn't connect to the MailPoet server. Please refresh the "
+"web page and try again."
+msgstr ""
+
+#: lib/API/JSON/API.php:87
 msgid "Invalid API request."
 msgstr ""
 
@@ -46,7 +52,7 @@ msgstr ""
 msgid "You do not have the required permissions."
 msgstr ""
 
-#: lib/API/JSON/Endpoint.php:26
+#: lib/API/JSON/Endpoint.php:26 lib/API/JSON/ErrorResponse.php:23
 msgid "An unknown error occurred."
 msgstr ""
 
@@ -87,12 +93,12 @@ msgstr ""
 msgid "Check your inbox or spam folder to confirm your subscription."
 msgstr ""
 
-#: lib/API/JSON/v1/Forms.php:265 lib/API/JSON/v1/Newsletters.php:230
+#: lib/API/JSON/v1/Forms.php:265 lib/API/JSON/v1/Newsletters.php:231
 #: lib/API/JSON/v1/Segments.php:125
 msgid "Copy of %s"
 msgstr ""
 
-#: lib/API/JSON/v1/Mailer.php:36 lib/API/JSON/v1/Newsletters.php:334
+#: lib/API/JSON/v1/Mailer.php:36 lib/API/JSON/v1/Newsletters.php:335
 msgid "The email could not be sent: %s"
 msgstr ""
 
@@ -101,24 +107,24 @@ msgstr ""
 msgid "This template does not exist."
 msgstr ""
 
-#: lib/API/JSON/v1/Newsletters.php:37 lib/API/JSON/v1/Newsletters.php:148
-#: lib/API/JSON/v1/Newsletters.php:180 lib/API/JSON/v1/Newsletters.php:196
-#: lib/API/JSON/v1/Newsletters.php:212 lib/API/JSON/v1/Newsletters.php:226
-#: lib/API/JSON/v1/Newsletters.php:259 lib/API/JSON/v1/Newsletters.php:292
+#: lib/API/JSON/v1/Newsletters.php:37 lib/API/JSON/v1/Newsletters.php:149
+#: lib/API/JSON/v1/Newsletters.php:181 lib/API/JSON/v1/Newsletters.php:197
+#: lib/API/JSON/v1/Newsletters.php:213 lib/API/JSON/v1/Newsletters.php:227
+#: lib/API/JSON/v1/Newsletters.php:260 lib/API/JSON/v1/Newsletters.php:293
 #: lib/API/JSON/v1/SendingQueue.php:34 lib/API/JSON/v1/SendingQueue.php:121
 #: lib/API/JSON/v1/SendingQueue.php:147
 msgid "This newsletter does not exist."
 msgstr ""
 
-#: lib/API/JSON/v1/Newsletters.php:139
+#: lib/API/JSON/v1/Newsletters.php:140
 msgid "You need to specify a status."
 msgstr ""
 
-#: lib/API/JSON/v1/Newsletters.php:250
+#: lib/API/JSON/v1/Newsletters.php:251
 msgid "Newsletter data is missing."
 msgstr ""
 
-#: lib/API/JSON/v1/Newsletters.php:283
+#: lib/API/JSON/v1/Newsletters.php:284
 msgid "Please specify receiver information."
 msgstr ""
 
@@ -152,7 +158,7 @@ msgstr ""
 msgid "Your MailPoet Sending Service key expires on %s!"
 msgstr ""
 
-#: lib/API/JSON/v1/Services.php:62 views/settings/premium.html:45
+#: lib/API/JSON/v1/Services.php:62
 msgid "Your MailPoet Sending Service key is invalid."
 msgstr ""
 
@@ -172,7 +178,7 @@ msgstr ""
 msgid "Your Premium key expires on %s."
 msgstr ""
 
-#: lib/API/JSON/v1/Services.php:118 views/settings/premium.html:35
+#: lib/API/JSON/v1/Services.php:118
 msgid "Your Premium key is invalid."
 msgstr ""
 
@@ -198,22 +204,26 @@ msgstr ""
 msgid "You have not specified any settings to be saved."
 msgstr ""
 
-#: lib/API/JSON/v1/Subscribers.php:27 lib/API/JSON/v1/Subscribers.php:154
-#: lib/API/JSON/v1/Subscribers.php:170 lib/API/JSON/v1/Subscribers.php:186
+#: lib/API/JSON/v1/Subscribers.php:30 lib/API/JSON/v1/Subscribers.php:170
+#: lib/API/JSON/v1/Subscribers.php:186 lib/API/JSON/v1/Subscribers.php:202
 #: lib/API/MP/v1/API.php:48
 msgid "This subscriber does not exist."
 msgstr ""
 
-#: lib/API/JSON/v1/Subscribers.php:68
+#: lib/API/JSON/v1/Subscribers.php:71
 msgid "Please specify a valid form ID."
 msgstr ""
 
-#: lib/API/JSON/v1/Subscribers.php:73
+#: lib/API/JSON/v1/Subscribers.php:76
 msgid "Please leave the first field empty."
 msgstr ""
 
-#: lib/API/JSON/v1/Subscribers.php:89 views/form/editor.html:57
+#: lib/API/JSON/v1/Subscribers.php:92 views/form/editor.html:57
 msgid "Please select a list."
+msgstr ""
+
+#: lib/API/JSON/v1/Subscribers.php:110
+msgid "You need to wait before subscribing again."
 msgstr ""
 
 #: lib/API/MP/v1/API.php:21
@@ -242,6 +252,34 @@ msgstr ""
 msgid "This subscriber already exists."
 msgstr ""
 
+#: lib/Config/AccessControl.php:74
+msgid "Admin menu item"
+msgstr ""
+
+#: lib/Config/AccessControl.php:75
+msgid "Manage settings"
+msgstr ""
+
+#: lib/Config/AccessControl.php:76
+msgid "Manage emails"
+msgstr ""
+
+#: lib/Config/AccessControl.php:77
+msgid "Manage subscribers"
+msgstr ""
+
+#: lib/Config/AccessControl.php:78
+msgid "Manage forms"
+msgstr ""
+
+#: lib/Config/AccessControl.php:79
+msgid "Manage segments"
+msgstr ""
+
+#: lib/Config/Capabilities.php:65 lib/Config/Menu.php:597 views/premium.html:41
+msgid "MailPoet"
+msgstr ""
+
 #: lib/Config/Hooks.php:148
 msgid "MailPoet Newsletter"
 msgstr ""
@@ -251,10 +289,6 @@ msgid ""
 "Unable to connect to the database (the database is unable to open a file or "
 "folder), the connection is likely not configured correctly. Please read our "
 "[link] Knowledge Base article [/link] for steps how to resolve it."
-msgstr ""
-
-#: lib/Config/Initializer.php:156
-msgid "You do not have permission to activate/deactivate MailPoet plugin."
 msgstr ""
 
 #: lib/Config/MP2Migrator.php:151
@@ -343,84 +377,80 @@ msgstr[1] ""
 msgid "Settings imported"
 msgstr ""
 
-#: lib/Config/Menu.php:84 lib/Config/Menu.php:85 views/newsletters.html:23
+#: lib/Config/Menu.php:82 lib/Config/Menu.php:83 views/newsletters.html:23
 msgid "Emails"
 msgstr ""
 
-#: lib/Config/Menu.php:109 lib/Newsletter/Shortcodes/ShortcodesHelper.php:33
+#: lib/Config/Menu.php:107 lib/Newsletter/Shortcodes/ShortcodesHelper.php:33
 #: views/newsletter/templates/components/sidebar/styles.hbs:75
 #: views/newsletters.html:121
 msgid "Newsletter"
 msgstr ""
 
-#: lib/Config/Menu.php:110 views/newsletter/editor.html:228
+#: lib/Config/Menu.php:108 views/newsletter/editor.html:228
 msgid "Newsletter Editor"
 msgstr ""
 
-#: lib/Config/Menu.php:124 lib/Config/Menu.php:125 views/forms.html:25
+#: lib/Config/Menu.php:120 lib/Config/Menu.php:121 views/forms.html:25
 msgid "Forms"
 msgstr ""
 
-#: lib/Config/Menu.php:149 lib/Config/Menu.php:150
+#: lib/Config/Menu.php:145 lib/Config/Menu.php:146
 msgid "Form Editor"
 msgstr ""
 
-#: lib/Config/Menu.php:164 lib/Config/Menu.php:165
+#: lib/Config/Menu.php:158 lib/Config/Menu.php:159
 #: views/subscribers/subscribers.html:18
 msgid "Subscribers"
 msgstr ""
 
-#: lib/Config/Menu.php:189 lib/Config/Menu.php:190
+#: lib/Config/Menu.php:183 lib/Config/Menu.php:184
 #: views/subscribers/importExport/import.html:7
 #: views/subscribers/subscribers.html:94
 msgid "Import"
 msgstr ""
 
-#: lib/Config/Menu.php:202 lib/Config/Menu.php:203
+#: lib/Config/Menu.php:196 lib/Config/Menu.php:197
 #: views/subscribers/importExport/export.html:6
 #: views/subscribers/importExport/export.html:96
 #: views/subscribers/subscribers.html:95
 msgid "Export"
 msgstr ""
 
-#: lib/Config/Menu.php:217 lib/Config/Menu.php:218 views/forms.html:53
+#: lib/Config/Menu.php:209 lib/Config/Menu.php:210 views/forms.html:53
 #: views/newsletters.html:64 views/newsletters.html:166 views/segments.html:13
 #: views/subscribers/subscribers.html:66
 msgid "Lists"
 msgstr ""
 
-#: lib/Config/Menu.php:244 lib/Config/Menu.php:245 views/form/editor.html:37
+#: lib/Config/Menu.php:234 lib/Config/Menu.php:235 views/form/editor.html:37
 #: views/newsletters.html:65 views/settings.html:6
 msgid "Settings"
 msgstr ""
 
-#: lib/Config/Menu.php:258 lib/Config/Menu.php:259 views/help.html:5
+#: lib/Config/Menu.php:247 lib/Config/Menu.php:248 views/help.html:5
 msgid "Help"
 msgstr ""
 
-#: lib/Config/Menu.php:272 lib/Config/Menu.php:273 views/settings.html:22
+#: lib/Config/Menu.php:261 lib/Config/Menu.php:262
 msgid "Premium"
 msgstr ""
 
-#: lib/Config/Menu.php:285 lib/Config/Menu.php:286 views/update.html:16
+#: lib/Config/Menu.php:274 lib/Config/Menu.php:275 views/update.html:16
 #: views/welcome.html:16
 msgid "Welcome"
 msgstr ""
 
-#: lib/Config/Menu.php:298 lib/Config/Menu.php:299 views/segments.html:43
+#: lib/Config/Menu.php:287 lib/Config/Menu.php:288 views/segments.html:43
 msgid "Update"
 msgstr ""
 
-#: lib/Config/Menu.php:311
+#: lib/Config/Menu.php:300
 msgid "Migration"
 msgstr ""
 
-#: lib/Config/Menu.php:530
+#: lib/Config/Menu.php:520
 msgid "In any WordPress role"
-msgstr ""
-
-#: lib/Config/Menu.php:607 views/premium.html:41
-msgid "MailPoet"
 msgstr ""
 
 #: lib/Config/PluginActivatedHook.php:14
@@ -1019,11 +1049,11 @@ msgid ""
 "license[/link] by %s to keep enjoying automatic updates and Premium support."
 msgstr ""
 
-#: lib/Config/Shortcodes.php:84
+#: lib/Config/Shortcodes.php:85
 msgid "Oops! There are no newsletters to display."
 msgstr ""
 
-#: lib/Config/Shortcodes.php:123
+#: lib/Config/Shortcodes.php:124
 msgid "Preview in a new tab"
 msgstr ""
 
@@ -1053,20 +1083,20 @@ msgid ""
 "please contact us and report this issue."
 msgstr ""
 
-#: lib/Form/Block/Base.php:12
+#: lib/Form/Block/Base.php:16
 msgid "Please specify a valid email address."
 msgstr ""
 
-#: lib/Form/Block/Base.php:20 views/form/editor.html:55
+#: lib/Form/Block/Base.php:24 views/form/editor.html:55
 #: views/newsletters.html:169
 msgid "Please select a list"
 msgstr ""
 
-#: lib/Form/Block/Base.php:30
+#: lib/Form/Block/Base.php:34
 msgid "Please specify a valid phone number"
 msgstr ""
 
-#: lib/Form/Block/Base.php:39
+#: lib/Form/Block/Base.php:43
 msgid "Please select at least one option"
 msgstr ""
 
@@ -1262,12 +1292,12 @@ msgid "Please specify a type."
 msgstr ""
 
 #: lib/Models/Form.php:93 lib/Models/Newsletter.php:645
-#: lib/Models/Segment.php:133 lib/Models/Subscriber.php:346
+#: lib/Models/Segment.php:133 lib/Models/Subscriber.php:331
 msgid "All"
 msgstr ""
 
 #: lib/Models/Form.php:98 lib/Models/Newsletter.php:715
-#: lib/Models/Segment.php:138 lib/Models/Subscriber.php:371 views/forms.html:66
+#: lib/Models/Segment.php:138 lib/Models/Subscriber.php:356 views/forms.html:66
 #: views/newsletters.html:77 views/segments.html:50
 #: views/subscribers/subscribers.html:37
 msgid "Trash"
@@ -1281,7 +1311,7 @@ msgstr ""
 msgid "Deleted list"
 msgstr ""
 
-#: lib/Models/Newsletter.php:546 lib/Models/Subscriber.php:282
+#: lib/Models/Newsletter.php:546 lib/Models/Subscriber.php:267
 #: lib/Subscribers/ImportExport/Export/Export.php:173
 msgid "All Lists"
 msgstr ""
@@ -1356,38 +1386,34 @@ msgid ""
 "The Team"
 msgstr ""
 
-#: lib/Models/Subscriber.php:24
+#: lib/Models/Subscriber.php:23
 msgid "Please enter your email address"
 msgstr ""
 
-#: lib/Models/Subscriber.php:25
+#: lib/Models/Subscriber.php:24
 msgid "Your email address is invalid!"
 msgstr ""
 
-#: lib/Models/Subscriber.php:192
-msgid "You need to wait before subscribing again."
-msgstr ""
-
-#: lib/Models/Subscriber.php:290
+#: lib/Models/Subscriber.php:275
 msgid "Subscribers without a list (%s)"
 msgstr ""
 
-#: lib/Models/Subscriber.php:351 lib/Subscription/Pages.php:301
+#: lib/Models/Subscriber.php:336 lib/Subscription/Pages.php:301
 #: views/segments.html:30 views/subscribers/subscribers.html:56
 msgid "Subscribed"
 msgstr ""
 
-#: lib/Models/Subscriber.php:356 views/segments.html:31
+#: lib/Models/Subscriber.php:341 views/segments.html:31
 #: views/subscribers/subscribers.html:55
 msgid "Unconfirmed"
 msgstr ""
 
-#: lib/Models/Subscriber.php:361 lib/Subscription/Pages.php:309
+#: lib/Models/Subscriber.php:346 lib/Subscription/Pages.php:309
 #: views/segments.html:32 views/subscribers/subscribers.html:57
 msgid "Unsubscribed"
 msgstr ""
 
-#: lib/Models/Subscriber.php:366 lib/Subscription/Pages.php:317
+#: lib/Models/Subscriber.php:351 lib/Subscription/Pages.php:317
 #: views/segments.html:33 views/subscribers/subscribers.html:58
 msgid "Bounced"
 msgstr ""
@@ -1689,20 +1715,20 @@ msgstr ""
 msgid "MailPoet Error:"
 msgstr ""
 
-#: mailpoet.php:51
+#: mailpoet.php:50
 msgid ""
 "MailPoet plugin requires PHP version 5.3.3 or newer. Please read our "
 "[link]instructions[/link] on how to resolve this issue."
 msgstr ""
 
-#: mailpoet.php:66
+#: mailpoet.php:65
 msgid ""
 "MailPoet plugin cannot run under Microsoft's Internet Information Services "
 "(IIS) web server. We recommend that you use a web server powered by Apache "
 "or NGINX."
 msgstr ""
 
-#: mailpoet.php:80
+#: mailpoet.php:79
 msgid ""
 "MailPoet cannot start because it is missing core files. Please reinstall "
 "the plugin."
@@ -1873,8 +1899,8 @@ msgstr ""
 #: views/newsletter/templates/blocks/automatedLatestContent/settings.hbs:281
 #: views/newsletter/templates/blocks/posts/settingsDisplayOptions.hbs:79
 #: views/newsletter/templates/blocks/posts/settingsDisplayOptions.hbs:221
-#: views/premium.html:56 views/settings/advanced.html:90
-#: views/settings/advanced.html:130 views/settings/bounce.html:190
+#: views/premium.html:56 views/settings/advanced.html:111
+#: views/settings/advanced.html:151 views/settings/bounce.html:190
 #: views/settings/mta.html:589 views/settings/signup.html:34
 #: views/subscribers/importExport/export.html:33
 #: views/subscribers/importExport/import/step2.html:63
@@ -1892,8 +1918,8 @@ msgstr ""
 #: views/newsletter/templates/blocks/posts/settingsDisplayOptions.hbs:139
 #: views/newsletter/templates/blocks/posts/settingsDisplayOptions.hbs:165
 #: views/newsletter/templates/blocks/posts/settingsDisplayOptions.hbs:227
-#: views/premium.html:62 views/premium.html:63 views/settings/advanced.html:101
-#: views/settings/advanced.html:141 views/settings/bounce.html:148
+#: views/premium.html:62 views/premium.html:63 views/settings/advanced.html:122
+#: views/settings/advanced.html:162 views/settings/bounce.html:148
 #: views/settings/bounce.html:179 views/settings/mta.html:546
 #: views/settings/mta.html:600 views/settings/signup.html:46
 #: views/subscribers/importExport/export.html:38
@@ -1955,7 +1981,7 @@ msgstr ""
 #: views/newsletter/templates/blocks/divider/settings.hbs:37
 #: views/newsletter/templates/blocks/footer/settings.hbs:59
 #: views/newsletter/templates/blocks/header/settings.hbs:59
-#: views/newsletter/templates/blocks/image/settings.hbs:41
+#: views/newsletter/templates/blocks/image/settings.hbs:87
 #: views/newsletter/templates/blocks/social/settings.hbs:6
 #: views/newsletter/templates/blocks/spacer/settings.hbs:10
 #: views/subscribers/importExport/import/step2.html:148
@@ -2699,6 +2725,7 @@ msgstr ""
 #: views/newsletter/templates/blocks/button/settings.hbs:27
 #: views/newsletter/templates/blocks/footer/settings.hbs:41
 #: views/newsletter/templates/blocks/header/settings.hbs:41
+#: views/newsletter/templates/blocks/image/settings.hbs:65
 #: views/newsletter/templates/blocks/posts/settingsDisplayOptions.hbs:57
 msgid "Left"
 msgstr ""
@@ -2707,6 +2734,7 @@ msgstr ""
 #: views/newsletter/templates/blocks/button/settings.hbs:33
 #: views/newsletter/templates/blocks/footer/settings.hbs:47
 #: views/newsletter/templates/blocks/header/settings.hbs:47
+#: views/newsletter/templates/blocks/image/settings.hbs:71
 #: views/newsletter/templates/blocks/posts/settingsDisplayOptions.hbs:63
 msgid "Center"
 msgstr ""
@@ -2715,6 +2743,7 @@ msgstr ""
 #: views/newsletter/templates/blocks/button/settings.hbs:39
 #: views/newsletter/templates/blocks/footer/settings.hbs:53
 #: views/newsletter/templates/blocks/header/settings.hbs:53
+#: views/newsletter/templates/blocks/image/settings.hbs:77
 #: views/newsletter/templates/blocks/posts/settingsDisplayOptions.hbs:69
 msgid "Right"
 msgstr ""
@@ -2749,7 +2778,7 @@ msgid "Image width"
 msgstr ""
 
 #: views/newsletter/templates/blocks/automatedLatestContent/settings.hbs:165
-#: views/newsletter/templates/blocks/image/settings.hbs:30
+#: views/newsletter/templates/blocks/image/settings.hbs:55
 #: views/newsletter/templates/blocks/posts/settingsDisplayOptions.hbs:121
 msgid "Full width"
 msgstr ""
@@ -2856,6 +2885,7 @@ msgid "Label"
 msgstr ""
 
 #: views/newsletter/templates/blocks/button/settings.hbs:23
+#: views/newsletter/templates/blocks/image/settings.hbs:61
 msgid "Alignment"
 msgstr ""
 
@@ -2893,6 +2923,7 @@ msgid "Rounded corners"
 msgstr ""
 
 #: views/newsletter/templates/blocks/button/settings.hbs:94
+#: views/newsletter/templates/blocks/image/settings.hbs:28
 msgid "Width"
 msgstr ""
 
@@ -2979,7 +3010,7 @@ msgstr ""
 msgid "Alternative text"
 msgstr ""
 
-#: views/newsletter/templates/blocks/image/settings.hbs:37
+#: views/newsletter/templates/blocks/image/settings.hbs:83
 msgid "Select another image"
 msgstr ""
 
@@ -4053,35 +4084,51 @@ msgstr ""
 msgid "MailPoet's own script. Doesn't work with [link]these hosts[/link]."
 msgstr ""
 
-#: views/settings/advanced.html:74
+#: views/settings/advanced.html:73
+msgid "Roles and capabilities"
+msgstr ""
+
+#: views/settings/advanced.html:75
+msgid "Manage which WordPress roles access which features of MailPoet."
+msgstr ""
+
+#: views/settings/advanced.html:81
+msgid "Manage using the Members plugin"
+msgstr ""
+
+#: views/settings/advanced.html:84
+msgid "Install the plugin [link]Members[/link] (free) to manage permissions."
+msgstr ""
+
+#: views/settings/advanced.html:95
 msgid "Open and click tracking"
 msgstr ""
 
-#: views/settings/advanced.html:77
+#: views/settings/advanced.html:98
 msgid "Enable or disable open and click tracking."
 msgstr ""
 
-#: views/settings/advanced.html:110
+#: views/settings/advanced.html:131
 msgid "Share anonymous data"
 msgstr ""
 
-#: views/settings/advanced.html:113
+#: views/settings/advanced.html:134
 msgid ""
 "Share anonymous data and help us improve the plugin. We appreciate your "
 "help!"
 msgstr ""
 
-#: views/settings/advanced.html:149
+#: views/settings/advanced.html:170
 msgid "Reinstall from scratch"
 msgstr ""
 
-#: views/settings/advanced.html:151
+#: views/settings/advanced.html:172
 msgid ""
 "Want to start from the beginning? This will completely delete MailPoet and "
 "reinstall it from scratch. Remember: you will lose all of your data!"
 msgstr ""
 
-#: views/settings/advanced.html:159
+#: views/settings/advanced.html:180
 msgid "Reinstall now..."
 msgstr ""
 
@@ -4560,18 +4607,27 @@ msgid "You have selected an invalid sending method."
 msgstr ""
 
 #: views/settings/premium.html:7
-msgid "Premium License Key"
+msgid "Activation Key"
 msgstr ""
 
 #: views/settings/premium.html:10
 msgid ""
-"This key is used for automatic upgrades of your Premium features and access "
-"to support."
+"This key is used to validate your free or paid subscription. Paying "
+"customers will enjoy automatic upgrades of their Premium plugin and access "
+"to faster support."
 msgstr ""
 
 #: views/settings/premium.html:25
 #: views/subscribers/importExport/import/step1.html:84
 msgid "Verify"
+msgstr ""
+
+#: views/settings/premium.html:35
+msgid "Your key is not valid for the Premium plugin."
+msgstr ""
+
+#: views/settings/premium.html:45
+msgid "Your key is not valid for the MailPoet Sending Service."
 msgstr ""
 
 #: views/settings/premium.html:56
@@ -4687,6 +4743,10 @@ msgstr ""
 
 #: views/settings.html:21
 msgid "Advanced"
+msgstr ""
+
+#: views/settings.html:22
+msgid "Key Activation"
 msgstr ""
 
 #: views/settings.html:55
@@ -5151,7 +5211,7 @@ msgstr ""
 msgid "Care to Give Your Opinion?"
 msgstr ""
 
-#: views/update.html:80 views/welcome.html:93
+#: views/update.html:70 views/welcome.html:93
 msgid "Awesome! Now, take me to MailPoet"
 msgstr ""
 
@@ -5241,22 +5301,22 @@ msgctxt "Error code (inside parentheses)"
 msgid "code: %s"
 msgstr ""
 
-#: lib/Config/Menu.php:97
+#: lib/Config/Menu.php:95
 msgctxt "newsletters per page (screen options)"
 msgid "Number of newsletters per page"
 msgstr ""
 
-#: lib/Config/Menu.php:137
+#: lib/Config/Menu.php:133
 msgctxt "forms per page (screen options)"
 msgid "Number of forms per page"
 msgstr ""
 
-#: lib/Config/Menu.php:177
+#: lib/Config/Menu.php:171
 msgctxt "subscribers per page (screen options)"
 msgid "Number of subscribers per page"
 msgstr ""
 
-#: lib/Config/Menu.php:230
+#: lib/Config/Menu.php:222
 msgctxt "segments per page (screen options)"
 msgid "Number of segments per page"
 msgstr ""
@@ -5330,7 +5390,7 @@ msgid "S"
 msgstr ""
 
 #: views/settings/advanced.html:13 views/settings/advanced.html:37
-#: views/settings/advanced.html:117
+#: views/settings/advanced.html:138
 msgctxt "support article link label"
 msgid "Read more."
 msgstr ""
