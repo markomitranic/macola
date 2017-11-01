@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite34a3c4941e31479e6df04a4be69432e
+class ComposerStaticInitf9d2a4b18144ddc75d068b570a0c9a57
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -254,6 +254,7 @@ class ComposerStaticInite34a3c4941e31479e6df04a4be69432e
         'MailPoet\\Models\\StatisticsUnsubscribes' => __DIR__ . '/../..' . '/lib/Models/StatisticsUnsubscribes.php',
         'MailPoet\\Models\\Subscriber' => __DIR__ . '/../..' . '/lib/Models/Subscriber.php',
         'MailPoet\\Models\\SubscriberCustomField' => __DIR__ . '/../..' . '/lib/Models/SubscriberCustomField.php',
+        'MailPoet\\Models\\SubscriberIP' => __DIR__ . '/../..' . '/lib/Models/SubscriberIP.php',
         'MailPoet\\Models\\SubscriberSegment' => __DIR__ . '/../..' . '/lib/Models/SubscriberSegment.php',
         'MailPoet\\Newsletter\\AutomatedLatestContent' => __DIR__ . '/../..' . '/lib/Newsletter/AutomatedLatestContent.php',
         'MailPoet\\Newsletter\\Editor\\MetaInformationManager' => __DIR__ . '/../..' . '/lib/Newsletter/Editor/MetaInformationManager.php',
@@ -292,6 +293,7 @@ class ComposerStaticInite34a3c4941e31479e6df04a4be69432e
         'MailPoet\\Router\\Endpoints\\Track' => __DIR__ . '/../..' . '/lib/Router/Endpoints/Track.php',
         'MailPoet\\Router\\Endpoints\\ViewInBrowser' => __DIR__ . '/../..' . '/lib/Router/Endpoints/ViewInBrowser.php',
         'MailPoet\\Router\\Router' => __DIR__ . '/../..' . '/lib/Router/Router.php',
+        'MailPoet\\Segments\\SubscribersFinder' => __DIR__ . '/../..' . '/lib/Segments/SubscribersFinder.php',
         'MailPoet\\Segments\\WP' => __DIR__ . '/../..' . '/lib/Segments/WP.php',
         'MailPoet\\Services\\Bridge' => __DIR__ . '/../..' . '/lib/Services/Bridge.php',
         'MailPoet\\Services\\Bridge\\API' => __DIR__ . '/../..' . '/lib/Services/Bridge/API.php',
@@ -311,6 +313,7 @@ class ComposerStaticInite34a3c4941e31479e6df04a4be69432e
         'MailPoet\\Subscription\\Manage' => __DIR__ . '/../..' . '/lib/Subscription/Manage.php',
         'MailPoet\\Subscription\\Pages' => __DIR__ . '/../..' . '/lib/Subscription/Pages.php',
         'MailPoet\\Subscription\\Registration' => __DIR__ . '/../..' . '/lib/Subscription/Registration.php',
+        'MailPoet\\Subscription\\Throttling' => __DIR__ . '/../..' . '/lib/Subscription/Throttling.php',
         'MailPoet\\Subscription\\Url' => __DIR__ . '/../..' . '/lib/Subscription/Url.php',
         'MailPoet\\Tasks\\Bounce' => __DIR__ . '/../..' . '/lib/Tasks/Bounce.php',
         'MailPoet\\Tasks\\Subscribers' => __DIR__ . '/../..' . '/lib/Tasks/Subscribers.php',
@@ -456,6 +459,7 @@ class ComposerStaticInite34a3c4941e31479e6df04a4be69432e
         'Twig\\Extension\\InitRuntimeInterface' => __DIR__ . '/..' . '/twig/twig/src/Extension/InitRuntimeInterface.php',
         'Twig\\Extension\\OptimizerExtension' => __DIR__ . '/..' . '/twig/twig/src/Extension/OptimizerExtension.php',
         'Twig\\Extension\\ProfilerExtension' => __DIR__ . '/..' . '/twig/twig/src/Extension/ProfilerExtension.php',
+        'Twig\\Extension\\RuntimeExtensionInterface' => __DIR__ . '/..' . '/twig/twig/src/Extension/RuntimeExtensionInterface.php',
         'Twig\\Extension\\SandboxExtension' => __DIR__ . '/..' . '/twig/twig/src/Extension/SandboxExtension.php',
         'Twig\\Extension\\StagingExtension' => __DIR__ . '/..' . '/twig/twig/src/Extension/StagingExtension.php',
         'Twig\\Extension\\StringLoaderExtension' => __DIR__ . '/..' . '/twig/twig/src/Extension/StringLoaderExtension.php',
@@ -836,10 +840,10 @@ class ComposerStaticInite34a3c4941e31479e6df04a4be69432e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite34a3c4941e31479e6df04a4be69432e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite34a3c4941e31479e6df04a4be69432e::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInite34a3c4941e31479e6df04a4be69432e::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInite34a3c4941e31479e6df04a4be69432e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf9d2a4b18144ddc75d068b570a0c9a57::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf9d2a4b18144ddc75d068b570a0c9a57::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitf9d2a4b18144ddc75d068b570a0c9a57::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitf9d2a4b18144ddc75d068b570a0c9a57::$classMap;
 
         }, null, ClassLoader::class);
     }

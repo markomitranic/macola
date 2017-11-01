@@ -133,9 +133,9 @@ class CFDB7_List_Table extends WP_List_Table
             $columns['cb']      = '<input type="checkbox" />';
             foreach ($first_row as $key => $value) {
 
-                if ( ( $key == 'cfdb7_status' ) || $key == 'cfdb7_file' ) continue;
+                if ( $key == 'cfdb7_status' ) continue;
 
-                $key_val       = str_replace('your-', '', $key); 
+                $key_val       = str_replace( array('your-', 'cfdb7_file'), '', $key); 
                 $columns[$key] = ucfirst( $key_val );
                 
                 if ( sizeof($columns) > 4) break;
@@ -228,7 +228,7 @@ class CFDB7_List_Table extends WP_List_Table
            
             foreach ($form_value as $k => $value) {
 
-                $ktmp = str_replace('cfdb7_file', '', $k);
+                $ktmp = $k;
 
                 $can_foreach = is_array($value) || is_object($value);
                
