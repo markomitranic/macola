@@ -7,6 +7,8 @@
 $colors = parse_colors(get_field('boje'));
 $models = get_field('iphone_models');
 $firstImage = reset($colors)['image'];
+$url = (get_field('custom_url')) ? get_field('custom_url') : 'http://www.macola.rs/kontakt/';
+$buttonLabel = (get_field('custom_button_text')) ? get_field('custom_button_text') : 'Kako do nas?';
 
 /**
  * Get the colors and form a cool array. Easy for searching.
@@ -70,8 +72,8 @@ function get_capacities_html($models) {
 		<h2><span class="numberinbox">3</span>Cena:</h2>
 		<div class="pickermenu centertag" id="menu3">
 			<div class="pick" id="calcprice">XXX dinara</div>
-			<a href="http://www.macola.rs/kontakt/">
-				<div class="pick" id="contactbutton">Kako do nas?</div>
+			<a href="<?=$url?>">
+				<div class="pick" id="contactbutton"><?=$buttonLabel?></div>
 			</a>
 		</div>
 		<div class="smalltext">*-Kupovina na 3 rate moguća samo karticama Banca Intesa.</div>

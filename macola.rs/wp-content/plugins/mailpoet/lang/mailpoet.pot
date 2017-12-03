@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://support.mailpoet.com/\n"
-"POT-Creation-Date: 2017-10-31 16:04:34+00:00\n"
+"POT-Creation-Date: 2017-11-29 15:37:35+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -82,7 +82,6 @@ msgid "Email"
 msgstr ""
 
 #: lib/API/JSON/v1/Forms.php:80
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:284
 msgid "Submit"
 msgstr ""
 
@@ -131,7 +130,8 @@ msgstr ""
 
 #: lib/API/JSON/v1/Segments.php:24 lib/API/JSON/v1/Segments.php:75
 #: lib/API/JSON/v1/Segments.php:91 lib/API/JSON/v1/Segments.php:107
-#: lib/API/JSON/v1/Segments.php:121
+#: lib/API/JSON/v1/Segments.php:121 lib/API/MP/v1/API.php:58
+#: lib/API/MP/v1/API.php:103
 msgid "This list does not exist."
 msgstr ""
 
@@ -205,25 +205,25 @@ msgstr ""
 msgid "You have not specified any settings to be saved."
 msgstr ""
 
-#: lib/API/JSON/v1/Subscribers.php:30 lib/API/JSON/v1/Subscribers.php:164
-#: lib/API/JSON/v1/Subscribers.php:180 lib/API/JSON/v1/Subscribers.php:196
-#: lib/API/MP/v1/API.php:48
+#: lib/API/JSON/v1/Subscribers.php:32 lib/API/JSON/v1/Subscribers.php:173
+#: lib/API/JSON/v1/Subscribers.php:189 lib/API/JSON/v1/Subscribers.php:205
+#: lib/API/MP/v1/API.php:52 lib/API/MP/v1/API.php:97 lib/API/MP/v1/API.php:225
 msgid "This subscriber does not exist."
 msgstr ""
 
-#: lib/API/JSON/v1/Subscribers.php:71
+#: lib/API/JSON/v1/Subscribers.php:80
 msgid "Please specify a valid form ID."
 msgstr ""
 
-#: lib/API/JSON/v1/Subscribers.php:76
+#: lib/API/JSON/v1/Subscribers.php:85
 msgid "Please leave the first field empty."
 msgstr ""
 
-#: lib/API/JSON/v1/Subscribers.php:92 views/form/editor.html:57
+#: lib/API/JSON/v1/Subscribers.php:101 views/form/editor.html:57
 msgid "Please select a list."
 msgstr ""
 
-#: lib/API/JSON/v1/Subscribers.php:104
+#: lib/API/JSON/v1/Subscribers.php:113
 msgid "You need to wait %d seconds before subscribing again."
 msgstr ""
 
@@ -241,43 +241,57 @@ msgstr ""
 msgid "Last name"
 msgstr ""
 
-#: lib/API/MP/v1/API.php:54
-msgid "These lists do not exist."
+#: lib/API/MP/v1/API.php:46 lib/API/MP/v1/API.php:91
+msgid "At least one segment ID is required."
 msgstr ""
 
-#: lib/API/MP/v1/API.php:87
+#: lib/API/MP/v1/API.php:75 lib/API/MP/v1/API.php:120
+msgid "List with ID %s does not exist."
+msgid_plural "Lists with IDs %s do not exist."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/API/MP/v1/API.php:141
 msgid "Subscriber email address is required."
 msgstr ""
 
-#: lib/API/MP/v1/API.php:94
+#: lib/API/MP/v1/API.php:148
 msgid "This subscriber already exists."
 msgstr ""
 
-#: lib/Config/AccessControl.php:74
+#: lib/API/MP/v1/API.php:194
+msgid "List name is required."
+msgstr ""
+
+#: lib/API/MP/v1/API.php:201
+msgid "This list already exists."
+msgstr ""
+
+#: lib/Config/AccessControl.php:72
 msgid "Admin menu item"
 msgstr ""
 
-#: lib/Config/AccessControl.php:75
+#: lib/Config/AccessControl.php:73
 msgid "Manage settings"
 msgstr ""
 
-#: lib/Config/AccessControl.php:76
+#: lib/Config/AccessControl.php:74
 msgid "Manage emails"
 msgstr ""
 
-#: lib/Config/AccessControl.php:77
+#: lib/Config/AccessControl.php:75
 msgid "Manage subscribers"
 msgstr ""
 
-#: lib/Config/AccessControl.php:78
+#: lib/Config/AccessControl.php:76
 msgid "Manage forms"
 msgstr ""
 
-#: lib/Config/AccessControl.php:79
+#: lib/Config/AccessControl.php:77
 msgid "Manage segments"
 msgstr ""
 
-#: lib/Config/Capabilities.php:67 lib/Config/Menu.php:610 views/premium.html:41
+#: lib/Config/Capabilities.php:67 lib/Config/Menu.php:611 views/premium.html:41
 msgid "MailPoet"
 msgstr ""
 
@@ -378,80 +392,80 @@ msgstr[1] ""
 msgid "Settings imported"
 msgstr ""
 
-#: lib/Config/Menu.php:82 lib/Config/Menu.php:83 views/newsletters.html:24
+#: lib/Config/Menu.php:83 lib/Config/Menu.php:84 views/newsletters.html:24
 msgid "Emails"
 msgstr ""
 
-#: lib/Config/Menu.php:107 lib/Newsletter/Shortcodes/ShortcodesHelper.php:33
+#: lib/Config/Menu.php:108 lib/Newsletter/Shortcodes/ShortcodesHelper.php:33
 #: views/newsletter/templates/components/sidebar/styles.hbs:75
 #: views/newsletters.html:123
 msgid "Newsletter"
 msgstr ""
 
-#: lib/Config/Menu.php:108 views/newsletter/editor.html:228
+#: lib/Config/Menu.php:109 views/newsletter/editor.html:228
 msgid "Newsletter Editor"
 msgstr ""
 
-#: lib/Config/Menu.php:120 lib/Config/Menu.php:121 views/forms.html:25
+#: lib/Config/Menu.php:121 lib/Config/Menu.php:122 views/forms.html:25
 #: views/mp2migration.html:14
 msgid "Forms"
 msgstr ""
 
-#: lib/Config/Menu.php:145 lib/Config/Menu.php:146
+#: lib/Config/Menu.php:146 lib/Config/Menu.php:147
 msgid "Form Editor"
 msgstr ""
 
-#: lib/Config/Menu.php:158 lib/Config/Menu.php:159
+#: lib/Config/Menu.php:159 lib/Config/Menu.php:160
 #: views/subscribers/subscribers.html:18
 msgid "Subscribers"
 msgstr ""
 
-#: lib/Config/Menu.php:183 lib/Config/Menu.php:184
+#: lib/Config/Menu.php:184 lib/Config/Menu.php:185
 #: views/subscribers/importExport/import.html:7
 #: views/subscribers/subscribers.html:94
 msgid "Import"
 msgstr ""
 
-#: lib/Config/Menu.php:196 lib/Config/Menu.php:197
+#: lib/Config/Menu.php:197 lib/Config/Menu.php:198
 #: views/subscribers/importExport/export.html:6
 #: views/subscribers/importExport/export.html:96
 #: views/subscribers/subscribers.html:95
 msgid "Export"
 msgstr ""
 
-#: lib/Config/Menu.php:209 lib/Config/Menu.php:210 views/forms.html:53
+#: lib/Config/Menu.php:210 lib/Config/Menu.php:211 views/forms.html:53
 #: views/newsletters.html:66 views/newsletters.html:168 views/segments.html:13
 #: views/subscribers/subscribers.html:66
 msgid "Lists"
 msgstr ""
 
-#: lib/Config/Menu.php:236 lib/Config/Menu.php:237 views/form/editor.html:37
+#: lib/Config/Menu.php:237 lib/Config/Menu.php:238 views/form/editor.html:37
 #: views/mp2migration.html:15 views/newsletters.html:67 views/settings.html:6
 msgid "Settings"
 msgstr ""
 
-#: lib/Config/Menu.php:249 lib/Config/Menu.php:250 views/help.html:5
+#: lib/Config/Menu.php:250 lib/Config/Menu.php:251 views/help.html:5
 msgid "Help"
 msgstr ""
 
-#: lib/Config/Menu.php:263 lib/Config/Menu.php:264
+#: lib/Config/Menu.php:264 lib/Config/Menu.php:265
 msgid "Premium"
 msgstr ""
 
-#: lib/Config/Menu.php:276 lib/Config/Menu.php:277 views/update.html:16
+#: lib/Config/Menu.php:277 lib/Config/Menu.php:278 views/update.html:16
 #: views/welcome.html:12
 msgid "Welcome"
 msgstr ""
 
-#: lib/Config/Menu.php:289 lib/Config/Menu.php:290 views/segments.html:43
+#: lib/Config/Menu.php:290 lib/Config/Menu.php:291 views/segments.html:43
 msgid "Update"
 msgstr ""
 
-#: lib/Config/Menu.php:302
+#: lib/Config/Menu.php:303
 msgid "Migration"
 msgstr ""
 
-#: lib/Config/Menu.php:532
+#: lib/Config/Menu.php:533
 msgid "In any WordPress role"
 msgstr ""
 
@@ -1214,11 +1228,11 @@ msgstr ""
 msgid "Please leave this field empty"
 msgstr ""
 
-#: lib/Form/Util/Export.php:55
+#: lib/Form/Util/Export.php:56
 msgid "BEGIN Scripts: you should place them in the header of your theme"
 msgstr ""
 
-#: lib/Form/Util/Export.php:87
+#: lib/Form/Util/Export.php:88
 msgid "END Scripts"
 msgstr ""
 
@@ -1270,12 +1284,12 @@ msgstr ""
 msgid "Unsupported Amazon SES region"
 msgstr ""
 
-#: lib/Mailer/Methods/AmazonSES.php:64 lib/Mailer/Methods/PHPMail.php:36
+#: lib/Mailer/Methods/AmazonSES.php:68 lib/Mailer/Methods/PHPMail.php:36
 #: lib/Mailer/Methods/SMTP.php:120 lib/Mailer/Methods/SendGrid.php:32
 msgid "%s has returned an unknown error."
 msgstr ""
 
-#: lib/Mailer/Methods/AmazonSES.php:66 lib/Mailer/Methods/PHPMail.php:38
+#: lib/Mailer/Methods/AmazonSES.php:70 lib/Mailer/Methods/PHPMail.php:38
 #: lib/Mailer/Methods/SMTP.php:123 lib/Mailer/Methods/SendGrid.php:34
 msgid "Unprocessed subscriber"
 msgstr ""
@@ -1424,7 +1438,7 @@ msgstr ""
 msgid "Bounced"
 msgstr ""
 
-#: lib/Newsletter/Editor/PostContentManager.php:89
+#: lib/Newsletter/Editor/PostContentManager.php:88
 msgid "Click here to view media."
 msgstr ""
 
@@ -1701,19 +1715,19 @@ msgstr ""
 msgid "Accidentally unsubscribed?"
 msgstr ""
 
-#: lib/Twig/Functions.php:101 views/settings/mta.html:1086
+#: lib/Twig/Functions.php:101 views/settings/mta.html:1090
 msgid "every minute"
 msgstr ""
 
-#: lib/Twig/Functions.php:102 views/settings/mta.html:1087
+#: lib/Twig/Functions.php:102 views/settings/mta.html:1091
 msgid "every %1$d minutes"
 msgstr ""
 
-#: lib/Twig/Functions.php:103 views/settings/mta.html:1088
+#: lib/Twig/Functions.php:103 views/settings/mta.html:1092
 msgid "every hour"
 msgstr ""
 
-#: lib/Twig/Functions.php:104 views/settings/mta.html:1089
+#: lib/Twig/Functions.php:104 views/settings/mta.html:1093
 msgid "every %1$d hours"
 msgstr ""
 
@@ -1721,332 +1735,29 @@ msgstr ""
 msgid "MailPoet Error:"
 msgstr ""
 
-#: mailpoet.php:50
+#: mailpoet.php:58
+msgid ""
+"MailPoet plugin requires WordPress version 4.6 or newer. Please read our "
+"[link]instructions[/link] on how to resolve this issue."
+msgstr ""
+
+#: mailpoet.php:69
 msgid ""
 "MailPoet plugin requires PHP version 5.3.3 or newer. Please read our "
 "[link]instructions[/link] on how to resolve this issue."
 msgstr ""
 
-#: mailpoet.php:65
+#: mailpoet.php:84
 msgid ""
 "MailPoet plugin cannot run under Microsoft's Internet Information Services "
 "(IIS) web server. We recommend that you use a web server powered by Apache "
 "or NGINX."
 msgstr ""
 
-#: mailpoet.php:79
+#: mailpoet.php:98
 msgid ""
 "MailPoet cannot start because it is missing core files. Please reinstall "
 "the plugin."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/internationalized-plugin.php:11
-msgid "This is a dummy plugin"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:42
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:72
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:80
-msgid "There was an error when reading this WXR file"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:43
-msgid ""
-"Details are shown above. The importer will now try again with a different "
-"parser..."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:84
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:89
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:306
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/parsers.php:495
-msgid "This does not appear to be a WXR file, missing/invalid WXR version number"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:132
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:141
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:192
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:196
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:205
-msgid "Sorry, there has been an error."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:133
-msgid "The file does not exist, please try again."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:176
-msgid "All done."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:176
-msgid "Have fun!"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:177
-msgid "Remember to update the passwords and roles of imported users."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:197
-msgid ""
-"The export file could not be found at <code>%s</code>. It is likely that "
-"this was caused by a permissions problem."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:213
-msgid ""
-"This WXR file (version %s) may not be supported by this version of the "
-"importer. Please consider updating."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:238
-msgid ""
-"Failed to import author %s. Their posts will be attributed to the current "
-"user."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:264
-msgid "Assign Authors"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:265
-msgid ""
-"To make it easier for you to edit and save the imported content, you may "
-"want to reassign the author of the imported item to an existing user of "
-"this site. For example, you may want to import all the entries as "
-"<code>admin</code>s entries."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:267
-msgid ""
-"If a new user is created by WordPress, a new password will be randomly "
-"generated and the new user&#8217;s role will be set as %s. Manually "
-"changing the new user&#8217;s details will be necessary."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:277
-msgid "Import Attachments"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:280
-msgid "Download and import file attachments"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:297
-msgid "Import author:"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:308
-msgid "or create new user with login name:"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:311
-msgid "as a new user:"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:319
-msgid "assign posts to an existing user:"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:321
-msgid "or assign posts to an existing user:"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:322
-msgid "- Select -"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:372
-msgid ""
-"Failed to create new user for %s. Their posts will be attributed to the "
-"current user."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:424
-msgid "Failed to import category %s"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:467
-msgid "Failed to import post tag %s"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:516
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:738
-msgid "Failed to import %s %s"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:605
-msgid "Failed to import &#8220;%s&#8221;: Invalid post type %s"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:642
-msgid "%s &#8220;%s&#8221; already exists."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:704
-msgid "Failed to import %s &#8220;%s&#8221;"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:869
-msgid "Menu item skipped due to missing menu slug"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:876
-msgid "Menu item skipped due to invalid menu slug: %s"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:939
-msgid "Fetching attachments is not enabled"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:952
-msgid "Invalid file type"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:996
-msgid "Remote server did not respond"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1002
-msgid "Remote server returned error response %1$d %2$s"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1009
-msgid "Remote file is incorrect size"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1014
-msgid "Zero size file downloaded"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1020
-msgid "Remote file is too large, limit is %s"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1119
-msgid "Import WordPress"
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1126
-msgid ""
-"A new version of this importer is available. Please update to version %s to "
-"ensure compatibility with newer export files."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1141
-msgid ""
-"Howdy! Upload your WordPress eXtended RSS (WXR) file and we&#8217;ll import "
-"the posts, pages, comments, custom fields, categories, and tags into this "
-"site."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1142
-msgid "Choose a WXR (.xml) file to upload, then click Upload file and import."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/plugins/wordpress-importer/wordpress-importer.php:1216
-msgid ""
-"Import <strong>posts, pages, comments, custom fields, categories, and "
-"tags</strong> from a WordPress export file."
-msgstr ""
-
-#: vendor_backup/lucatume/wp-browser/src/data/themedir1/internationalized-theme/functions.php:7
-msgid "This is a dummy theme"
-msgstr ""
-
-#: vendor_backup/wp-cli/core-command/src/Core_Command.php:644
-msgid "Wildcard DNS may not be configured correctly."
-msgstr ""
-
-#: vendor_backup/wp-cli/cron-command/src/Cron_Event_Command.php:428
-msgid "%s year"
-msgid_plural "%s years"
-msgstr[0] ""
-msgstr[1] ""
-
-#: vendor_backup/wp-cli/cron-command/src/Cron_Event_Command.php:429
-msgid "%s month"
-msgid_plural "%s months"
-msgstr[0] ""
-msgstr[1] ""
-
-#: vendor_backup/wp-cli/cron-command/src/Cron_Event_Command.php:430
-msgid "%s week"
-msgid_plural "%s weeks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: vendor_backup/wp-cli/cron-command/src/Cron_Event_Command.php:431
-msgid "%s day"
-msgid_plural "%s days"
-msgstr[0] ""
-msgstr[1] ""
-
-#: vendor_backup/wp-cli/cron-command/src/Cron_Event_Command.php:432
-msgid "%s hour"
-msgid_plural "%s hours"
-msgstr[0] ""
-msgstr[1] ""
-
-#: vendor_backup/wp-cli/cron-command/src/Cron_Event_Command.php:433
-msgid "%s minute"
-msgid_plural "%s minutes"
-msgstr[0] ""
-msgstr[1] ""
-
-#: vendor_backup/wp-cli/cron-command/src/Cron_Event_Command.php:434
-msgid "%s second"
-msgid_plural "%s seconds"
-msgstr[0] ""
-msgstr[1] ""
-
-#: vendor_backup/wp-cli/entity-command/src/Site_Command.php:118
-msgid "Uncategorized"
-msgstr ""
-
-#: vendor_backup/wp-cli/export-command/src/Export_Command.php:324
-msgid "Invalid start ID: %d"
-msgstr ""
-
-#: vendor_backup/wp-cli/export-command/src/WP_Export_File_Writer.php:15
-#: vendor_backup/wp-cli/export-command/src/WP_Export_Split_Files_Writer.php:63
-msgid "WP Export: error opening %s for writing."
-msgstr ""
-
-#: vendor_backup/wp-cli/export-command/src/WP_Export_File_Writer.php:32
-#: vendor_backup/wp-cli/export-command/src/WP_Export_Split_Files_Writer.php:51
-msgid "WP Export: error writing to export file."
-msgstr ""
-
-#: vendor_backup/wp-cli/export-command/src/WP_Export_Query.php:337
-msgid "Term is missing a parent: %s (%d)"
-msgstr ""
-
-#: vendor_backup/wp-cli/export-command/src/WP_Export_XML_Over_HTTP.php:19
-#: vendor_backup/wp-cli/export-command/src/WP_Export_XML_Over_HTTP.php:23
-msgid "Export Error"
-msgstr ""
-
-#: vendor_backup/wp-cli/extension-command/src/WP_CLI/CommandWithUpgrade.php:605
-msgid " Try again"
-msgstr ""
-
-#: vendor_backup/wp-cli/extension-command/src/WP_CLI/CommandWithUpgrade.php:610
-msgid "API error. Try Again."
-msgstr ""
-
-#: vendor_backup/wp-cli/media-command/src/Media_Command.php:129
-msgid "image"
-msgid_plural "images"
-msgstr[0] ""
-msgstr[1] ""
-
-#: vendor_backup/wp-cli/wp-cli/php/utils-wp.php:171
-msgid "Inactive Widgets"
-msgstr ""
-
-#: vendor_backup/wp-cli/wp-cli/php/utils-wp.php:174
-msgid "Drag widgets here to remove them from the sidebar but keep their settings."
 msgstr ""
 
 #: views/form/editor.html:5
@@ -2788,6 +2499,7 @@ msgstr ""
 
 #: views/newsletter/editor.html:316
 #: views/newsletter/templates/blocks/base/toolsGeneric.hbs:6
+#: views/newsletters.html:266
 #: views/subscribers/importExport/import/step2.html:150
 msgid "Cancel"
 msgstr ""
@@ -3397,11 +3109,11 @@ msgstr ""
 msgid "Spacer"
 msgstr ""
 
-#: views/newsletter/templates/components/heading.hbs:6
+#: views/newsletter/templates/components/heading.hbs:7
 msgid "Click here to change the subject!"
 msgstr ""
 
-#: views/newsletter/templates/components/heading.hbs:14
+#: views/newsletter/templates/components/heading.hbs:15
 msgid "Preview text (usually displayed underneath the subject line in the inbox)"
 msgstr ""
 
@@ -4145,6 +3857,14 @@ msgstr ""
 msgid ""
 "Sending is in progress. Do you want to pause sending and edit the "
 "newsletter?"
+msgstr ""
+
+#: views/newsletters.html:264
+msgid "Confirm to proceed"
+msgstr ""
+
+#: views/newsletters.html:265
+msgid "Confirm"
 msgstr ""
 
 #: views/premium.html:6
@@ -5666,36 +5386,24 @@ msgctxt "Error code (inside parentheses)"
 msgid "code: %s"
 msgstr ""
 
-#: lib/Config/Menu.php:95
+#: lib/Config/Menu.php:96
 msgctxt "newsletters per page (screen options)"
 msgid "Number of newsletters per page"
 msgstr ""
 
-#: lib/Config/Menu.php:133
+#: lib/Config/Menu.php:134
 msgctxt "forms per page (screen options)"
 msgid "Number of forms per page"
 msgstr ""
 
-#: lib/Config/Menu.php:171
+#: lib/Config/Menu.php:172
 msgctxt "subscribers per page (screen options)"
 msgid "Number of subscribers per page"
 msgstr ""
 
-#: lib/Config/Menu.php:222
+#: lib/Config/Menu.php:223
 msgctxt "segments per page (screen options)"
 msgid "Number of segments per page"
-msgstr ""
-
-#: vendor_backup/wp-cli/core-command/src/Core_Command.php:427
-#: vendor_backup/wp-cli/core-command/src/Core_Command.php:500
-msgctxt "Default network name"
-msgid "%s Sites"
-msgstr ""
-
-#: vendor_backup/wp-cli/entity-command/src/Site_Command.php:121
-#. translators: Default category slug
-msgctxt "Default category slug"
-msgid "Uncategorized"
 msgstr ""
 
 #: views/form/templates/settings/field_form.hbs:37

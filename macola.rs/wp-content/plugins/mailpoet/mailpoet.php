@@ -4,13 +4,13 @@ if(!defined('ABSPATH')) exit;
 
 /*
  * Plugin Name: MailPoet 3 (New)
- * Version: 3.0.9
+ * Version: 3.2.3
  * Plugin URI: http://www.mailpoet.com
  * Description: Create and send newsletters, post notifications and welcome emails from your WordPress.
  * Author: MailPoet
  * Author URI: http://www.mailpoet.com
  * Requires at least: 4.6
- * Tested up to: 4.8
+ * Tested up to: 4.9
  *
  * Domain Path: /lang/
  *
@@ -20,7 +20,7 @@ if(!defined('ABSPATH')) exit;
  */
 
 $mailpoet_plugin = array(
-  'version' => '3.0.9',
+  'version' => '3.2.3',
   'filename' => __FILE__,
   'path' => dirname(__FILE__),
   'autoloader' => dirname(__FILE__) . '/vendor/autoload.php',
@@ -34,12 +34,31 @@ function mailpoet_deactivate_plugin() {
   }
 }
 
+// Check for minimum supporter WP version
+if(version_compare(get_bloginfo('version'), '4.6', '<')) {
+  add_action('admin_notices', 'mailpoet_wp_version_notice');
+  // deactivate the plugin
+  add_action('admin_init', 'mailpoet_deactivate_plugin');
+  return;
+}
+
 // Check for minimum supported PHP version
 if(version_compare(phpversion(), '5.3.3', '<')) {
   add_action('admin_notices', 'mailpoet_php_version_notice');
   // deactivate the plugin
   add_action('admin_init', 'mailpoet_deactivate_plugin');
   return;
+}
+
+// Display WP version error notice
+function mailpoet_wp_version_notice() {
+  $notice = str_replace(
+    '[link]',
+    '<a href="//beta.docs.mailpoet.com/article/152-minimum-requirements-for-mailpoet-3#wp_version" target="_blank">',
+    __('MailPoet plugin requires WordPress version 4.6 or newer. Please read our [link]instructions[/link] on how to resolve this issue.', 'mailpoet')
+  );
+  $notice = str_replace('[/link]', '</a>', $notice);
+  printf('<div class="error"><p>%1$s</p></div>', $notice);
 }
 
 // Display PHP version error notice

@@ -75,6 +75,11 @@ Template Name: Izbornik iPhone MENI
 
 			<div class="row-fluid iphonemenu hero">
 				<div class="span12">
+					<a href="<?php echo site_url(); ?>/iphone-x/">
+						<img src="http://www.macola.rs/wp-content/uploads/2017/11/iphone-x-banner-1.jpg" alt="iPhone SE Prodaja Srbija">
+					</a>
+				</div>
+				<div class="span12">
 					<a href="<?php echo site_url(); ?>/iphone-8-iphone-8-plus/">
 						<img src="http://www.macola.rs/wp-content/uploads/2017/10/iphone8-banner.jpg" alt="iPhone SE Prodaja Srbija">
 					</a>

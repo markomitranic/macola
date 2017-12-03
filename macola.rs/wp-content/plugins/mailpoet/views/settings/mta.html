@@ -702,7 +702,7 @@
         var settings = jQuery('#mailpoet_settings_form').mailpoetSerializeObject();
         var mailer = settings.mta;
 
-        mailer.method = getMethodFromGroup($('#mta_group').val());
+        mailer.method = getMethodFromGroup($('#mailpoet_smtp_method').val());
 
         // check that we have a from address
         if(settings.sender.address.length === 0) {
@@ -736,7 +736,7 @@
             "<%= __('The email has been sent! Check your inbox.') | escape('js') %>",
             { scroll: true }
           );
-          trackTestEmailSent(true);
+          trackTestEmailSent(mailer, true);
         }).fail(function(response) {
           if (response.errors.length > 0) {
             MailPoet.Notice.error(
@@ -744,7 +744,7 @@
               { scroll: true }
             );
           }
-          trackTestEmailSent(false);
+          trackTestEmailSent(mailer, false);
         });
       });
 
@@ -851,13 +851,16 @@
 
       function getMethodFromGroup(group) {
         var group = group || 'website';
+
         switch(group) {
           case 'mailpoet':
             return 'MailPoet';
           break;
+          case 'server':
           case 'website':
             return 'PHPMail';
           break;
+          case 'manual':
           case 'smtp':
             var method = $('#mailpoet_smtp_provider').val();
             if(method === 'manual') {
@@ -865,6 +868,8 @@
             }
             return method;
           break;
+          default:
+            return group;
         }
       }
 
@@ -878,7 +883,7 @@
       $('#mailpoet_smtp_provider').trigger('change');
       $('#mailpoet_web_host').trigger('change');
 
-      function trackTestEmailSent(success) {
+      function trackTestEmailSent(mailer, success) {
         MailPoet.trackEvent(
           'User has sent a test email from Settings',
           {
@@ -1011,7 +1016,6 @@
     }
 
     function renderHostSendingFrequency() {
-
       var host = $(this).find('option:selected').first();
       var frequencyType = $("#mailpoet_sending_frequency").find('option:selected').first().val();
 

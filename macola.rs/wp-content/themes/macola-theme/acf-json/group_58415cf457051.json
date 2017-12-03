@@ -413,6 +413,41 @@
             "endpoint": 0
         },
         {
+            "key": "field_5a0ea24757e5c",
+            "label": "Custom URL",
+            "name": "custom_url",
+            "type": "url",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "http:\/\/www.macola.rs\/kontakt\/",
+            "placeholder": "http:\/\/www.macola.rs\/kontakt\/"
+        },
+        {
+            "key": "field_5a0ead8043d3d",
+            "label": "Custom Button text",
+            "name": "custom_button_text",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Kako do nas?",
+            "placeholder": "Kako do nas?",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_584c6d57ce047",
             "label": "Models",
             "name": "iphone_models",
@@ -650,5 +685,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Formular za unos i izmenu cenovnika artikala.",
-    "modified": 1498201482
+    "modified": 1510911402
 }
