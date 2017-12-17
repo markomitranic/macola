@@ -124,7 +124,7 @@ $pro_articles = get_posts(array(
                                     $article->monthlyPayment = $monthlyPayment;
                                 ?>
                                 <li>
-                                    <a href="<?=$article->permalink?>" class="open">
+                                    <a href="<?=$article->permalink?>" data-id="<?=$article->ID?>" class="open">
                                         <div class="article-image" style="background-image: url(<?=$article->thumbnail?>);">
                                             <img src="<?=$article->thumbnail?>" alt="<?=$article->thumbnail['alt']?>">
                                         </div>
@@ -158,30 +158,25 @@ if($('.lightbox-shadow').size() == 0){
 
 $("a.open").click(function(e) {
     e.preventDefault();
-    $("#lightbox").after( theShadow );
-    $("#lightbox").show();
+    const $lightbox = $("#lightbox"),
+        $clickedEl = $(e.currentTarget);
+    $lightbox.after( theShadow );
+    $lightbox.show();
     $("#lightbox-shadow").show();
     document.getElementById("header2").style.visibility= 'hidden';
     $('body').css('overflow', 'hidden');
     $('body').css('padding-right', '15px');
-    $('#lightbox').empty();
-    $('#lightbox').append('<p class="ajaxloading">Učitavanje...</p>');
+    $lightbox.empty();
+    $lightbox.append('<p class="ajaxloading">Učitavanje...</p>');
     $.ajax({
         type: 'POST',
+        url: 'http://www.macola.rs/ajax/',
         evalScripts: true,
         dataType: 'html',
-        data: { id: this.title,
-                cat: '<?=$manufacturer.'_cat'?>',
-                tag: '<?=$manufacturer?>',
-                pro: '<?=$category?>',
-                curr_page: '0',
-                tip: 'pro',
-                  },
-        url: 'http://www.macola.rs/ajax/',
+        data: { post_id: $clickedEl.attr('data-id') },
         success:function(data){
-    // DODAJ AJAX
-            $('#lightbox').empty();
-            $('#lightbox').append(data);
+            $lightbox.empty();
+            $lightbox.append(data);
         }
     });
 });

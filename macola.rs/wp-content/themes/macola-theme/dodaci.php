@@ -374,7 +374,7 @@ if ($broj%20 == 0 && $broj!=0){
 <!-- ARTIKL #1 -->
 <?php for ($rednibroj = 0; $rednibroj < 4; $rednibroj++) { ?>
 <?php if(isset($myposts[$j*4+$rednibroj + $_GET['curr_page']*20])) { ?>
-<a class="open" title="<?php echo $j, $rednibroj;?>" href="<?php echo get_permalink($myposts[$j*4+$rednibroj + $_GET['curr_page']*20]->ID); ?>">
+<a class="open" title="<?php echo $j, $rednibroj;?>"  data-id="<?=$myposts[$j*4+$rednibroj + $_GET['curr_page']*20]->ID?>"  href="<?php echo get_permalink($myposts[$j*4+$rednibroj + $_GET['curr_page']*20]->ID); ?>">
 <div class="span3">
 <div class="dodaci-box" onmouseover="this.style.border = '1px solid #dcdcda'; this.style.margin = '0px';" onmouseout="this.style.border = '0'; this.style.margin = '1px';">
 	<div class="dodaci-slika centertag"><?php echo get_the_post_thumbnail($myposts[$j*4+$rednibroj + $_GET['curr_page']*20]->ID, array(175,175)); ?></div>
@@ -424,36 +424,28 @@ if($('.lightbox-shadow').size() == 0){
 
 //FUNKCIJE
 $("a.open").click(function(e) {
-		e.preventDefault();
-		$("#lightbox").after( theShadow );
-		$("#lightbox").show();
-		$("#lightbox-shadow").show();
-		document.getElementById("header2").style.visibility= 'hidden';
-		$('body').css('overflow', 'hidden');
-		$('body').css('padding-right', '15px');
-		$('#lightbox').empty();
-		$('#lightbox').append('<p class="ajaxloading">Učitavanje...</p>');
-		$.ajax({
-			type: 'POST',
-			evalScripts:true,
-			dataType: 'html',
-			data: { id: this.title,
-					articleCat: '<?php echo $_GET['articleCat']; ?>',
-					articleDev: '<?php echo $_GET['articleDev']; ?>',
-					articlePro: '<?php echo $_GET['articlePro']; ?>',
-					curr_page: '<?php echo $_GET['curr_page']; ?>',
-					tip: 'dodaci',
-					  },
-			url: 'http://www.macola.rs/ajax/',
-			success:function(data){
-		// DODAJ AJAX
-				$('#lightbox').empty();
-				$('#lightbox').append(data);
-}
-
-		});
-
-		
+    e.preventDefault();
+    const $lightbox = $("#lightbox"),
+        $clickedEl = $(e.currentTarget);
+    $lightbox.after( theShadow );
+    $lightbox.show();
+    $("#lightbox-shadow").show();
+    document.getElementById("header2").style.visibility= 'hidden';
+    $('body').css('overflow', 'hidden');
+    $('body').css('padding-right', '15px');
+    $lightbox.empty();
+    $lightbox.append('<p class="ajaxloading">Učitavanje...</p>');
+    $.ajax({
+        type: 'POST',
+        url: 'http://www.macola.rs/ajax/',
+        evalScripts: true,
+        dataType: 'html',
+        data: { post_id: $clickedEl.attr('data-id') },
+        success:function(data){
+            $lightbox.empty();
+            $lightbox.append(data);
+        }
+    });
 });
 
 

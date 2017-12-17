@@ -3,22 +3,23 @@
     /**
      * Add Scripts and Styles. Remove jQuery because we include our own.
      */
-    add_action( 'wp_enqueue_scripts', 'custom_styles' );
-    add_action( 'wp_enqueue_scripts', 'custom_scripts' );
-    if (!is_admin()) {
-        add_action('wp_enqueue_scripts', 'deregisterJQuery');
-    }
-
     function custom_styles() {
         wp_register_style( 'core-css', get_template_directory_uri() . '/css/style.css' );
         wp_enqueue_style( 'core-css' );
     }
     function custom_scripts() {
-        wp_register_script( 'compiled-scripts', get_template_directory_uri() . '/scripts/scripts.min.js', 1.0, true );
-        wp_enqueue_script( 'compiled-scripts' );
+        wp_register_script( 'domain-scripts', get_template_directory_uri() . '/scripts/scripts.min.js', 1.1, true );
+        wp_register_script( 'vendor-scripts', get_template_directory_uri() . '/scripts/vendor.js', 1.1, true );
+        wp_enqueue_script( 'vendor-scripts' );
+        wp_enqueue_script( 'domain-scripts' );
     }
     function deregisterJQuery() {
         wp_deregister_script('jquery');
+    }
+    add_action( 'wp_enqueue_scripts', 'custom_styles' );
+    add_action( 'wp_enqueue_scripts', 'custom_scripts' );
+    if (!is_admin()) {
+        add_action('wp_enqueue_scripts', 'deregisterJQuery');
     }
 
     /**
@@ -73,11 +74,6 @@
     }
 
     /**
-     * Hide ACF field group menu item on administration pages
-     **/
-//     add_filter('acf/settings/show_admin', '__return_false');
-
-    /**
      * Need to use permanent redirection? Easy peasy.
      */
     function Redirect($url, $permanent = 302) {
@@ -88,25 +84,17 @@
     /**
      * A propper way to implement WP Titles.
      */
-//    add_filter('wp_title', 'change_the_title');
+//    add_filter('wp_title', 'custom_title');
 
-    function change_the_title($title) {
-        return $title . ' ~ ' . get_bloginfo('name');
-    }
+    function custom_title($title) {
+        $website = get_bloginfo('name');
+        $description = get_bloginfo('description');
 
-    /**
-     * Disable galleries support
-     */
-    add_action( 'admin_head_media_upload_gallery_form', 'mfields_remove_gallery_setting_div' );
-    if( !function_exists( 'mfields_remove_gallery_setting_div' ) ) {
-        function mfields_remove_gallery_setting_div() {
-            print '
-                <style type="text/css">
-             #gallery-settings *{
-                   display:none;
-               }
-            </style>';
-        }
+        $output = $title;
+        $output .= ($title == '') ? '' : ' | ';
+        $output .= $website;
+        $output .= ' - '.$description;
+        return $output;
     }
 
     remove_action('wp_head', 'rsd_link');
@@ -133,17 +121,26 @@
             case 'code':
                 get_template_part('cenovnik/code');
                 break;
-
             case 'horizontalni':
                 get_template_part('cenovnik/horizontalni');
                 break;
-
             case 'picker':
                 get_template_part('cenovnik/picker');
                 break;
-            
             default:
                 echo '';
                 break;
         }
+    }
+
+    // Clean up HTML from string to get an excerpt
+    function excerpt($text, $words = 7, $ellipsis = true) {
+        $text = wp_strip_all_tags($text);
+        $text = trim(preg_replace('/\s+/', ' ', $text)); // Remove new lines
+        $textArray = explode(' ', $text);
+        $text = array_slice($textArray, 0, $words);
+        $text = implode(" ", $text);
+        if ($ellipsis) { $text .= "…"; }
+
+        return $text;
     }
