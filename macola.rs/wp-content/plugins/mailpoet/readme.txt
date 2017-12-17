@@ -1,10 +1,10 @@
 === MailPoet 3 (New) ===
 Contributors: mailpoet, wysija
 Tags: newsletter, email, welcome email, post notification, autoresponder, signup, subscription, SMTP
-Requires at least: 4.6
-Tested up to: 4.8
+Requires at least: 4.7
+Tested up to: 4.9
 Requires PHP: 5.3
-Stable tag: 3.2.3
+Stable tag: 3.3.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -115,6 +115,18 @@ Stop by our [support site](https://www.mailpoet.com/support).
 5. Subscriber import (via a CSV file or directly from MailChimp)
 
 == Changelog ==
+
+= 3.3.1 - 2017-12-14 =
+* Fixed: newsletter open/click rates are properly displayed in listings. Thanks to all who have reported the issue!
+
+= 3.3.0 - 2017-12-12 =
+* Premium: you can now segment your subscribers by email opens or clicks;
+* Fixed: default newsletter templates will not be duplicated when user switches profile language to one that's different from the system's.
+
+= 3.2.4 - 2017-12-05 =
+* Improved: [mailpoet_manage_subscription] always renders for logged in WP users. Thx Jon, Sean, Steve & metaglyphics;
+* Fixed: migration from MailPoet 2 on hosts with missing "mbstring" PHP extension. Thanks Alvaro!
+* Fixed: updated existing libraries that previously contained security issues. Thanks Rhiannon (@goija) and Bits of Freedom!
 
 = 3.2.3 - 2017-11-29 =
 * Fixed: bug that prevented configuring third-party sending methods.

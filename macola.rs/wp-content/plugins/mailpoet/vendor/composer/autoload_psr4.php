@@ -10,9 +10,13 @@ return array(
     'Symfony\\Polyfill\\Php72\\' => array($vendorDir . '/symfony/polyfill-php72'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
+    'Symfony\\Component\\Debug\\' => array($vendorDir . '/symfony/debug'),
+    'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'Sudzy\\' => array($baseDir . '/lib/Util/Sudzy'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'MailPoet\\' => array($baseDir . '/lib'),
     'Html2Text\\' => array($vendorDir . '/soundasleep/html2text/src'),
     'Cron\\' => array($vendorDir . '/mtdowling/cron-expression/src/Cron'),
+    'Composer\\CaBundle\\' => array($vendorDir . '/composer/ca-bundle/src'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
 );
