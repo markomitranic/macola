@@ -96,7 +96,6 @@ return array(
     'MailPoet\\Config\\ServicesChecker' => $baseDir . '/lib/Config/ServicesChecker.php',
     'MailPoet\\Config\\Shortcodes' => $baseDir . '/lib/Config/Shortcodes.php',
     'MailPoet\\Config\\Updater' => $baseDir . '/lib/Config/Updater.php',
-    'MailPoet\\Config\\Widget' => $baseDir . '/lib/Config/Widget.php',
     'MailPoet\\Cron\\CronHelper' => $baseDir . '/lib/Cron/CronHelper.php',
     'MailPoet\\Cron\\CronTrigger' => $baseDir . '/lib/Cron/CronTrigger.php',
     'MailPoet\\Cron\\Daemon' => $baseDir . '/lib/Cron/Daemon.php',
