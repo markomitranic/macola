@@ -252,6 +252,7 @@ return array(
     'MailPoet\\Util\\pQuery\\pQuery' => $baseDir . '/lib/Util/pQuery/pQuery.php',
     'MailPoet\\WP\\DateTime' => $baseDir . '/lib/WP/DateTime.php',
     'MailPoet\\WP\\Emoji' => $baseDir . '/lib/WP/Emoji.php',
+    'MailPoet\\WP\\Functions' => $baseDir . '/lib/WP/Functions.php',
     'MailPoet\\WP\\Hooks' => $baseDir . '/lib/WP/Hooks.php',
     'MailPoet\\WP\\Notice' => $baseDir . '/lib/WP/Notice.php',
     'MailPoet\\WP\\Posts' => $baseDir . '/lib/WP/Posts.php',

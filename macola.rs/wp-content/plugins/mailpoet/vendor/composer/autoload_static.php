@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit8ac245097030e7d5d3c594abdb1eae69
+class ComposerStaticInit41e65186cd8b74e61cdec872a50c0dfd
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -369,6 +369,7 @@ class ComposerStaticInit8ac245097030e7d5d3c594abdb1eae69
         'MailPoet\\Util\\pQuery\\pQuery' => __DIR__ . '/../..' . '/lib/Util/pQuery/pQuery.php',
         'MailPoet\\WP\\DateTime' => __DIR__ . '/../..' . '/lib/WP/DateTime.php',
         'MailPoet\\WP\\Emoji' => __DIR__ . '/../..' . '/lib/WP/Emoji.php',
+        'MailPoet\\WP\\Functions' => __DIR__ . '/../..' . '/lib/WP/Functions.php',
         'MailPoet\\WP\\Hooks' => __DIR__ . '/../..' . '/lib/WP/Hooks.php',
         'MailPoet\\WP\\Notice' => __DIR__ . '/../..' . '/lib/WP/Notice.php',
         'MailPoet\\WP\\Posts' => __DIR__ . '/../..' . '/lib/WP/Posts.php',
@@ -984,10 +985,10 @@ class ComposerStaticInit8ac245097030e7d5d3c594abdb1eae69
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit8ac245097030e7d5d3c594abdb1eae69::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit8ac245097030e7d5d3c594abdb1eae69::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit8ac245097030e7d5d3c594abdb1eae69::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit8ac245097030e7d5d3c594abdb1eae69::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit41e65186cd8b74e61cdec872a50c0dfd::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit41e65186cd8b74e61cdec872a50c0dfd::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit41e65186cd8b74e61cdec872a50c0dfd::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit41e65186cd8b74e61cdec872a50c0dfd::$classMap;
 
         }, null, ClassLoader::class);
     }

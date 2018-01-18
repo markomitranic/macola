@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://support.mailpoet.com/\n"
-"POT-Creation-Date: 2018-01-09 18:32:46+00:00\n"
+"POT-Creation-Date: 2018-01-16 14:15:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,13 +25,6 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
-
-#: Initializer.php:63 lib/Config/Initializer.php:46
-msgid ""
-"Unable to connect to the database (the database is unable to open a file or "
-"folder), the connection is likely not configured correctly. Please read our "
-"[link] Knowledge Base article [/link] for steps how to resolve it."
-msgstr ""
 
 #: lib/API/API.php:19
 msgid "Invalid API version."
@@ -304,6 +297,13 @@ msgstr ""
 
 #: lib/Config/Hooks.php:148
 msgid "MailPoet Newsletter"
+msgstr ""
+
+#: lib/Config/Initializer.php:46
+msgid ""
+"Unable to connect to the database (the database is unable to open a file or "
+"folder), the connection is likely not configured correctly. Please read our "
+"[link] Knowledge Base article [/link] for steps how to resolve it."
 msgstr ""
 
 #: lib/Config/MP2Migrator.php:151
@@ -1073,11 +1073,11 @@ msgstr ""
 msgid "Preview in a new tab"
 msgstr ""
 
-#: lib/Cron/CronHelper.php:118
+#: lib/Cron/CronHelper.php:119
 msgid "Site URL is unreachable."
 msgstr ""
 
-#: lib/Cron/CronHelper.php:124
+#: lib/Cron/CronHelper.php:125
 msgid "Maximum execution time has been reached."
 msgstr ""
 
@@ -1280,17 +1280,17 @@ msgstr ""
 msgid "Sending frequency limit has been reached."
 msgstr ""
 
-#: lib/Mailer/Methods/AmazonSES.php:35
+#: lib/Mailer/Methods/AmazonSES.php:36
 msgid "Unsupported Amazon SES region"
 msgstr ""
 
-#: lib/Mailer/Methods/AmazonSES.php:68 lib/Mailer/Methods/PHPMail.php:36
-#: lib/Mailer/Methods/SMTP.php:120 lib/Mailer/Methods/SendGrid.php:32
+#: lib/Mailer/Methods/AmazonSES.php:69 lib/Mailer/Methods/PHPMail.php:36
+#: lib/Mailer/Methods/SMTP.php:120 lib/Mailer/Methods/SendGrid.php:34
 msgid "%s has returned an unknown error."
 msgstr ""
 
-#: lib/Mailer/Methods/AmazonSES.php:70 lib/Mailer/Methods/PHPMail.php:38
-#: lib/Mailer/Methods/SMTP.php:123 lib/Mailer/Methods/SendGrid.php:34
+#: lib/Mailer/Methods/AmazonSES.php:71 lib/Mailer/Methods/PHPMail.php:38
+#: lib/Mailer/Methods/SMTP.php:123 lib/Mailer/Methods/SendGrid.php:36
 msgid "Unprocessed subscriber"
 msgstr ""
 
