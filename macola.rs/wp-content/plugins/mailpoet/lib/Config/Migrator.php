@@ -161,8 +161,8 @@ class Migrator {
     $attributes = array(
       'id int(11) unsigned NOT NULL AUTO_INCREMENT,',
       'wp_user_id bigint(20) NULL,',
-      'first_name tinytext NOT NULL DEFAULT "",',
-      'last_name tinytext NOT NULL DEFAULT "",',
+      'first_name varchar(255) NOT NULL DEFAULT "",',
+      'last_name varchar(255) NOT NULL DEFAULT "",',
       'email varchar(150) NOT NULL,',
       'status varchar(12) NOT NULL DEFAULT "' . Subscriber::STATUS_UNCONFIRMED . '",',
       'subscribed_ip varchar(45) NULL,',
@@ -244,7 +244,9 @@ class Migrator {
   function newsletterTemplates() {
     $attributes = array(
       'id int(11) unsigned NOT NULL AUTO_INCREMENT,',
+      'newsletter_id int NULL DEFAULT 0,',
       'name varchar(250) NOT NULL,',
+      'categories varchar(250) NOT NULL DEFAULT "[]",',
       'description varchar(250) NOT NULL,',
       'body LONGTEXT,',
       'thumbnail LONGTEXT,',

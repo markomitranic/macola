@@ -185,25 +185,20 @@ class Segment extends Model {
     return self::getSegmentsWithSubscriberCount($type = false);
   }
 
-  static function getSegmentsForExport($withConfirmedSubscribers = false) {
+  static function getSegmentsForExport() {
     return self::raw_query(
       '(SELECT segments.id, segments.name, COUNT(relation.subscriber_id) as subscribers ' .
       'FROM ' . MP_SUBSCRIBER_SEGMENT_TABLE . ' relation ' .
       'LEFT JOIN ' . self::$_table . ' segments ON segments.id = relation.segment_id ' .
       'LEFT JOIN ' . MP_SUBSCRIBERS_TABLE . ' subscribers ON subscribers.id = relation.subscriber_id ' .
-      (($withConfirmedSubscribers) ?
-        'WHERE subscribers.status = "' . Subscriber::STATUS_SUBSCRIBED . '" ' :
-        'WHERE relation.segment_id IS NOT NULL ') .
+      'WHERE relation.segment_id IS NOT NULL ' .
       'AND subscribers.deleted_at IS NULL ' .
-      'AND relation.status = "' . Subscriber::STATUS_SUBSCRIBED . '" ' .
       'GROUP BY segments.id) ' .
       'UNION ALL ' .
       '(SELECT 0 as id, "' . __('Not in a List', 'mailpoet') . '" as name, COUNT(*) as subscribers ' .
       'FROM ' . MP_SUBSCRIBERS_TABLE . ' subscribers ' .
       'LEFT JOIN ' . MP_SUBSCRIBER_SEGMENT_TABLE . ' relation on relation.subscriber_id = subscribers.id ' .
-      (($withConfirmedSubscribers) ?
-        'WHERE relation.subscriber_id is NULL AND subscribers.status = "' . Subscriber::STATUS_SUBSCRIBED . '" ' :
-        'WHERE relation.subscriber_id is NULL ') .
+      'WHERE relation.subscriber_id is NULL ' .
       'AND subscribers.deleted_at IS NULL ' .
       'HAVING subscribers) ' .
       'ORDER BY name'
@@ -217,25 +212,6 @@ class Segment extends Model {
       $query->filter('groupBy', $data['group']);
     }
     return $query;
-  }
-
-  static function createOrUpdate($data = array()) {
-    $segment = false;
-
-    if(isset($data['id']) && (int)$data['id'] > 0) {
-      $segment = self::findOne((int)$data['id']);
-    }
-
-    if($segment === false) {
-      $segment = self::create();
-      $segment->hydrate($data);
-    } else {
-      unset($data['id']);
-      $segment->set($data);
-    }
-
-    $segment->save();
-    return $segment;
   }
 
   static function getPublic() {
@@ -258,18 +234,29 @@ class Segment extends Model {
   static function bulkDelete($orm) {
     $count = parent::bulkAction($orm, function($ids) {
       // delete segments (only default)
-      Segment::whereIn('id', $ids)
+      $segments = Segment::whereIn('id', $ids)
         ->where('type', Segment::TYPE_DEFAULT)
+        ->findMany();
+      $ids = array_map(function($segment) {
+        return $segment->id;
+      }, $segments);
+      SubscriberSegment::whereIn('segment_id', $ids)
         ->deleteMany();
+      Segment::whereIn('id', $ids)->deleteMany();
     });
 
     return array('count' => $count);
   }
 
   static function getAnalytics() {
-    return Segment::select_expr('type, count(*) as count')
-      ->whereNull('deleted_at')
-      ->groupBy('type')
-      ->findArray();
+    $analytics = Segment::select_expr('type, count(*) as count')
+                        ->whereNull('deleted_at')
+                        ->groupBy('type')
+                        ->findArray();
+    $result = array();
+    foreach($analytics as $segment) {
+      $result[$segment['type']] = $segment['count'];
+    }
+    return $result;
   }
 }

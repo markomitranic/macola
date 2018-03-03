@@ -28,13 +28,22 @@ class ImportExportFactory {
   }
 
   function getSubscriberFields() {
-    return array(
+    $fields = array(
       'email' => __('Email', 'mailpoet'),
       'first_name' => __('First name', 'mailpoet'),
-      'last_name' => __('Last name', 'mailpoet'),
-      'status' => __('Status', 'mailpoet')
-      // TODO: add additional fields from MP2
+      'last_name' => __('Last name', 'mailpoet')
     );
+    if($this->action === 'export') {
+      $fields = array_merge(
+        $fields,
+        array(
+          'list_status' => _x('List status', 'Subscription status', 'mailpoet'),
+          'global_status' => _x('Global status', 'Subscription status', 'mailpoet'),
+          'subscribed_ip' => __('IP address', 'mailpoet')
+        )
+      );
+    }
+    return $fields;
   }
 
   function formatSubscriberFields($subscriber_fields) {
@@ -128,9 +137,6 @@ class ImportExportFactory {
       );
       $data['maxPostSizeBytes'] = Helpers::getMaxPostSize('bytes');
       $data['maxPostSize'] = Helpers::getMaxPostSize();
-    } else {
-      $data['segmentsWithConfirmedSubscribers'] =
-        json_encode($this->getSegments($with_confirmed_subscribers = true));
     }
     return $data;
   }

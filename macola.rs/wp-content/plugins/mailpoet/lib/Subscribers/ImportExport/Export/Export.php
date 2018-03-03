@@ -13,9 +13,7 @@ use MailPoet\Util\Security;
 use MailPoet\Util\XLSXWriter;
 
 class Export {
-  public $export_confirmed_option;
   public $export_format_option;
-  public $group_by_segment_option;
   public $segments;
   public $subscribers_without_segment;
   public $subscriber_fields;
@@ -30,9 +28,7 @@ class Export {
     if(strpos(@ini_get('disable_functions'), 'set_time_limit') === false) {
       set_time_limit(0);
     }
-    $this->export_confirmed_option = $data['export_confirmed_option'];
     $this->export_format_option = $data['export_format_option'];
-    $this->group_by_segment_option = $data['group_by_segment_option'];
     $this->segments = $data['segments'];
     $this->subscribers_without_segment = array_search(0, $this->segments);
     $this->subscriber_fields = $data['subscriber_fields'];
@@ -78,12 +74,10 @@ class Export {
     $format_CSV = function($row) {
       return '"' . str_replace('"', '\"', $row) . '"';
     };
+    $formatted_subscriber_fields[] = __('List', 'mailpoet');
     // add UTF-8 BOM (3 bytes, hex EF BB BF) at the start of the file for
     // Excel to automatically recognize the encoding
     fwrite($CSV_file, chr(0xEF) . chr(0xBB) . chr(0xBF));
-    if($this->group_by_segment_option) {
-      $formatted_subscriber_fields[] = __('List', 'mailpoet');
-    }
     fwrite(
       $CSV_file,
       implode(
@@ -99,9 +93,7 @@ class Export {
       $processed_subscribers += count($subscribers);
       foreach($subscribers as $subscriber) {
         $row = $this->formatSubscriberData($subscriber);
-        if($this->group_by_segment_option) {
-          $row[] = ucwords($subscriber['segment_name']);
-        }
+        $row[] = ucwords($subscriber['segment_name']);
         fwrite($CSV_file, implode(',', array_map($format_CSV, $row)) . "\n");
       }
       $offset += $this->subscriber_batch_size;
@@ -124,19 +116,14 @@ class Export {
         $current_segment = ucwords($subscriber['segment_name']);
         // Sheet header (1st row) will be written only if:
         // * This is the first time we're processing a segment
-        // * "Group by subscriber option" is turned AND the previous subscriber's
-        // segment is different from the current subscriber's segment
+        // * The previous subscriber's segment is different from the current subscriber's segment
         // Header will NOT be written if:
         // * We have already processed the segment. Because SQL results are not
         // sorted by segment name (due to slow queries when using ORDER BY and LIMIT),
         // we need to keep track of processed segments so that we do not create header
         // multiple times when switching from one segment to another and back.
-        if((!count($processed_segments) ||
-            ($last_segment !== $current_segment && $this->group_by_segment_option)
-          ) &&
-          (!in_array($last_segment, $processed_segments) ||
-            !in_array($current_segment, $processed_segments)
-          )
+        if((!count($processed_segments) || $last_segment !== $current_segment) &&
+          (!in_array($last_segment, $processed_segments) || !in_array($current_segment, $processed_segments))
         ) {
           $this->writeXLSX(
             $XLSX_writer,
@@ -167,24 +154,34 @@ class Export {
   }
 
   function writeXLSX($XLSX_writer, $segment, $data) {
-    return $XLSX_writer->writeSheetRow(
-      ($this->group_by_segment_option) ?
-        ucwords($segment) :
-        __('All Lists', 'mailpoet'),
-      $data
-    );
+    return $XLSX_writer->writeSheetRow(ucwords($segment), $data);
   }
 
   function getSubscribers($offset, $limit) {
-    // JOIN subscribers on segment and subscriber_segment tables
-    $subscribers = Subscriber::left_outer_join(
-      SubscriberSegment::$_table,
+    // define returned columns
+    $subscribers = Subscriber::selectMany(
+      'first_name',
+      'last_name',
+      'email',
+      'subscribed_ip',
       array(
-        Subscriber::$_table . '.id',
-        '=',
-        SubscriberSegment::$_table . '.subscriber_id'
+        'global_status' => Subscriber::$_table . '.status'
+      ),
+      array(
+        'list_status' => SubscriberSegment::$_table . '.status'
       )
-    )
+    );
+
+    // JOIN subscribers on segment and subscriber_segment tables
+    $subscribers = $subscribers
+      ->left_outer_join(
+        SubscriberSegment::$_table,
+        array(
+          Subscriber::$_table . '.id',
+          '=',
+          SubscriberSegment::$_table . '.subscriber_id'
+        )
+      )
       ->left_outer_join(
         Segment::$_table,
         array(
@@ -194,7 +191,8 @@ class Export {
         )
       )
       ->filter('filterWithCustomFieldsForExport')
-      ->groupBy(Subscriber::$_table . '.id');
+      ->groupBy(Subscriber::$_table . '.id')
+      ->groupBy(Segment::$_table . '.id');
 
     if($this->subscribers_without_segment !== false) {
       // if there are subscribers who do not belong to any segment, use
@@ -216,14 +214,6 @@ class Export {
       $subscribers = $subscribers
         ->selectExpr('MAX(' . Segment::$_table . '.name) as segment_name')
         ->whereIn(SubscriberSegment::$_table . '.segment_id', $this->segments);
-    }
-    if($this->group_by_segment_option) {
-      $subscribers = $subscribers->groupBy(Segment::$_table . '.id');
-    }
-    if($this->export_confirmed_option) {
-      // select only subscribers with "subscribed" status
-      $subscribers =
-        $subscribers->where(Subscriber::$_table . '.status', 'subscribed');
     }
     $subscribers = $subscribers
       ->whereNull(Subscriber::$_table . '.deleted_at')
@@ -258,7 +248,7 @@ class Export {
   }
 
   function formatSubscriberFields($subscriber_fields, $subscriber_custom_fields) {
-    $export_factory = new ImportExportFactory();
+    $export_factory = new ImportExportFactory('export');
     $translated_fields = $export_factory->getSubscriberFields();
     return array_map(function($field) use (
       $translated_fields, $subscriber_custom_fields

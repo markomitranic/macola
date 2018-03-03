@@ -91,23 +91,31 @@
 </footer>
 </script>  
 <?php wp_footer(); ?>
-	<!-- Start of StatCounter Code for Default Guide -->
-	<script type="text/javascript">
-	var sc_project=196692; 
-	var sc_invisible=1; 
-	var sc_security="fe309534"; 
-	var sc_https=1; 
-	var scJsHost = (("https:" == document.location.protocol) ?
-	"https://secure." : "http://www.");
-	document.write("<sc"+"ript type='text/javascript' src='" +
-	scJsHost+
-	"statcounter.com/counter/counter.js'></"+"script>");
-	</script>
-	<noscript><div class="statcounter"><a title="shopify
-	analytics tool" href="http://statcounter.com/shopify/"
-	target="_blank"><img class="statcounter"
-	src="//c.statcounter.com/196692/0/fe309534/1/" alt="shopify
-	analytics tool"></a></div></noscript>
-	<!-- End of StatCounter Code for Default Guide -->	
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-27334215-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-27334215-3');
+</script>
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=196692; 
+var sc_invisible=1; 
+var sc_security="fe309534"; 
+var sc_https=1; 
+var sc_remove_link=1; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><img class="statcounter"
+src="//c.statcounter.com/196692/0/fe309534/1/" alt="Web
+Analytics"></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
 </body>
 </html>

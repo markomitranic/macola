@@ -106,8 +106,7 @@ class Import {
       if($new_subscribers['data']) {
         // add, if required, missing required fields to new subscribers
         $new_subscribers = $this->addMissingRequiredFields($new_subscribers);
-        // filter contents of the "status" field
-        $new_subscribers = $this->filterSubscribersStatus($new_subscribers);
+        $new_subscribers = $this->setSubscriptionStatusToSubscribed($new_subscribers);
         $created_subscribers =
           $this->createOrUpdateSubscribers(
             'create',
@@ -116,8 +115,6 @@ class Import {
           );
       }
       if($existing_subscribers['data'] && $this->update_subscribers) {
-        // filter contents of the "status" field
-        $existing_subscribers = $this->filterSubscribersStatus($existing_subscribers);
         $updated_subscribers =
           $this->createOrUpdateSubscribers(
             'update',
@@ -159,7 +156,7 @@ class Import {
             if(!is_email($email)) {
               $invalid_records[] = $index;
             }
-            return $email;
+            return strtolower($email);
           }, array_keys($data), $data
         );
       }
@@ -279,6 +276,14 @@ class Import {
     return $subscribers;
   }
 
+  function setSubscriptionStatusToSubscribed($subscribers_data) {
+    if(!in_array('status', $subscribers_data['fields'])) return $subscribers_data;
+    $subscribers_data['data']['status'] = array_map(function() {
+      return Subscriber::STATUS_SUBSCRIBED;
+    }, $subscribers_data['data']['status']);
+    return $subscribers_data;
+  }
+
   function getSubscribersFields($subscribers_fields) {
     return array_values(
       array_filter(
@@ -297,49 +302,6 @@ class Import {
         }, $subscribers_fields)
       )
     );
-  }
-
-  function filterSubscribersStatus($subscribers_data) {
-    if(!in_array('status', $subscribers_data['fields'])) return $subscribers_data;
-    $statuses = array(
-      Subscriber::STATUS_SUBSCRIBED => array(
-        'subscribed',
-        'confirmed',
-        1,
-        '1',
-        'true'
-      ),
-      Subscriber::STATUS_UNCONFIRMED => array(
-        'unconfirmed',
-        0,
-        "0"
-      ),
-      Subscriber::STATUS_UNSUBSCRIBED => array(
-        'unsubscribed',
-        -1,
-        '-1',
-        'false'
-      ),
-      Subscriber::STATUS_BOUNCED => array(
-        'bounced'
-      )
-    );
-    $subscribers_data['data']['status'] = array_map(function($state) use ($statuses) {
-      if(in_array(strtolower($state), $statuses[Subscriber::STATUS_SUBSCRIBED], true)) {
-        return Subscriber::STATUS_SUBSCRIBED;
-      }
-      if(in_array(strtolower($state), $statuses[Subscriber::STATUS_UNSUBSCRIBED], true)) {
-        return Subscriber::STATUS_UNSUBSCRIBED;
-      }
-      if(in_array(strtolower($state), $statuses[Subscriber::STATUS_UNCONFIRMED], true)) {
-        return Subscriber::STATUS_UNCONFIRMED;
-      }
-      if(in_array(strtolower($state), $statuses[Subscriber::STATUS_BOUNCED], true)) {
-        return Subscriber::STATUS_BOUNCED;
-      }
-      return Subscriber::STATUS_SUBSCRIBED;
-    }, $subscribers_data['data']['status']);
-    return $subscribers_data;
   }
 
   function createOrUpdateSubscribers(

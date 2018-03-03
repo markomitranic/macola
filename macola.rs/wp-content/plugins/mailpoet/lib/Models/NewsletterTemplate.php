@@ -6,6 +6,9 @@ if(!defined('ABSPATH')) exit;
 class NewsletterTemplate extends Model {
   public static $_table = MP_NEWSLETTER_TEMPLATES_TABLE;
 
+  const RECENTLY_SENT_CATEGORIES = '["recent"]';
+  const RECENTLY_SENT_COUNT = 12;
+
   function __construct() {
     parent::__construct();
 
@@ -17,6 +20,22 @@ class NewsletterTemplate extends Model {
     ));
   }
 
+  static function cleanRecentlySent($data) {
+    if(!empty($data['categories']) && $data['categories'] === self::RECENTLY_SENT_CATEGORIES) {
+      $ids = parent::where('categories', self::RECENTLY_SENT_CATEGORIES)
+        ->select('id')
+        ->orderByDesc('id')
+        ->limit(self::RECENTLY_SENT_COUNT)
+        ->findMany();
+      $ids = array_map(function ($template) {
+        return $template->id;
+      }, $ids);
+      parent::where('categories', self::RECENTLY_SENT_CATEGORIES)
+        ->whereNotIn('id', $ids)
+        ->deleteMany();
+    }
+  }
+
   function asArray() {
     $template = parent::asArray();
     if(isset($template['body'])) {
@@ -25,22 +44,4 @@ class NewsletterTemplate extends Model {
     return $template;
   }
 
-  static function createOrUpdate($data = array()) {
-    $template = false;
-
-    if(isset($data['id']) && (int)$data['id'] > 0) {
-      $template = self::findOne((int)$data['id']);
-    }
-
-    if($template === false) {
-      $template = self::create();
-      $template->hydrate($data);
-    } else {
-      unset($data['id']);
-      $template->set($data);
-    }
-
-    $template->save();
-    return $template;
-  }
 }

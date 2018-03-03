@@ -5,6 +5,8 @@ namespace MailPoet\Models;
 if(!defined('ABSPATH')) exit;
 
 class Model extends \Sudzy\ValidModel {
+  const DUPLICATE_RECORD = 23000;
+
   protected $_errors;
   protected $_new_record;
 
@@ -18,6 +20,54 @@ class Model extends \Sudzy\ValidModel {
     return parent::create();
   }
 
+  /**
+   * Creates a row, or updates it if already exists. It tries to find the existing 
+   * row by `id` (if given in `$data`), or by the given `$keys`. If `$onCreate` is 
+   * given, it's used to transform `$data` before creating the new row.
+   * 
+   * @param  array   $data
+   * @param  boolean $keys
+   * @param  callable $onCreate
+   * @return self
+   */
+  static protected function _createOrUpdate($data = array(), $keys = false, $onCreate = false) {
+    $model = false;
+
+    if(isset($data['id']) && (int)$data['id'] > 0) {
+      $model = static::findOne((int)$data['id']);
+    }
+
+    if(!empty($keys)) {
+      $first = true;
+      foreach($keys as $field => $value) {
+        if($first) {
+          $model = static::where($field, $value);
+          $first = false;
+        } else {
+          $model = $model->where($field, $value);
+        }
+      }
+      $model = $model->findOne();
+    }
+
+    if($model === false) {
+      if(!empty($onCreate)) {
+        $data = $onCreate($data);
+      }
+      $model = static::create();
+      $model->hydrate($data);
+    } else {
+      unset($data['id']);
+      $model->set($data);
+    }
+
+    return $model->save();
+  }
+
+  static public function createOrUpdate($data = array()) {
+    return self::_createOrUpdate($data);
+  }
+
   function getErrors() {
     if(empty($this->_errors)) {
       return false;
@@ -26,13 +76,16 @@ class Model extends \Sudzy\ValidModel {
     }
   }
 
-  function setError($error = '') {
+  function setError($error = '', $error_code = null) {
+    if(!$error_code) {
+      $error_code = count($this->_errors);
+    }
     if(!empty($error)) {
       if(is_array($error)) {
         $this->_errors = array_merge($this->_errors, $error);
         $this->_errors = array_unique($this->_errors);
       } else {
-        $this->_errors[] = $error;
+        $this->_errors[$error_code] = $error;
       }
     }
   }
@@ -54,7 +107,8 @@ class Model extends \Sudzy\ValidModel {
               sprintf(
                 __('Another record already exists. Please specify a different "%1$s".', 'mailpoet'),
                 $column
-              )
+              ),
+              Model::DUPLICATE_RECORD
             );
           } else {
             $this->setError($e->getMessage());
