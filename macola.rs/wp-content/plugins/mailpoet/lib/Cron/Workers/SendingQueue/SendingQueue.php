@@ -6,10 +6,12 @@ use MailPoet\Cron\Workers\SendingQueue\Tasks\Links;
 use MailPoet\Cron\Workers\SendingQueue\Tasks\Mailer as MailerTask;
 use MailPoet\Cron\Workers\SendingQueue\Tasks\Newsletter as NewsletterTask;
 use MailPoet\Mailer\MailerLog;
-use MailPoet\Models\SendingQueue as SendingQueueModel;
+use MailPoet\Models\ScheduledTask as ScheduledTaskModel;
 use MailPoet\Models\StatisticsNewsletters as StatisticsNewslettersModel;
 use MailPoet\Models\Subscriber as SubscriberModel;
 use MailPoet\Segments\SubscribersFinder;
+use MailPoet\Tasks\Sending as SendingTask;
+use MailPoet\Tasks\Subscribers\BatchIterator;
 use MailPoet\WP\Hooks as WPHooks;
 
 if(!defined('ABSPATH')) exit;
@@ -19,6 +21,7 @@ class SendingQueue {
   public $newsletter_task;
   public $timer;
   const BATCH_SIZE = 20;
+  const TASK_BATCH_SIZE = 5;
 
   function __construct($timer = false, $mailer_task = false, $newsletter_task = false) {
     $this->mailer_task = ($mailer_task) ? $mailer_task : new MailerTask();
@@ -30,6 +33,8 @@ class SendingQueue {
   function process() {
     $this->enforceSendingAndExecutionLimits();
     foreach(self::getRunningQueues() as $queue) {
+      if(!$queue instanceof SendingTask) continue;
+
       $newsletter = $this->newsletter_task->getNewsletterFromQueue($queue);
       if(!$newsletter) {
         continue;
@@ -40,16 +45,14 @@ class SendingQueue {
         $queue->delete();
         continue;
       }
+      // clone the original object to be used for processing
+      $_newsletter = (object)$newsletter->asArray();
       // configure mailer
       $this->mailer_task->configureMailer($newsletter);
       // get newsletter segments
       $newsletter_segments_ids = $this->newsletter_task->getNewsletterSegments($newsletter);
       // get subscribers
-      $queue->subscribers = $queue->getSubscribers();
-      $subscriber_batches = array_chunk(
-        $queue->subscribers['to_process'],
-        $this->batch_size
-      );
+      $subscriber_batches = new BatchIterator($queue->task_id, $this->batch_size);
       foreach($subscriber_batches as $subscribers_to_process_ids) {
         if(!empty($newsletter_segments_ids[0])) {
           // Check that subscribers are in segments
@@ -72,17 +75,17 @@ class SendingQueue {
             $found_subscribers_ids
           );
           $queue->removeSubscribers($subscribers_to_remove);
-          if(!count($queue->subscribers['to_process'])) {
+          if(!$queue->count_to_process) {
             $this->newsletter_task->markNewsletterAsSent($newsletter, $queue);
             continue;
           }
         }
         $queue = $this->processQueue(
           $queue,
-          $newsletter,
+          $_newsletter,
           $found_subscribers
         );
-        if($queue->status === SendingQueueModel::STATUS_COMPLETED) {
+        if($queue->status === ScheduledTaskModel::STATUS_COMPLETED) {
           $this->newsletter_task->markNewsletterAsSent($newsletter, $queue);
         }
         $this->enforceSendingAndExecutionLimits();
@@ -179,7 +182,7 @@ class SendingQueue {
     // update the sent count
     $this->mailer_task->updateSentCount();
     // enforce execution limits if queue is still being processed
-    if($queue->status !== SendingQueueModel::STATUS_COMPLETED) {
+    if($queue->status !== ScheduledTaskModel::STATUS_COMPLETED) {
       $this->enforceSendingAndExecutionLimits();
     }
     return $queue;
@@ -193,11 +196,6 @@ class SendingQueue {
   }
 
   static function getRunningQueues() {
-    return SendingQueueModel::orderByAsc('priority')
-      ->orderByAsc('created_at')
-      ->whereNull('deleted_at')
-      ->whereNull('status')
-      ->whereNull('type')
-      ->findMany();
+    return SendingTask::getRunningQueues(self::TASK_BATCH_SIZE);
   }
 }

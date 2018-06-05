@@ -4,7 +4,7 @@ Tags: newsletter, email, welcome email, post notification, autoresponder, signup
 Requires at least: 4.7
 Tested up to: 4.9
 Requires PHP: 5.3
-Stable tag: 3.4.4
+Stable tag: 3.7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -115,6 +115,84 @@ Stop by our [support site](https://www.mailpoet.com/support).
 5. Subscriber import (via a CSV file or directly from MailChimp)
 
 == Changelog ==
+
+= 3.7.4 - 2018-05-30 =
+* Added: What's New page no longer shows after every update;
+* Improved: template selection page thumbnails are larger;
+* Improved: updating post notification emails no longer triggers duplicate emails;
+* Improved: translation enhancements.
+
+= 3.7.3 - 2018-05-22 =
+* Improved: updated dependency libraries to latest versions;
+* Improved: performance of scheduling new welcome emails on sites with many of new subscribers. Thanks Donald;
+* Fixed: subscriber import tool no longer complains about filenames with multiple periods;
+* Fixed: scheduled send tasks are properly rescheduled when updating their parent newsletter's options;
+* Fixed: paused post notification emails to not block sending of other emails;
+* Fixed: newsletter subject line with shortcodes does not break sending when using our sending service. Thanks, James;
+* Fixed: subscription forms to return less information about the subscriber.
+
+= 3.7.2 - 2018-05-15 =
+* Added: list of emails a subscriber viewed to GDPR data export;
+* Added: list of links a subscriber clicked to GDPR data export;
+* Added: a tool to forget subscriber's information for GDPR related data erasure;
+* Added: Privacy policy which can be used by WordPress's privacy tool in compliance with GDPR;
+* Improved: performance for sites using many post notification emails. Thanks Jose!
+* Fixed: Javascript warnings on segments page are removed.
+* Fixed: custom field values longer than 255 characters can be stored. Thanks Scott!
+
+= 3.7.1 - 2018-05-08 =
+* Added: export of subscriber information (email, personal data and subscription lists) to WordPress 4.9.6 and newer versions in compliance with GDPR requirements;
+* Added: notice for those who use legacy PHP versions (<5.6) - MailPoet recommends upgrading to PHP 7.0 or newer!
+* Improved: sending resource usage has been optimized for large sites. Thanks, Jose;
+* Improved: it is now easier to navigate away from the welcome/changelog page;
+* Fixed: functionality to pause and resume sending is restored;
+* Fixed: proper sent count is now displayed for welcome notifications. Merci Sébastien!
+
+= 3.7.0 - 2018-04-25 =
+* Fixed: subscriber search functionality fixed.
+
+= 3.6.7 - 2018-04-24 =
+* Fixed: duplicates in the database will not stop scheduled newsletters anymore.
+
+= 3.6.6 - 2018-04-17 =
+* Fixed: missing database records no longer break the sending process. Thanks, Catalin;
+
+= 3.6.5 - 2018-04-10 =
+* Premium: subscriber export tool now supports dynamic segments;
+* Improved: sending was optimized for large newsletters and slow hosts. Thanks, Alison;
+* Fixed: help icon functionality was restored for all users.
+
+= 3.6.4 - 2018-04-03 =
+* Fixed: editing sent emails will not remove them from email archive. Thanks David!
+
+= 3.6.3 - 2018-03-28 =
+* Fixed: scheduled emails can now be sent normally again. Thanks Neil;
+* Fixed: sending to dynamic segments (Premium feature). Thanks to Jilfar;
+* Fixed: changing the background colour of column layouts no longer corrupts their display. Thanks Neil!
+
+= 3.6.2 - 2018-03-21 =
+* Fixed: sending is faster and uses less resources on sites with large number of emails. Thanks Donald and Hostek support team!
+* Fixed: scheduled newsletter task no longer runs non-stop when "site visitor" option is enabled. Thanks to @amedic, @conorsboyd and @aspasa for reporting the issue on the forum!
+
+= 3.6.1 - 2018-03-20 =
+* Fixed: prevents sending from being paused for long time during plugin update. Big thanks to Deborah, Kelley, Ciro and Justin!
+
+= 3.6.0 - 2018-03-20 =
+* Improved: previously used widgets settings in the designer are automatically saved to save you time;
+* Improved: welcome emails are now sent with our API's subscribeToList method, and not just addSubscriber. Thanks to Sandra and Donald;
+* Improved: less server resources are required to send to very large number of subscribers;
+* Improved: shortcodes can be used inside URLs when click tracking is enabled. Thanks to Bob;
+* Fixed: more reliable screenshots of your email templates;
+
+= 3.5.1 - 2018-03-13 =
+* Improved: email validation for WordPress user synchronization;
+* Fixed: import no longer discards e-mails with dashes. A big thank-you to everyone who reported the issue;
+* Fixed: sending does not get stuck on the last step of the newsletter creation process. Thanks, Rene!
+
+= 3.5.0 - 2018-03-06 =
+* Premium: bulk actions can now be executed on subscribers belonging to a selected segment;
+* Improved: a proper error page is displayed if user credentials can't be verified when clicking a tracked newsletter link. Thanks, Bernhard;
+* Fixed: MailPoet polyfills missing mbstring function for WordPress core. Thanks Dioni!
 
 = 3.4.4 - 2018-02-27 =
 * Premium: send emails to WooCommerce customers who purchased a specific product or in a specific product category;

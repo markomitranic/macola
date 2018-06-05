@@ -80,7 +80,7 @@ Template Name: Izbornik Mac Template
 			
 <section class="padding-content izbornikGrid">
 <?php 
-$args = array( 'posts_per_page' => 6, 'orderby' => 'date', 'order' => 'DESC', 'category__in' => array(8));
+$args = array( 'posts_per_page' => 9, 'orderby' => 'date', 'order' => 'DESC', 'category__in' => array(8));
 $myposts = get_posts( $args );
 
 $i = 0;
