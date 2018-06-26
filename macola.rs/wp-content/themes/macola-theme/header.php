@@ -36,11 +36,11 @@ $slika = get_field('og_slika');
 } elseif(get_field('big_post_image')) {
 $slika = get_field('big_post_image'); 
 } elseif ( is_page_template('dodaci.php') ) {
-$slika = 'http://www.macola.rs/wp-content/uploads/2014/04/dodaci-e1398844639728.png';
+$slika = 'https://macola.rs/wp-content/uploads/2014/04/dodaci-e1398844639728.png';
 } elseif ( is_page_template('pro_oprema.php') ) {
-$slika = 'http://www.macola.rs/wp-content/uploads/2014/04/prooprema.png';
+$slika = 'https://macola.rs/wp-content/uploads/2014/04/prooprema.png';
 } else {
-$slika = 'http://www.macola.rs/wp-content/uploads/2013/10/Screen-Shot-2013-10-16-at-23.44.51.png';
+$slika = 'https://macola.rs/wp-content/uploads/2013/10/Screen-Shot-2013-10-16-at-23.44.51.png';
 }
 
 $title = get_the_title();
@@ -71,9 +71,9 @@ if (isset($_GET['tag'])) { echo' / '; echo $_GET['tag']; }
 if (isset($_GET['pro']) && $_GET['pro'] != "") { echo' / '; echo $_GET['pro']; }
 echo ' | '.$theexcerpt.' | Macola Prodaja Servis Obuka Srbija" />
 <meta property="og:image" content="'.$slika.'" />
-<meta property="og:image" content="http://www.macola.rs/wp-content/uploads/2013/10/Screen-Shot-2013-10-16-at-23.44.51.png" />
-<meta property="og:image" content="http://www.macola.rs/wp-content/uploads/2014/04/prooprema.png" />
-<meta property="og:image" content="http://www.macola.rs/wp-content/uploads/2014/04/dodaci-e1398844639728.png" />
+<meta property="og:image" content="https://macola.rs/wp-content/uploads/2013/10/Screen-Shot-2013-10-16-at-23.44.51.png" />
+<meta property="og:image" content="https://macola.rs/wp-content/uploads/2014/04/prooprema.png" />
+<meta property="og:image" content="https://macola.rs/wp-content/uploads/2014/04/dodaci-e1398844639728.png" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@Macola_Store">
@@ -96,7 +96,7 @@ echo ' | '.$theexcerpt.' | Macola Prodaja Servis Obuka Srbija" />
 
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic&subset=latin-ext,cyrillic-ext' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic&subset=latin-ext,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<?php if (is_search()) { ?>
 	   <meta name="robots"/> 
 	<?php } ?>

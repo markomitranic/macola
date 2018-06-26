@@ -22,38 +22,38 @@ Template Name: ARTIKLI Dodaci Template
 
 			<div class="row">
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=novo&articleDev=&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/headphonemenuicon.png">
+					<a href="https://macola.rs/dodaci/?articleCat=novo&articleDev=&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/headphonemenuicon.png">
 					<div class="menutext">Novo u Ponudi</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=specijalna-ponuda&articleDev=&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/percentmenuicon.png">
+					<a href="https://macola.rs/dodaci/?articleCat=specijalna-ponuda&articleDev=&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/percentmenuicon.png">
 					<div class="menutext">Specijalna Ponuda</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=zastite&articleDev=iphone-6&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/iphoneiphone.png">
+					<a href="https://macola.rs/dodaci/?articleCat=zastite&articleDev=iphone-6&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/iphoneiphone.png">
 					<div class="menutext">Maske za iPhone</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=slusalice&articleDev=&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/headphonemenuicon.png">
+					<a href="https://macola.rs/dodaci/?articleCat=slusalice&articleDev=&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/headphonemenuicon.png">
 					<div class="menutext">Slušalice</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=torbe&articleDev=&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/bagmenuicon.png">
+					<a href="https://macola.rs/dodaci/?articleCat=torbe&articleDev=&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/bagmenuicon.png">
 					<div class="menutext">Rančevi i Torbe</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/profesionalna-oprema/">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/reelmenuicon.png">
+					<a href="https://macola.rs/profesionalna-oprema/">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/reelmenuicon.png">
 					<div class="menutext">Prof. Oprema</div>
 					</a>
 				</div>
@@ -318,7 +318,7 @@ if ($broj%20 == 0 && $broj!=0){
 <?php if($row_num == 0) { echo '<h2 class="centertag" style="margin-top: 50px;">Na žalost, odabrani proizvođač nema u ponudi tražene artikle.<br>Pokušajte ponovo sa drugačijim kriterijumima pretrage.</h2>
 
 		<div class="centertag" style="margin-top: 50px; margin-bottom:50px;"><a href="javascript: window.history.go(-1)"><button class="btn btn-info" type="button">< Prethodna strana</button></a>
-		<a href="http://www.macola.rs/dodaci/?articleCat=specijalna-ponuda&articleDev=&articlePro="><button class="btn btn-success" type="button">Specijalna Ponuda ></button></a></div>
+		<a href="https://macola.rs/dodaci/?articleCat=specijalna-ponuda&articleDev=&articlePro="><button class="btn btn-success" type="button">Specijalna Ponuda ></button></a></div>
 		
 		
 		';} else {?>
@@ -437,7 +437,7 @@ $("a.open").click(function(e) {
     $lightbox.append('<p class="ajaxloading">Učitavanje...</p>');
     $.ajax({
         type: 'POST',
-        url: 'http://www.macola.rs/ajax/',
+        url: 'https://macola.rs/ajax/',
         evalScripts: true,
         dataType: 'html',
         data: { post_id: $clickedEl.attr('data-id') },

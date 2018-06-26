@@ -22,38 +22,38 @@ Template Name: Arhiva Vesti Template
 
 			<div class="row">
 				<div class="span2">
-					<a href="http://www.macola.rs/mac/">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/imacmenuicon.png">
+					<a href="https://macola.rs/mac/">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/imacmenuicon.png">
 					<div class="menutext">Mac</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/ipad/">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/ipadmenuicon.png">
+					<a href="https://macola.rs/ipad/">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/ipadmenuicon.png">
 					<div class="menutext">iPad</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/iphone/">
-					<img src="http://www.macola.rs/wp-content/uploads/2015/03/iphonemenuicon.png">
+					<a href="https://macola.rs/iphone/">
+					<img src="https://macola.rs/wp-content/uploads/2015/03/iphonemenuicon.png">
 					<div class="menutext">iPhone</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=novo&articleDev=&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/headphonemenuicon.png">
+					<a href="https://macola.rs/dodaci/?articleCat=novo&articleDev=&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/headphonemenuicon.png">
 					<div class="menutext">Novo u Ponudi</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=specijalna-ponuda&articleDev=&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/percentmenuicon.png">
+					<a href="https://macola.rs/dodaci/?articleCat=specijalna-ponuda&articleDev=&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/percentmenuicon.png">
 					<div class="menutext">Specijalna Ponuda</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/profesionalna-oprema/">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/reelmenuicon.png">
+					<a href="https://macola.rs/profesionalna-oprema/">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/reelmenuicon.png">
 					<div class="menutext">Prof. Oprema</div>
 					</a>
 				</div>

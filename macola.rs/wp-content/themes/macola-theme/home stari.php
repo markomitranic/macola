@@ -62,7 +62,7 @@ Tim povodom vam pokazujemo video iz našeg muzeja koji je napravljen petog oktob
 				<ul>
 					<li><a href=""><h1>Prijatelji Macole</h1></a></li>
 					<li><a href=""><h1>Aktuelno u Macoli</h1></a></li>
-					<li><a href="http://www.macola.rs/macola-na-socijalnim-mrezama/"><h1>Socijalne mreže</h1></a></li>
+					<li><a href="https://macola.rs/macola-na-socijalnim-mrezama/"><h1>Socijalne mreže</h1></a></li>
 				</ul>
 			</div>
 			<div class="padding-content">
@@ -91,7 +91,7 @@ Za Apple radimo od 1988. uz prekid od 10 godina od 1991. do 2001. pa se nadamo d
 				</div>
 				<div class="row-fluid split2">
 					<div class="span6 half">
-						<a href="http://www.macola.rs/kontakt/"><img src="<?php echo site_url(); ?>/wp-content/themes/macola-theme/img/home/map.jpg"></a>
+						<a href="https://macola.rs/kontakt/"><img src="<?php echo site_url(); ?>/wp-content/themes/macola-theme/img/home/map.jpg"></a>
 					</div>
 					<div class="span6 half no-margins half-right">
 						U našim izložbenim prostorima će vas sačekati kompletan asortiman

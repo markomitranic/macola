@@ -7,7 +7,7 @@
 $colors = parse_colors(get_field('boje'));
 $models = get_field('iphone_models');
 $firstImage = reset($colors)['image'];
-$url = (get_field('custom_url')) ? get_field('custom_url') : 'http://www.macola.rs/kontakt/';
+$url = (get_field('custom_url')) ? get_field('custom_url') : 'https://macola.rs/kontakt/';
 $buttonLabel = (get_field('custom_button_text')) ? get_field('custom_button_text') : 'Kako do nas?';
 
 /**

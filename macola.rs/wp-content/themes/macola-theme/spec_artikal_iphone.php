@@ -22,38 +22,38 @@ Template Name: Specijanli artikl iPhone
 
 			<div class="row">
 				<div class="span2">
-					<a href="http://www.macola.rs/mac/">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/imacmenuicon.png">
+					<a href="https://macola.rs/mac/">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/imacmenuicon.png">
 					<div class="menutext">Mac</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/ipad/">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/ipadmenuicon.png">
+					<a href="https://macola.rs/ipad/">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/ipadmenuicon.png">
 					<div class="menutext">iPad</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/iphone/">
-					<img src="http://www.macola.rs/wp-content/uploads/2015/03/iphonemenuicon.png">
+					<a href="https://macola.rs/iphone/">
+					<img src="https://macola.rs/wp-content/uploads/2015/03/iphonemenuicon.png">
 					<div class="menutext">iPhone</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=novo&articleDev=&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/headphonemenuicon.png">
+					<a href="https://macola.rs/dodaci/?articleCat=novo&articleDev=&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/headphonemenuicon.png">
 					<div class="menutext">Novo u Ponudi</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=specijalna-ponuda&articleDev=&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/percentmenuicon.png">
+					<a href="https://macola.rs/dodaci/?articleCat=specijalna-ponuda&articleDev=&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/percentmenuicon.png">
 					<div class="menutext">Specijalna Ponuda</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/profesionalna-oprema/">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/reelmenuicon.png">
+					<a href="https://macola.rs/profesionalna-oprema/">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/reelmenuicon.png">
 					<div class="menutext">Prof. Oprema</div>
 					</a>
 				</div>
@@ -226,12 +226,12 @@ Template Name: Specijanli artikl iPhone
 			<div class="row-fluid iphonemenu hero">
 				<div class="span12">
 					<a href="<?php echo site_url(); ?>/iphone-x/">
-						<img src="http://www.macola.rs/wp-content/uploads/2017/11/iphone-x-banner-1.jpg" alt="iPhone SE Prodaja Srbija">
+						<img src="https://macola.rs/wp-content/uploads/2017/11/iphone-x-banner-1.jpg" alt="iPhone SE Prodaja Srbija">
 					</a>
 				</div>
 				<div class="span12">
 					<a href="<?php echo site_url(); ?>/iphone-8-iphone-8-plus/">
-						<img src="http://www.macola.rs/wp-content/uploads/2017/10/iphone8-banner.jpg" alt="iPhone SE Prodaja Srbija">
+						<img src="https://macola.rs/wp-content/uploads/2017/10/iphone8-banner.jpg" alt="iPhone SE Prodaja Srbija">
 					</a>
 				</div>
 				<div class="span6">
@@ -246,7 +246,7 @@ Template Name: Specijanli artikl iPhone
 				</div>
 				<div class="span12">
 					<a href="<?php echo site_url(); ?>/iphone-se/">
-						<img src="http://www.macola.rs/wp-content/uploads/2016/04/iphoneSE_banner.png" alt="iPhone SE Prodaja Srbija">
+						<img src="https://macola.rs/wp-content/uploads/2016/04/iphoneSE_banner.png" alt="iPhone SE Prodaja Srbija">
 					</a>
 				</div>
 				<div class="span6 iphonedodaci">
@@ -257,11 +257,11 @@ Template Name: Specijanli artikl iPhone
 			 			<h1>Specijalizovani Dodaci</h1>
 			 			<p>Ukoliko Vas zanimaju specijalizovani dodaci za iOS uređaje, posetite jednu od sledećih kategorija:</p>
 						<ul>
-							<li><a href="http://www.macola.rs/dodaci/?articleCat=zastite&articleDev=iphone-6&articlePro=">Futrole i zaštitne folije ></a></li>
-							<li><a href="http://www.macola.rs/dodaci/?articleCat=slusalice&articleDev=&articlePro=">Slušalice i Beats by Dr. Dre ></a></li>
-							<li><a href="http://www.macola.rs/dodaci/?articleCat=adapteri-i-kablovi&articleDev=iphone-6&articlePro=">Kablovi, adapteri, punjači ></a></li>
-							<li><a href="http://www.macola.rs/dodaci/?articleCat=zvucnici&articleDev=&articlePro=">Zvučnici i audio oprema ></a></li>
-							<li><a href="http://www.macola.rs/dodaci/?articleCat=ostalo&articleDev=iphone5&articlePro=">Ostalo, postolja, nosači ></a></li>
+							<li><a href="https://macola.rs/dodaci/?articleCat=zastite&articleDev=iphone-6&articlePro=">Futrole i zaštitne folije ></a></li>
+							<li><a href="https://macola.rs/dodaci/?articleCat=slusalice&articleDev=&articlePro=">Slušalice i Beats by Dr. Dre ></a></li>
+							<li><a href="https://macola.rs/dodaci/?articleCat=adapteri-i-kablovi&articleDev=iphone-6&articlePro=">Kablovi, adapteri, punjači ></a></li>
+							<li><a href="https://macola.rs/dodaci/?articleCat=zvucnici&articleDev=&articlePro=">Zvučnici i audio oprema ></a></li>
+							<li><a href="https://macola.rs/dodaci/?articleCat=ostalo&articleDev=iphone5&articlePro=">Ostalo, postolja, nosači ></a></li>
 						</ul>
 					</div>
 	 			</div>

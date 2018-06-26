@@ -22,38 +22,38 @@ Template Name: Artikl Template
 
 			<div class="row">
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=novo&articleDev=&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/headphonemenuicon.png">
+					<a href="https://macola.rs/dodaci/?articleCat=novo&articleDev=&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/headphonemenuicon.png">
 					<div class="menutext">Novo u Ponudi</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=specijalna-ponuda&articleDev=&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/percentmenuicon.png">
+					<a href="https://macola.rs/dodaci/?articleCat=specijalna-ponuda&articleDev=&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/percentmenuicon.png">
 					<div class="menutext">Specijalna Ponuda</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=zastite&articleDev=iphone-6&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/iphoneiphone.png">
+					<a href="https://macola.rs/dodaci/?articleCat=zastite&articleDev=iphone-6&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/iphoneiphone.png">
 					<div class="menutext">Maske za iPhone</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=slusalice&articleDev=&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/headphonemenuicon.png">
+					<a href="https://macola.rs/dodaci/?articleCat=slusalice&articleDev=&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/headphonemenuicon.png">
 					<div class="menutext">Slušalice</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=torbe&articleDev=&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/bagmenuicon.png">
+					<a href="https://macola.rs/dodaci/?articleCat=torbe&articleDev=&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/bagmenuicon.png">
 					<div class="menutext">Rančevi i Torbe</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/profesionalna-oprema/">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/reelmenuicon.png">
+					<a href="https://macola.rs/profesionalna-oprema/">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/reelmenuicon.png">
 					<div class="menutext">Prof. Oprema</div>
 					</a>
 				</div>
@@ -94,7 +94,7 @@ Template Name: Artikl Template
 				<div class="span6">				
 		
 		<div class="centertag" style="margin-top: 20px; margin-bottom:20px;"><a href="javascript: window.history.go(-1)"><button class="btn btn-info" type="button" style="width:200px;">< Prethodna strana</button></a>
-		<a href="http://www.macola.rs/dodaci/?articleCat=novo&articleDev=&articlePro="><button class="btn btn-success" type="button" style="width:200px;">Novo u našoj ponudi ></button></a></div>			
+		<a href="https://macola.rs/dodaci/?articleCat=novo&articleDev=&articlePro="><button class="btn btn-success" type="button" style="width:200px;">Novo u našoj ponudi ></button></a></div>			
 					<h4>
 					<?php echo get_the_terms( $id, $taxonomy ); ?> 
 						<?php the_content() ?>
@@ -114,7 +114,7 @@ $rata = number_format($rata, 0, ',', '.');
 
 
 
-if(isset($rata) && $rata !=0 && $broj_rata!=1) { echo'<a href="http://www.macola.rs/nacini-placanja/" target="_blank"><p class="smalltext" style="color:red;"><strong>Već od '. $rata .' dinara mesečno!</strong></p></a>';	}		
+if(isset($rata) && $rata !=0 && $broj_rata!=1) { echo'<a href="https://macola.rs/nacini-placanja/" target="_blank"><p class="smalltext" style="color:red;"><strong>Već od '. $rata .' dinara mesečno!</strong></p></a>';	}		
 					echo '<button type="button" class="btn btn-success">Cena: ';
 						  echo the_field('cena', $myposts[$j*4+$rednibroj + $_POST['curr_page']*20]->ID);										  echo '</button><br><div style="color:red; font-size:11px;">';
 

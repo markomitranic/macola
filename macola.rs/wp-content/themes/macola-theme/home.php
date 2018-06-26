@@ -23,38 +23,38 @@ Template Name: Home Template
 
 			<div class="row">
 				<div class="span2">
-					<a href="http://www.macola.rs/mac/">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/imacmenuicon.png">
+					<a href="https://macola.rs/mac/">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/imacmenuicon.png">
 					<div class="menutext">Mac</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/ipad/">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/ipadmenuicon.png">
+					<a href="https://macola.rs/ipad/">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/ipadmenuicon.png">
 					<div class="menutext">iPad</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/iphone/">
-					<img src="http://www.macola.rs/wp-content/uploads/2015/03/iphonemenuicon.png">
+					<a href="https://macola.rs/iphone/">
+					<img src="https://macola.rs/wp-content/uploads/2015/03/iphonemenuicon.png">
 					<div class="menutext">iPhone</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=novo&articleDev=&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/headphonemenuicon.png">
+					<a href="https://macola.rs/dodaci/?articleCat=novo&articleDev=&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/headphonemenuicon.png">
 					<div class="menutext">Novo u Ponudi</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/dodaci/?articleCat=specijalna-ponuda&articleDev=&articlePro=">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/percentmenuicon.png">
+					<a href="https://macola.rs/dodaci/?articleCat=specijalna-ponuda&articleDev=&articlePro=">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/percentmenuicon.png">
 					<div class="menutext">Specijalna Ponuda</div>
 					</a>
 				</div>
 				<div class="span2">
-					<a href="http://www.macola.rs/profesionalna-oprema/">
-					<img src="http://www.macola.rs/wp-content/uploads/2014/12/reelmenuicon.png">
+					<a href="https://macola.rs/profesionalna-oprema/">
+					<img src="https://macola.rs/wp-content/uploads/2014/12/reelmenuicon.png">
 					<div class="menutext">Prof. Oprema</div>
 					</a>
 				</div>
@@ -146,8 +146,8 @@ Template Name: Home Template
 			<div class="social">
 				<ul>
 					<li><a href="#"><h1>Prijatelji Macole</h1></a></li>
-					<li><a href="http://www.macola.rs/vesti/"><h1>Apple Vesti</h1></a></li>
-					<li><a href="http://www.macola.rs/macola-na-socijalnim-mrezama/"><h1>Socijalne mreže</h1></a></li>
+					<li><a href="https://macola.rs/vesti/"><h1>Apple Vesti</h1></a></li>
+					<li><a href="https://macola.rs/macola-na-socijalnim-mrezama/"><h1>Socijalne mreže</h1></a></li>
 				</ul>
 			</div>
 			<div class="padding-content">
@@ -171,12 +171,12 @@ Za Apple radimo od 1988. uz prekid od 10 godina od 1991. do 2001. pa se nadamo d
 						internacionalno priznanje preko Apple sertifikata.
 					</div>
 					<div class="span6 half no-margins">
-						<img src="http://www.macola.rs/wp-content/uploads/2017/02/mac_shop.jpg">
+						<img src="https://macola.rs/wp-content/uploads/2017/02/mac_shop.jpg">
 					</div>
 				</div>
 				<div class="row-fluid split2">
 					<div class="span6 half">
-						<a href="http://www.macola.rs/kontakt/"><img src="<?php echo site_url(); ?>/wp-content/themes/macola-theme/img/home/map.jpg"></a>
+						<a href="https://macola.rs/kontakt/"><img src="<?php echo site_url(); ?>/wp-content/themes/macola-theme/img/home/map.jpg"></a>
 					</div>
 					<div class="span6 half no-margins half-right">
 						U našim izložbenim prostorima će vas sačekati kompletan asortiman

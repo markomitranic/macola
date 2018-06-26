@@ -42,7 +42,7 @@ $pro_articles = get_posts(array(
 		<div class="container">
             <div class="category-content" style="margin-top: 0px; margin-bottom: 0px;">
 
-                <div class="row-fluid pro_header catrow" style="background-image: url(http://www.macola.rs/wp-content/themes/macola-theme/img/pro_headers/<?=$manufacturer?>.png);">
+                <div class="row-fluid pro_header catrow" style="background-image: url(https://macola.rs/wp-content/themes/macola-theme/img/pro_headers/<?=$manufacturer?>.png);">
                         <div class="post-head" style="margin-top:35px; margin-bottom:30px;">
                             <div class="post-heading">
                                 <h1 style="background-color:white; display:inline;"><?=get_term_by('slug', $manufacturer, 'pro_proizvodjac')->name?></h1>
@@ -170,7 +170,7 @@ $("a.open").click(function(e) {
     $lightbox.append('<p class="ajaxloading">Učitavanje...</p>');
     $.ajax({
         type: 'POST',
-        url: 'http://www.macola.rs/ajax/',
+        url: 'https://macola.rs/ajax/',
         evalScripts: true,
         dataType: 'html',
         data: { post_id: $clickedEl.attr('data-id') },

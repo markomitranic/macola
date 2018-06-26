@@ -4,7 +4,7 @@ Template Name: AJAX Template
 */
 
 if (!isset($_POST['post_id'])) {
-    echo("Access Forbidden. Return to <a href=\"http://www.macola.rs\" target=\"_self\">Macola Homepage</a>");
+    echo("Access Forbidden. Return to <a href=\"https://macola.rs\" target=\"_self\">Macola Homepage</a>");
     exit;
 }
 
@@ -49,7 +49,7 @@ if ($the_query->have_posts()) :
                         && $broj_rata!=1
                         && $_POST['tip']=='pro'
                     ) : ?>
-                        <a href="http://www.macola.rs/nacini-placanja/" target="_blank"><p class="smalltext" style="color:red;"><strong>Već od <?=$rata?> mesečno!</strong></p></a>
+                        <a href="https://macola.rs/nacini-placanja/" target="_blank"><p class="smalltext" style="color:red;"><strong>Već od <?=$rata?> mesečno!</strong></p></a>
                     <?php endif;
 
                     if (isset($rata)
@@ -57,7 +57,7 @@ if ($the_query->have_posts()) :
                         && $broj_rata!=1
                         && $_POST['tip']=='dodaci'
                     ) : ?>
-                        <a href="http://www.macola.rs/nacini-placanja/" target="_blank"><p class="smalltext" style="color:red;"><strong>Već od <?=$rata?> dinara mesečno!</strong></p></a>
+                        <a href="https://macola.rs/nacini-placanja/" target="_blank"><p class="smalltext" style="color:red;"><strong>Već od <?=$rata?> dinara mesečno!</strong></p></a>
                     <?php endif; ?>
 
 					<button type="button" class="btn btn-success">Cena: <?=get_field('cena');?></button>
