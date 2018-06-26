@@ -174,7 +174,7 @@ a:hover {
 .header2 {
 	width: 100%;
 	height: 146px;
-	background: #white;
+	background: white;
 	background-color:rgba(242,242,242,0.85);
 	border-bottom: none;
 	position: absolute;
@@ -379,7 +379,7 @@ text-align: center;
 	color: white;
 }
 .header2 .search-query:-ms-input-placeholder {
-	color: #white;
+	color: white;
 }
 .header2 .search-query::-webkit-input-placeholder {
 	color: white;
