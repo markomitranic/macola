@@ -17,6 +17,8 @@
     var mailpoet_tracking_enabled = <%= json_encode(tracking_enabled) %>;
     var mailpoet_premium_active = <%= json_encode(premium_plugin_active) %>;
     var mailpoet_automatic_emails = <%= json_encode(automatic_emails) %>;
+    var mailpoet_in_app_announcements = mailpoet_settings.in_app_announcements;
+    var mailpoet_free_welcome_emails_image = '<%= image_url('in_app_announcements/hello-illustration-for-welcome-emails.png') %>';
     <% set newUser = (is_new_user == true) ? 'true' : 'false' %>
     var mailpoet_is_new_user = <%= newUser %>;
   </script>
@@ -29,6 +31,7 @@
     'tabStandardTitle': __('Newsletters'),
     'tabWelcomeTitle': __('Welcome Emails'),
     'tabNotificationTitle': __('Post Notifications'),
+    'tabWoocommerceTitle': __('WooCommerce Emails'),
 
     'searchLabel': __('Search'),
     'loadingItems': __('Loading emails...'),
@@ -277,7 +280,7 @@
     'recentlySent': __('Recently sent'),
     'savedTemplates': __('Your saved templates'),
     'templatePreview': __('Template preview'),
-    'zoom': __('Zoom'),
+    'zoom': __('Preview'),
     'blank': _x('Blank', 'Blank newsletters templates category'),
     'sample': _x('Sample', 'Sample newsletters templates category'),
     'tabImportTitle': _x('Import', 'Importing template tab title'),
@@ -285,11 +288,34 @@
 
     'soon': __('Soon'),
     'beta': __('Beta'),
-	'errorWhileTakingScreenshot': __('An error occured while saving the template in "Recently sent"'),
-    'selectAutomaticEmailsEventsHeading': __('Select %1s events'),
+    'errorWhileTakingScreenshot': __('An error occured while saving the template in "Recently sent"'),
+    'selectAutomaticEmailsEventsHeading': __('Select %$1s events'),
+    'cronNotAccessibleNotice': __('Oops! There seems to be an issue with the sending on your website. [link]See our guide[/link] to solve this yourself.'),
+
+    'introLists': __('Welcome on board. Let’s get you started quickly. Here, you can create new lists.'),
+    'introForms': __('Create a form and add it to your website so your visitors can subscribe to your list.'),
+    'introChat': __('You have a question? Start a chat or send a message to get an answer from our support team.'),
+    'introEmails': __('We suggest you begin by creating a newsletter, a welcome email or a post notification. Enjoy!'),
+    'introNext': _x('Next', 'A label on a button'),
+    'introBack': _x('Back', 'A label on a button'),
+    'introSkip': _x('Skip', 'A label on a button'),
+    'introDone': _x('Done', 'A label on a button'),
+
+    'freeWelcomeEmailsHeading': __('Welcome Emails are now free for everyone'),
+    'freeWelcomeEmailsParagraph': __('Say “Hello!” automatically to all your new subscribers. They’ll appreciate the extra touch.'),
   }) %>
 <% endblock %>
 
 <% block after_translations %>
   <%= do_action('mailpoet_newsletters_translations_after') %>
+<% endblock %>
+
+<% block after_javascript %>
+<% if settings.show_intro %>
+<script>
+  HS.beacon.ready(function () {
+    MailPoet.showIntro();
+  });
+</script>
+<% endif %>
 <% endblock %>

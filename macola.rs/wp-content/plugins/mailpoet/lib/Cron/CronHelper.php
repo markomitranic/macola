@@ -16,11 +16,18 @@ class CronHelper {
   const DAEMON_EXECUTION_TIMEOUT = 35; // seconds
   const DAEMON_REQUEST_TIMEOUT = 5; // seconds
   const DAEMON_SETTING = 'cron_daemon';
+  const DAEMON_STATUS_ACTIVE = 'active';
+  const DAEMON_STATUS_INACTIVE = 'inactive';
 
   static function createDaemon($token) {
-    $daemon = array(
-      'token' => $token
-    );
+    $daemon = [
+      'token' => $token,
+      'status' => self::DAEMON_STATUS_ACTIVE,
+      'run_accessed_at' => null,
+      'run_started_at' => null,
+      'run_completed_at' => null,
+      'last_error' => null,
+    ];
     self::saveDaemon($daemon);
     return $daemon;
   }
@@ -33,6 +40,22 @@ class CronHelper {
     return Setting::getValue(self::DAEMON_SETTING);
   }
 
+  static function saveDaemonLastError($error) {
+    $daemon = self::getDaemon();
+    if($daemon) {
+      $daemon['last_error'] = $error;
+      self::saveDaemon($daemon);
+    }
+  }
+
+  static function saveDaemonRunCompleted($run_completed_at) {
+    $daemon = self::getDaemon();
+    if($daemon) {
+      $daemon['run_completed_at'] = $run_completed_at;
+      self::saveDaemon($daemon);
+    }
+  }
+
   static function saveDaemon($daemon) {
     $daemon['updated_at'] = time();
     return Setting::setValue(
@@ -41,8 +64,12 @@ class CronHelper {
     );
   }
 
-  static function deleteDaemon() {
-    return Setting::deleteValue(self::DAEMON_SETTING);
+  static function deactivateDaemon($daemon) {
+    $daemon['status'] = self::DAEMON_STATUS_INACTIVE;
+    return Setting::setValue(
+      self::DAEMON_SETTING,
+      $daemon
+    );
   }
 
   static function createToken() {
@@ -54,7 +81,7 @@ class CronHelper {
       CronDaemonEndpoint::ACTION_PING_RESPONSE
     );
     $result = self::queryCronUrl($url);
-    if (is_wp_error($result)) return $result->get_error_message();
+    if(is_wp_error($result)) return $result->get_error_message();
     $response = WPFunctions::wpRemoteRetrieveBody($result);
     $response = substr(trim($response), -strlen(Daemon::PING_SUCCESS_RESPONSE)) === Daemon::PING_SUCCESS_RESPONSE ?
       Daemon::PING_SUCCESS_RESPONSE :
@@ -70,8 +97,34 @@ class CronHelper {
       CronDaemonEndpoint::ACTION_RUN,
       $data
     );
+    $daemon = self::getDaemon();
+    if(!$daemon) {
+      throw new \LogicException('Daemon does not exist.');
+    }
+    $daemon['run_accessed_at'] = time();
+    self::saveDaemon($daemon);
     $result = self::queryCronUrl($url);
     return WPFunctions::wpRemoteRetrieveBody($result);
+  }
+
+  /**
+   * @return boolean|null
+   */
+  static function isDaemonAccessible() {
+    $daemon = self::getDaemon();
+    if(!$daemon || !isset($daemon['run_accessed_at']) || $daemon['run_accessed_at'] === null) {
+      return null;
+    }
+    if($daemon['run_accessed_at'] <= (int)$daemon['run_started_at']) {
+      return true;
+    }
+    if(
+      $daemon['run_accessed_at'] + self::DAEMON_REQUEST_TIMEOUT < time() &&
+      $daemon['run_accessed_at'] > (int)$daemon['run_started_at']
+    ) {
+        return false;
+    }
+    return null;
   }
 
   static function queryCronUrl($url) {
@@ -84,7 +137,7 @@ class CronHelper {
         'user-agent' => 'MailPoet Cron'
       )
     );
-    return WPFunctions::wpRemoteGet($url, $args);
+    return WPFunctions::wpRemotePost($url, $args);
   }
 
   static function getCronUrl($action, $data = false) {

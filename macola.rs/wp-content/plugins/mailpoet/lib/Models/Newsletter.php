@@ -325,10 +325,13 @@ class Newsletter extends Model {
       $this->set('status', $status);
       $this->save();
     }
-    if(($status === self::STATUS_DRAFT) && ($this->type === self::TYPE_NOTIFICATION)) {
+
+    $types_with_activation = [self::TYPE_NOTIFICATION, self::TYPE_WELCOME, self::TYPE_AUTOMATIC];
+
+    if(($status === self::STATUS_DRAFT) && in_array($this->type, $types_with_activation)) {
       ScheduledTask::pauseAllByNewsletter($this);
     }
-    if(($status === self::STATUS_ACTIVE) && ($this->type === self::TYPE_NOTIFICATION)) {
+    if(($status === self::STATUS_ACTIVE) && in_array($this->type, $types_with_activation)) {
       ScheduledTask::setScheduledAllByNewsletter($this);
     }
     return $this;
@@ -457,7 +460,7 @@ class Newsletter extends Model {
 
   function withDeletedSegments() {
     if(!empty($this->segments)) {
-      $segment_ids = Helpers::arrayColumn($this->segments, 'id');
+      $segment_ids = array_column($this->segments, 'id');
       $links = $this->segmentRelations()
         ->whereNotIn('segment_id', $segment_ids)->findArray();
       $deleted_segments = array();
@@ -498,7 +501,7 @@ class Newsletter extends Model {
     if(empty($options)) {
       $this->options = array();
     } else {
-      $this->options = Helpers::arrayColumn($options, 'value', 'name');
+      $this->options = array_column($options, 'value', 'name');
     }
     return $this;
   }
@@ -551,6 +554,19 @@ class Newsletter extends Model {
     }
 
     return $result;
+  }
+
+  function wasScheduledForSubscriber($subscriber_id) {
+    $count = (int)SendingQueue::rawQuery(
+      "SELECT COUNT(*) as count
+      FROM `" . SendingQueue::$_table . "`
+      JOIN `" . ScheduledTask::$_table . "` ON " . SendingQueue::$_table . ".task_id = " . ScheduledTask::$_table . ".id
+      JOIN `" . ScheduledTaskSubscriber::$_table . "` ON " . ScheduledTask::$_table . ".id = " . ScheduledTaskSubscriber::$_table . ".task_id
+      WHERE " . ScheduledTaskSubscriber::$_table . ".subscriber_id = " . $subscriber_id . "
+      AND " . SendingQueue::$_table . ".newsletter_id = " . $this->id
+    )->findOne()->count;
+
+    return $count > 0;
   }
 
   static function getAnalytics() {

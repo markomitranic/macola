@@ -8,6 +8,7 @@ use MailPoet\Models\Setting;
 use MailPoet\Router;
 use MailPoet\Util\ConflictResolver;
 use MailPoet\Util\Helpers;
+use MailPoet\Util\Notices\PermanentNotices;
 use MailPoet\WP\Notice as WPNotice;
 
 if(!defined('ABSPATH')) exit;
@@ -144,7 +145,7 @@ class Initializer {
 
       $this->setupPages();
 
-      $this->setupPHPVersionWarnings();
+      $this->setupPermanentNotices();
       $this->setupDeactivationSurvey();
 
       do_action('mailpoet_initialized', MAILPOET_VERSION);
@@ -289,10 +290,9 @@ class Initializer {
     $erasers->init();
   }
 
-  function setupPHPVersionWarnings() {
-    $php_version_warnings = new PHPVersionWarnings();
-    $warnings = $php_version_warnings->init(phpversion(), Menu::isOnMailPoetAdminPage());
-    if(is_string($warnings)) echo $warnings;
+  function setupPermanentNotices() {
+    $notices = new PermanentNotices();
+    $notices->init();
   }
 
   function handleFailedInitialization($exception) {

@@ -3,6 +3,7 @@ namespace MailPoet\Mailer\Methods;
 
 use MailPoet\Mailer\Mailer;
 use MailPoet\Config\ServicesChecker;
+use MailPoet\Mailer\Methods\ErrorMappers\MailPoetMapper;
 use MailPoet\Services\Bridge;
 use MailPoet\Services\Bridge\API;
 
@@ -14,17 +15,20 @@ class MailPoet {
   public $reply_to;
   public $services_checker;
 
-  function __construct($api_key, $sender, $reply_to) {
+  /** @var MailPoetMapper */
+  private $error_mapper;
+
+  function __construct($api_key, $sender, $reply_to, MailPoetMapper $error_mapper) {
     $this->api = new API($api_key);
     $this->sender = $sender;
     $this->reply_to = $reply_to;
-    $this->services_checker = new ServicesChecker(false);
+    $this->services_checker = new ServicesChecker();
+    $this->error_mapper = $error_mapper;
   }
 
   function send($newsletter, $subscriber, $extra_params = array()) {
     if($this->services_checker->isMailPoetAPIKeyValid() === false) {
-      $response = __('MailPoet API key is invalid!', 'mailpoet');
-      return Mailer::formatMailerSendErrorResult($response);
+      return Mailer::formatMailerErrorResult($this->error_mapper->getInvalidApiKeyError());
     }
 
     $message_body = $this->getBody($newsletter, $subscriber, $extra_params);
@@ -32,16 +36,22 @@ class MailPoet {
 
     switch($result['status']) {
       case API::SENDING_STATUS_CONNECTION_ERROR:
-        return Mailer::formatMailerConnectionErrorResult($result['message']);
+        $error = $this->error_mapper->getConnectionError($result['message']);
+        return Mailer::formatMailerErrorResult($error);
       case API::SENDING_STATUS_SEND_ERROR:
-        if(!empty($result['code']) && $result['code'] === API::RESPONSE_CODE_KEY_INVALID) {
-          Bridge::invalidateKey();
-        }
-        return Mailer::formatMailerSendErrorResult($result['message']);
+        $error = $this->processSendError($result, $subscriber);
+        return Mailer::formatMailerErrorResult($error);
       case API::SENDING_STATUS_OK:
       default:
         return Mailer::formatMailerSendSuccessResult();
     }
+  }
+
+  function processSendError($result, $subscriber) {
+    if(!empty($result['code']) && $result['code'] ===  API::RESPONSE_CODE_KEY_INVALID) {
+      Bridge::invalidateKey();
+    }
+    return $this->error_mapper->getErrorForResult($result, $subscriber);
   }
 
   function processSubscriber($subscriber) {

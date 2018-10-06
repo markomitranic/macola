@@ -2,10 +2,12 @@
 
 namespace MailPoet\API\JSON\v1;
 
+use MailPoet\Analytics\Analytics;
 use MailPoet\API\JSON\Endpoint as APIEndpoint;
 use MailPoet\API\JSON\Error as APIError;
 use MailPoet\Config\AccessControl;
 use MailPoet\Config\Installer;
+use MailPoet\Models\Setting;
 use MailPoet\Services\Bridge;
 use MailPoet\WP\DateTime;
 
@@ -53,6 +55,10 @@ class Services extends APIEndpoint {
       );
     }
 
+    if(!empty($result['data']['public_id'])) {
+      Analytics::setPublicId($result['data']['public_id']);
+    }
+
     if($success_message) {
       return $this->successResponse(array('message' => $success_message));
     }
@@ -66,8 +72,13 @@ class Services extends APIEndpoint {
         break;
       default:
         $code = !empty($result['code']) ? $result['code'] : Bridge::CHECK_ERROR_UNKNOWN;
+        $errorMessage = __('Error validating MailPoet Sending Service key, please try again later (%s).', 'mailpoet');
+        // If site runs on localhost
+        if( 1 === preg_match("/^(http|https)\:\/\/(localhost|127\.0\.0\.1)/", site_url()) ) {
+          $errorMessage .= ' ' . __("Note that it doesn't work on localhost.", 'mailpoet');
+        }
         $error = sprintf(
-          __('Error validating MailPoet Sending Service key, please try again later (%s)', 'mailpoet'),
+          $errorMessage,
           $this->getErrorDescriptionByCode($code)
         );
         break;
@@ -104,6 +115,10 @@ class Services extends APIEndpoint {
         __('Your Premium key expires on %s.', 'mailpoet'),
         $this->date_time->formatDate(strtotime($result['data']['expire_at']))
       );
+    }
+
+    if(!empty($result['data']['public_id'])) {
+      Analytics::setPublicId($result['data']['public_id']);
     }
 
     if($success_message) {

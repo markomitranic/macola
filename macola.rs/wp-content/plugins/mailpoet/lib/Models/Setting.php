@@ -53,7 +53,10 @@ class Setting extends Model {
       ),
       'analytics' => array(
         'enabled' => false,
-      )
+      ),
+      'in_app_announcements' => [
+        'displayed' => []
+      ],
     );
   }
 
@@ -157,5 +160,15 @@ class Setting extends Model {
   public static function deleteValue($value) {
     $value = self::where('name', $value)->findOne();
     return ($value) ? $value->delete() : false;
+  }
+
+  public static function saveDefaultSenderIfNeeded($sender_address, $sender_name) {
+    if(empty($sender_address) || empty($sender_name) || Setting::getValue('sender')) {
+      return;
+    }
+    Setting::setValue('sender', array(
+      'address' => $sender_address,
+      'name' => $sender_name
+    ));
   }
 }

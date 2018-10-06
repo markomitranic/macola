@@ -2,6 +2,7 @@
 namespace MailPoet\Cron;
 use MailPoet\Cron\Workers\Scheduler as SchedulerWorker;
 use MailPoet\Cron\Workers\SendingQueue\Migration as MigrationWorker;
+use MailPoet\Cron\Workers\SendingQueue\SendingErrorHandler;
 use MailPoet\Cron\Workers\SendingQueue\SendingQueue as SendingQueueWorker;
 use MailPoet\Cron\Workers\Bounce as BounceWorker;
 use MailPoet\Cron\Workers\KeyCheck\PremiumKeyCheck as PremiumKeyCheckWorker;
@@ -25,6 +26,7 @@ class Daemon {
   }
 
   function ping() {
+    $this->addCacheHeaders();
     $this->terminateRequest(self::PING_SUCCESS_RESPONSE);
   }
 
@@ -33,6 +35,7 @@ class Daemon {
     if(strpos(@ini_get('disable_functions'), 'set_time_limit') === false) {
       set_time_limit(0);
     }
+    $this->addCacheHeaders();
     if(!$this->request_data) {
       $error = __('Invalid or missing request data.', 'mailpoet');
     } else {
@@ -51,6 +54,7 @@ class Daemon {
     }
     $daemon = $this->daemon;
     $daemon['token'] = $this->token;
+    $daemon['run_started_at'] = time();
     CronHelper::saveDaemon($daemon);
     try {
       $this->executeMigrationWorker();
@@ -60,8 +64,10 @@ class Daemon {
       $this->executePremiumKeyCheckWorker();
       $this->executeBounceWorker();
     } catch(\Exception $e) {
-      // continue processing, no need to handle errors
+      CronHelper::saveDaemonLastError($e->getMessage());
     }
+    // Log successful execution
+    CronHelper::saveDaemonRunCompleted(time());
     // if workers took less time to execute than the daemon execution limit,
     // pause daemon execution to ensure that daemon runs only once every X seconds
     $elapsed_time = microtime(true) - $this->timer;
@@ -70,7 +76,7 @@ class Daemon {
     }
     // after each execution, re-read daemon data in case it changed
     $daemon = CronHelper::getDaemon();
-    if(!$daemon || $daemon['token'] !== $this->token) {
+    if($this->shouldTerminateExecution($daemon)) {
       return $this->terminateRequest();
     }
     return $this->callSelf();
@@ -86,7 +92,7 @@ class Daemon {
   }
 
   function executeQueueWorker() {
-    $queue = new SendingQueueWorker($this->timer);
+    $queue = new SendingQueueWorker(new SendingErrorHandler(), $this->timer);
     return $queue->process();
   }
 
@@ -122,5 +128,26 @@ class Daemon {
 
   function terminateRequest($message = false) {
     die($message);
+  }
+
+  /**
+   * @return boolean
+   */
+  private function shouldTerminateExecution(array $daemon = null) {
+    return !$daemon ||
+      $daemon['token'] !== $this->token ||
+      (isset($daemon['status']) && $daemon['status'] !== CronHelper::DAEMON_STATUS_ACTIVE);
+  }
+
+  private function addCacheHeaders() {
+    if(headers_sent()) {
+      return;
+    }
+    // Common Cache Control header. Should be respected by cache proxies and CDNs.
+    header('Cache-Control: no-cache');
+    // Mark as blacklisted for SG Optimizer for sites hosted on SiteGround.
+    header('X-Cache-Enabled: False');
+    // Set caching header for LiteSpeed server.
+    header('X-LiteSpeed-Cache-Control: no-cache');
   }
 }
