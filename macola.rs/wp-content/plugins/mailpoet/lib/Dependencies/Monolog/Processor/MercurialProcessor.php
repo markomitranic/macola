@@ -18,7 +18,7 @@ use MailPoet\Dependencies\Monolog\Logger;
  *
  * @author Jonathan A. Schweder <jonathanschweder@gmail.com>
  */
-class MercurialProcessor
+class MercurialProcessor implements ProcessorInterface
 {
     private $level;
     private static $cache;

@@ -16,7 +16,6 @@ return array(
     'Sudzy\\' => array($baseDir . '/lib/Util/Sudzy'),
     'SensioLabs\\Security\\' => array($vendorDir . '/sensiolabs/security-checker/SensioLabs/Security'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
-    'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'MailPoet\\' => array($baseDir . '/lib'),
     'Html2Text\\' => array($vendorDir . '/soundasleep/html2text/src'),
     'Cron\\' => array($vendorDir . '/mtdowling/cron-expression/src/Cron'),

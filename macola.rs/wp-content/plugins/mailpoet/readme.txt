@@ -3,7 +3,7 @@ Contributors: mailpoet, wysija
 Tags: email marketing, newsletter, newsletter subscribers, email, welcome email, post notification, WooCommerce emails, newsletter builder
 Requires at least: 4.7
 Tested up to: 4.9
-Stable tag: 3.12.1
+Stable tag: 3.14.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -47,7 +47,7 @@ Trusted by 300,000 WordPress websites since 2011.
 Please note:
 
 * Not optimized for right-to-left (RTL) languages yet
-* Multisite not officially supported
+* Multisite is not supported
 * Review [our minimum requirements](http://beta.docs.mailpoet.com/article/152-minimum-requirements-for-mailpoet-3)
 
 = WooCommerce emails (Premium) =
@@ -159,11 +159,28 @@ Stop by our [support site](https://www.mailpoet.com/support).
 
 1. Sample newsletters
 2. The drag-and-drop email designer
-3. Subscriber management
-4. Sending method configuration in Settings
+3. MailPoet email types
+4. Newsletter stats (Premium)
 5. Subscriber import (via a CSV file or directly from MailChimp)
+6. WooCommerce emails
 
 == Changelog ==
+
+= 3.14.0 - 2018-11-13 =
+* Added: readme clarified to show we do not support multisite;
+* Added: retina-friendly icon;
+* Added: expanded GDPR information in plugin UI;
+* Added: ten new fonts for use in emails;
+* Improved: post notification email logic;
+* Fixed: new post notification templates aren't sent without posts;
+* Fixed: missing space in listings returned after brief hiatus;
+* Fixed: pausing post notification history items to not prevent further post notifications from being sent; Thanks, Mathieu!
+* Fixed: JS errors on emails page.
+
+= 3.13.0 - 2018-11-06 =
+* Improved: content of default signup confirmation email;
+* Changed: sites using PHP 5.6 will get an old version warning due to no longer receiving security updates after December. Please consider upgrading to PHP 7.2!
+* Changed: end of support for PHP 5.5. Please upgrade to PHP 7.0 or newer!
 
 = 3.12.1 - 2018-10-30 =
 * Added: 2:1 and 1:2 column blocks for further newsletter customization;

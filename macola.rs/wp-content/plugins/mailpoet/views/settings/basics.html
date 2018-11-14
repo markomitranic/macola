@@ -238,6 +238,7 @@
             class="mailpoet_page_preview"
             href="javascript:;"
             title="<%= __('Preview page') %>"
+            data-automation-id="preview_manage_subscription_page_link"
           ><%= __('Preview') %></a>
         </p>
         <p>
@@ -295,6 +296,7 @@
             class="mailpoet_page_preview"
             href="javascript:;"
             title="<%= __('Preview page') %>"
+            data-automation-id="unsubscribe_page_preview_link"
           ><%= __('Preview') %></a>
         </p>
       </td>
@@ -410,6 +412,26 @@
               <option value="<%= segment.id %>"><%= segment.name %> (<%= segment.subscribers %>)</option>
             <% endfor %>
           </select>
+        </p>
+      </td>
+    </tr>
+    <!-- gdpr compliant  -->
+    <tr>
+      <th scope="row">
+        <label>
+          <%= __('Be GDPR compliant') %>
+        </label>
+        <p class="description">
+          <%= __('You need to comply with European law in regards to data privacy if you have European subscribers. Rest assured, it’s easy!') %>
+        </p>
+      </th>
+      <td>
+        <p>
+          <a
+            href="https://beta.docs.mailpoet.com/article/246-guide-to-conform-to-gdpr"
+            title="<%= __('Read our guide') %>"
+            target="_blank"
+          ><%= __('Read our guide') %></a>
         </p>
       </td>
     </tr>

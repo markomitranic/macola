@@ -24,7 +24,7 @@ use MailPoet\Dependencies\Monolog\Logger;
  *
  * @author Jordi Boggiano <j.boggiano@seld.be>
  */
-class IntrospectionProcessor
+class IntrospectionProcessor implements ProcessorInterface
 {
     private $level;
 

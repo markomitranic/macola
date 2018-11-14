@@ -11,6 +11,8 @@
 
 namespace MailPoet\Dependencies\Monolog\Handler;
 
+use MailPoet\Dependencies\Monolog\ResettableInterface;
+
 /**
  * Base Handler class providing the Handler structure
  *

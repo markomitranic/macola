@@ -36,13 +36,11 @@ class Menu {
   const MAIN_PAGE_SLUG = 'mailpoet-newsletters';
 
   public $renderer;
-  public $assets_url;
   private $access_control;
   private $subscribers_over_limit;
 
-  function __construct($renderer, $assets_url, AccessControl $access_control) {
+  function __construct($renderer, AccessControl $access_control) {
     $this->renderer = $renderer;
-    $this->assets_url = $assets_url;
     $this->access_control = $access_control;
   }
 
@@ -70,6 +68,9 @@ class Menu {
       if($_REQUEST['page'] === 'mailpoet-newsletter-editor') {
         // Disable WP emojis to not interfere with the newsletter editor emoji handling
         $this->disableWPEmojis();
+        add_action('admin_head', function() {
+          echo '<!--[if !mso]><link href="https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i|Lato:400,400i,700,700i|Lora:400,400i,700,700i|Merriweather:400,400i,700,700i|Merriweather+Sans:400,400i,700,700i|Noticia+Text:400,400i,700,700i|Open+Sans:400,400i,700,700i|Playfair+Display:400,400i,700,700i|Roboto:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i" rel="stylesheet"><![endif]-->';
+        });
       }
     }
 
@@ -80,7 +81,7 @@ class Menu {
       AccessControl::PERMISSION_ACCESS_PLUGIN_ADMIN,
       self::MAIN_PAGE_SLUG,
       null,
-      $this->assets_url . '/img/menu_icon.png',
+      'none',
       30
     );
 
@@ -574,6 +575,8 @@ class Menu {
       '+1 hour',
       24
     );
+    $data['mailpoet_main_page'] = admin_url('admin.php?page=' . self::MAIN_PAGE_SLUG);
+    $data['show_congratulate_after_first_newsletter'] = isset($data['settings']['show_congratulate_after_first_newsletter'])?$data['settings']['show_congratulate_after_first_newsletter']:'false';
 
     $data['tracking_enabled'] = Setting::getValue('tracking.enabled');
     $data['premium_plugin_active'] = License::getLicense();
