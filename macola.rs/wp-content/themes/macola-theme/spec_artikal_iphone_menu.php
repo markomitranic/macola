@@ -75,13 +75,28 @@ Template Name: Izbornik iPhone MENI
 
 			<div class="row-fluid iphonemenu hero">
 				<div class="span12">
+					<a href="<?php echo site_url(); ?>/iphone-xr/">
+						<img src="<?php echo site_url(); ?>/wp-content/uploads/2018/11/iphone-xr.jpg" alt="iPhone XR Prodaja Srbija Beograd Garancija Zvanicna prodaja">
+					</a>
+				</div>
+				<div class="span6">
+					<a href="<?php echo site_url(); ?>/iphone-xs/">
+						<img src="<?php echo site_url(); ?>/wp-content/uploads/2018/11/iphone-xs.jpg" alt="iPhone XS Prodaja Srbija Beograd Garancija Zvanicna prodaja">
+					</a>
+				</div>
+				<div class="span6">
+					<a href="<?php echo site_url(); ?>/iphone-xs-max/">
+						<img src="<?php echo site_url(); ?>/wp-content/uploads/2018/11/iphone-xs-max.jpg" alt="iPhone XS Max Prodaja Srbija Beograd Garancija Zvanicna prodaja">
+					</a>
+				</div>
+				<div class="span12">
 					<a href="<?php echo site_url(); ?>/iphone-x/">
-						<img src="https://macola.rs/wp-content/uploads/2017/11/iphone-x-banner-1.jpg" alt="iPhone SE Prodaja Srbija">
+						<img src="https://macola.rs/wp-content/uploads/2017/11/iphone-x-banner-1.jpg" alt="iPhone X Prodaja Srbija">
 					</a>
 				</div>
 				<div class="span12">
 					<a href="<?php echo site_url(); ?>/iphone-8-iphone-8-plus/">
-						<img src="https://macola.rs/wp-content/uploads/2017/10/iphone8-banner.jpg" alt="iPhone SE Prodaja Srbija">
+						<img src="https://macola.rs/wp-content/uploads/2017/10/iphone8-banner.jpg" alt="iPhone 8 Prodaja Srbija">
 					</a>
 				</div>
 				<div class="span6">
