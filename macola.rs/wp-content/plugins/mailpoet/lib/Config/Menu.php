@@ -391,7 +391,8 @@ class Menu {
   function premium() {
     $data = array(
       'subscriber_count' => Subscriber::getTotalSubscribers(),
-      'sub_menu' => self::MAIN_PAGE_SLUG
+      'sub_menu' => self::MAIN_PAGE_SLUG,
+      'display_discount' => time() <= strtotime('2018-11-30 23:59:59')
     );
 
     $this->displayPage('premium.html', $data);
@@ -419,6 +420,8 @@ class Menu {
       'pages' => Pages::getAll(),
       'flags' => $flags,
       'current_user' => wp_get_current_user(),
+      'linux_cron_path' => dirname(dirname(__DIR__)),
+      'ABSPATH' => ABSPATH,
       'hosts' => array(
         'web' => Hosts::getWebHosts(),
         'smtp' => Hosts::getSMTPHosts()
@@ -558,6 +561,8 @@ class Menu {
     });
     $data['segments'] = $segments;
     $data['settings'] = Setting::getAll();
+    $data['current_wp_user'] = wp_get_current_user()->to_array();
+    $data['site_url'] = site_url();
     $data['roles'] = $wp_roles->get_names();
     $data['roles']['mailpoet_all'] = __('In any WordPress role', 'mailpoet');
 
@@ -634,10 +639,12 @@ class Menu {
   }
 
   function newletterEditor() {
+    $subscriber = Subscriber::getCurrentWPUser();
+    $subscriber_data = $subscriber ? $subscriber->asArray() : [];
     $data = array(
       'shortcodes' => ShortcodesHelper::getShortcodes(),
       'settings' => Setting::getAll(),
-      'current_wp_user' => array_merge(Subscriber::getCurrentWPUser()->asArray(), wp_get_current_user()->to_array()),
+      'current_wp_user' => array_merge($subscriber_data, wp_get_current_user()->to_array()),
       'sub_menu' => self::MAIN_PAGE_SLUG,
       'mss_active' => Bridge::isMPSendingServiceEnabled()
     );

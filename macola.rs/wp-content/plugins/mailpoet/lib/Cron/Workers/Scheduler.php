@@ -4,6 +4,7 @@ namespace MailPoet\Cron\Workers;
 
 use Carbon\Carbon;
 use MailPoet\Cron\CronHelper;
+use MailPoet\Logging\Logger;
 use MailPoet\Models\Newsletter;
 use MailPoet\Models\ScheduledTask;
 use MailPoet\Models\Segment;
@@ -75,9 +76,17 @@ class Scheduler {
   }
 
   function processPostNotificationNewsletter($newsletter, $queue) {
+    Logger::getLogger('post-notifications')->addInfo(
+      'process post notification in scheduler',
+      ['newsletter_id' => $newsletter->id, 'task_id' => $queue->task_id]
+    );
     // ensure that segments exist
-    $segments = $newsletter->segments()->findArray();
+    $segments = $newsletter->segments()->findMany();
     if(empty($segments)) {
+      Logger::getLogger('post-notifications')->addInfo(
+        'post notification no segments',
+        ['newsletter_id' => $newsletter->id, 'task_id' => $queue->task_id]
+      );
       return $this->deleteQueueOrUpdateNextRunDate($queue, $newsletter);
     }
 
@@ -87,6 +96,10 @@ class Scheduler {
     $subscribers_count = $finder->addSubscribersToTaskFromSegments($queue->task(), $segments);
 
     if(empty($subscribers_count)) {
+      Logger::getLogger('post-notifications')->addInfo(
+        'post notification no subscribers',
+        ['newsletter_id' => $newsletter->id, 'task_id' => $queue->task_id]
+      );
       return $this->deleteQueueOrUpdateNextRunDate($queue, $newsletter);
     }
 
@@ -100,14 +113,18 @@ class Scheduler {
     $queue->save();
     // update notification status
     $notification_history->setStatus(Newsletter::STATUS_SENDING);
+    Logger::getLogger('post-notifications')->addInfo(
+      'post notification set status to sending',
+      ['newsletter_id' => $newsletter->id, 'task_id' => $queue->task_id]
+    );
     return true;
   }
 
   function processScheduledAutomaticEmail($newsletter, $queue) {
     if($newsletter->sendTo === 'segment') {
-      $segment = Segment::findOne($newsletter->segment)->asArray();
+      $segment = Segment::findOne($newsletter->segment);
       $finder = new SubscribersFinder();
-      $result = $finder->addSubscribersToTaskFromSegments($queue->task(), array($segment));
+      $result = $finder->addSubscribersToTaskFromSegments($queue->task(), [$segment]);
       if(empty($result)) {
         $queue->delete();
         return false;
@@ -128,14 +145,14 @@ class Scheduler {
     return true;
   }
 
-  function processScheduledStandardNewsletter($newsletter, $queue) {
-    $segments = $newsletter->segments()->findArray();
+  function processScheduledStandardNewsletter($newsletter, SendingTask $task) {
+    $segments = $newsletter->segments()->findMany();
     $finder = new SubscribersFinder();
-    $subscribers_count = $finder->addSubscribersToTaskFromSegments($queue->task(), $segments);
+    $finder->addSubscribersToTaskFromSegments($task->task(), $segments);
     // update current queue
-    $queue->updateCount();
-    $queue->status = null;
-    $queue->save();
+    $task->updateCount();
+    $task->status = null;
+    $task->save();
     // update newsletter status
     $newsletter->setStatus(Newsletter::STATUS_SENDING);
     return true;

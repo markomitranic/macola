@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitdf1a67c47eb08fd825225010548dac48
+class ComposerStaticInitaeab4b309330701d009161312148fb9b
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -27,6 +27,7 @@ class ComposerStaticInitdf1a67c47eb08fd825225010548dac48
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\Console\\' => 26,
             'Sudzy\\' => 6,
+            'SensioLabs\\Security\\' => 20,
         ),
         'P' => 
         array (
@@ -81,6 +82,10 @@ class ComposerStaticInitdf1a67c47eb08fd825225010548dac48
         array (
             0 => __DIR__ . '/../..' . '/lib/Util/Sudzy',
         ),
+        'SensioLabs\\Security\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
@@ -121,10 +126,6 @@ class ComposerStaticInitdf1a67c47eb08fd825225010548dac48
         ),
         'S' => 
         array (
-            'SensioLabs\\Security' => 
-            array (
-                0 => __DIR__ . '/..' . '/sensiolabs/security-checker',
-            ),
             'Sabberworm\\CSS' => 
             array (
                 0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib',
@@ -250,6 +251,7 @@ class ComposerStaticInitdf1a67c47eb08fd825225010548dac48
         'MailPoet\\Cron\\CronHelper' => __DIR__ . '/../..' . '/lib/Cron/CronHelper.php',
         'MailPoet\\Cron\\CronTrigger' => __DIR__ . '/../..' . '/lib/Cron/CronTrigger.php',
         'MailPoet\\Cron\\Daemon' => __DIR__ . '/../..' . '/lib/Cron/Daemon.php',
+        'MailPoet\\Cron\\DaemonHttpRunner' => __DIR__ . '/../..' . '/lib/Cron/DaemonHttpRunner.php',
         'MailPoet\\Cron\\Supervisor' => __DIR__ . '/../..' . '/lib/Cron/Supervisor.php',
         'MailPoet\\Cron\\Triggers\\MailPoet' => __DIR__ . '/../..' . '/lib/Cron/Triggers/MailPoet.php',
         'MailPoet\\Cron\\Triggers\\WordPress' => __DIR__ . '/../..' . '/lib/Cron/Triggers/WordPress.php',
@@ -469,6 +471,7 @@ class ComposerStaticInitdf1a67c47eb08fd825225010548dac48
         'MailPoet\\Statistics\\Track\\Clicks' => __DIR__ . '/../..' . '/lib/Statistics/Track/Clicks.php',
         'MailPoet\\Statistics\\Track\\Opens' => __DIR__ . '/../..' . '/lib/Statistics/Track/Opens.php',
         'MailPoet\\Statistics\\Track\\Unsubscribes' => __DIR__ . '/../..' . '/lib/Statistics/Track/Unsubscribes.php',
+        'MailPoet\\Subscribers\\ConfirmationEmailMailer' => __DIR__ . '/../..' . '/lib/Subscribers/ConfirmationEmailMailer.php',
         'MailPoet\\Subscribers\\ImportExport\\Export\\DefaultSubscribersGetter' => __DIR__ . '/../..' . '/lib/Subscribers/ImportExport/Export/DefaultSubscribersGetter.php',
         'MailPoet\\Subscribers\\ImportExport\\Export\\DynamicSubscribersGetter' => __DIR__ . '/../..' . '/lib/Subscribers/ImportExport/Export/DynamicSubscribersGetter.php',
         'MailPoet\\Subscribers\\ImportExport\\Export\\Export' => __DIR__ . '/../..' . '/lib/Subscribers/ImportExport/Export/Export.php',
@@ -480,6 +483,7 @@ class ComposerStaticInitdf1a67c47eb08fd825225010548dac48
         'MailPoet\\Subscribers\\ImportExport\\PersonalDataExporters\\NewslettersExporter' => __DIR__ . '/../..' . '/lib/Subscribers/ImportExport/PersonalDataExporters/NewslettersExporter.php',
         'MailPoet\\Subscribers\\ImportExport\\PersonalDataExporters\\SegmentsExporter' => __DIR__ . '/../..' . '/lib/Subscribers/ImportExport/PersonalDataExporters/SegmentsExporter.php',
         'MailPoet\\Subscribers\\ImportExport\\PersonalDataExporters\\SubscriberExporter' => __DIR__ . '/../..' . '/lib/Subscribers/ImportExport/PersonalDataExporters/SubscriberExporter.php',
+        'MailPoet\\Subscribers\\NewSubscriberNotificationMailer' => __DIR__ . '/../..' . '/lib/Subscribers/NewSubscriberNotificationMailer.php',
         'MailPoet\\Subscribers\\RequiredCustomFieldValidator' => __DIR__ . '/../..' . '/lib/Subscribers/RequiredCustomFieldValidator.php',
         'MailPoet\\Subscribers\\Source' => __DIR__ . '/../..' . '/lib/Subscribers/Source.php',
         'MailPoet\\Subscribers\\SubscriberPersonalDataEraser' => __DIR__ . '/../..' . '/lib/Subscribers/SubscriberPersonalDataEraser.php',
@@ -509,6 +513,7 @@ class ComposerStaticInitdf1a67c47eb08fd825225010548dac48
         'MailPoet\\Util\\License\\Features\\Subscribers' => __DIR__ . '/../..' . '/lib/Util/License/Features/Subscribers.php',
         'MailPoet\\Util\\License\\License' => __DIR__ . '/../..' . '/lib/Util/License/License.php',
         'MailPoet\\Util\\Notices\\AfterMigrationNotice' => __DIR__ . '/../..' . '/lib/Util/Notices/AfterMigrationNotice.php',
+        'MailPoet\\Util\\Notices\\DiscountsAnnouncement' => __DIR__ . '/../..' . '/lib/Util/Notices/DiscountsAnnouncement.php',
         'MailPoet\\Util\\Notices\\PHPVersionWarnings' => __DIR__ . '/../..' . '/lib/Util/Notices/PHPVersionWarnings.php',
         'MailPoet\\Util\\Notices\\PermanentNotices' => __DIR__ . '/../..' . '/lib/Util/Notices/PermanentNotices.php',
         'MailPoet\\Util\\ProgressBar' => __DIR__ . '/../..' . '/lib/Util/ProgressBar.php',
@@ -665,23 +670,19 @@ class ComposerStaticInitdf1a67c47eb08fd825225010548dac48
         'Sabberworm\\CSS\\Value\\Value' => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib/Sabberworm/CSS/Value/Value.php',
         'Sabberworm\\CSS\\Value\\ValueList' => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib/Sabberworm/CSS/Value/ValueList.php',
         'SensioLabs\\Security\\Command\\SecurityCheckerCommand' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/Command/SecurityCheckerCommand.php',
-        'SensioLabs\\Security\\Crawler\\BaseCrawler' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/Crawler/BaseCrawler.php',
-        'SensioLabs\\Security\\Crawler\\CrawlerInterface' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/Crawler/CrawlerInterface.php',
-        'SensioLabs\\Security\\Crawler\\CurlCrawler' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/Crawler/CurlCrawler.php',
-        'SensioLabs\\Security\\Crawler\\DefaultCrawler' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/Crawler/DefaultCrawler.php',
-        'SensioLabs\\Security\\Crawler\\FileGetContentsCrawler' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/Crawler/FileGetContentsCrawler.php',
+        'SensioLabs\\Security\\Crawler' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/Crawler.php',
         'SensioLabs\\Security\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/Exception/ExceptionInterface.php',
         'SensioLabs\\Security\\Exception\\HttpException' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/Exception/HttpException.php',
         'SensioLabs\\Security\\Exception\\RuntimeException' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/Exception/RuntimeException.php',
-        'SensioLabs\\Security\\Formatters\\FormatterInterface' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/Formatters/FormatterInterface.php',
-        'SensioLabs\\Security\\Formatters\\JsonFormatter' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/Formatters/JsonFormatter.php',
-        'SensioLabs\\Security\\Formatters\\SimpleFormatter' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/Formatters/SimpleFormatter.php',
-        'SensioLabs\\Security\\Formatters\\TextFormatter' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/Formatters/TextFormatter.php',
+        'SensioLabs\\Security\\Result' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/Result.php',
         'SensioLabs\\Security\\SecurityChecker' => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security/SecurityChecker.php',
         'Sudzy\\Engine' => __DIR__ . '/../..' . '/lib/Util/Sudzy/Engine.php',
         'Sudzy\\ValidModel' => __DIR__ . '/../..' . '/lib/Util/Sudzy/ValidModel.php',
         'Sudzy\\ValidationException' => __DIR__ . '/../..' . '/lib/Util/Sudzy/ValidationException.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
+        'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
+        'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => __DIR__ . '/..' . '/symfony/console/CommandLoader/ContainerCommandLoader.php',
+        'Symfony\\Component\\Console\\CommandLoader\\FactoryCommandLoader' => __DIR__ . '/..' . '/symfony/console/CommandLoader/FactoryCommandLoader.php',
         'Symfony\\Component\\Console\\Command\\Command' => __DIR__ . '/..' . '/symfony/console/Command/Command.php',
         'Symfony\\Component\\Console\\Command\\HelpCommand' => __DIR__ . '/..' . '/symfony/console/Command/HelpCommand.php',
         'Symfony\\Component\\Console\\Command\\ListCommand' => __DIR__ . '/..' . '/symfony/console/Command/ListCommand.php',
@@ -1224,11 +1225,11 @@ class ComposerStaticInitdf1a67c47eb08fd825225010548dac48
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitdf1a67c47eb08fd825225010548dac48::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitdf1a67c47eb08fd825225010548dac48::$prefixDirsPsr4;
-            $loader->fallbackDirsPsr4 = ComposerStaticInitdf1a67c47eb08fd825225010548dac48::$fallbackDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitdf1a67c47eb08fd825225010548dac48::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitdf1a67c47eb08fd825225010548dac48::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitaeab4b309330701d009161312148fb9b::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitaeab4b309330701d009161312148fb9b::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInitaeab4b309330701d009161312148fb9b::$fallbackDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitaeab4b309330701d009161312148fb9b::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitaeab4b309330701d009161312148fb9b::$classMap;
 
         }, null, ClassLoader::class);
     }

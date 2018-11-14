@@ -416,17 +416,20 @@
             "key": "field_5a0ea24757e5c",
             "label": "Custom URL",
             "name": "custom_url",
-            "type": "url",
+            "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "http:\/\/www.macola.rs\/kontakt\/",
-            "placeholder": "http:\/\/www.macola.rs\/kontakt\/"
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_5a0ead8043d3d",
@@ -677,13 +680,13 @@
             }
         ]
     ],
-    "menu_order": 2,
-    "position": "normal",
-    "style": "default",
+    "menu_order": 1,
+    "position": "acf_after_title",
+    "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
     "description": "Formular za unos i izmenu cenovnika artikala.",
-    "modified": 1510911402
+    "modified": 1540989304
 }
