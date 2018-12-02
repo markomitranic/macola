@@ -350,7 +350,6 @@
     'newsletterPreviewSent': __('Your test email has been sent!'),
     'templateNameMissing': __('Please add a template name'),
     'helpTooltipSendPreview': helpTooltipSendPreview,
-    'helpTooltipDesignerStyles': __('We only include fonts that will display in all email clients. We understand it can feel limiting!'),
     'helpTooltipDesignerSubjectLine': __("You can add MailPoet shortcodes here. For example, you can add your subscribers' first names by using this shortcode: [subscriber:firstname | default:reader]. Simply copy and paste the shortcode into the field."),
     'helpTooltipDesignerPreheader': __("This optional text will appear in your subscribers' inboxes, beside the subject line. Write something enticing!"),
     'helpTooltipDesignerFullWidth': __("This option eliminates padding around the image. It only works if the image is larger than the column size."),
@@ -387,7 +386,7 @@
 
 <% block after_javascript %>
   <%= javascript(
-    'lib/tinymce/tinymce.jquery.min.js',
+    'lib/tinymce/tinymce.min.js',
     'lib/tinymce/jquery.tinymce.min.js',
     'lib/mailpoet_shortcodes/plugin.js',
     'lib/wplink/plugin.js',
@@ -1341,8 +1340,8 @@
           "newsletter_editor/image-missing.svg"
         ) %>',
       },
-      dragDemoUrl: '<%= image_url("newsletter_editor/editor-drag-demo.mp4") %>',
-      backgroundImageDemoUrl: '<%= image_url("newsletter_editor/background-image-demo.mp4") %>',
+      dragDemoUrl: '<%= cdn_url('newsletter-editor/editor-drag-demo.20181121-1440.mp4') %>',
+      backgroundImageDemoUrl: '<%= cdn_url('newsletter-editor/background-image-demo.20181121-1440.mp4') %>',
       currentUserId: '<%= current_wp_user.wp_user_id %>',
       currentUserFirstName: '<%= current_wp_user.first_name %>',
       currentUserUsername: '<%= current_wp_user.login %>',

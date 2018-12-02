@@ -25,8 +25,6 @@ use MailPoet\WP\Functions as WPFunctions;
 
 if(!defined('ABSPATH')) exit;
 
-require_once(ABSPATH . 'wp-includes/pluggable.php');
-
 class Newsletters extends APIEndpoint {
   public $permissions = array(
     'global' => AccessControl::PERMISSION_MANAGE_EMAILS
@@ -396,6 +394,7 @@ class Newsletters extends APIEndpoint {
         $newsletter
           ->withOptions()
           ->withTotalSent()
+          ->withScheduledToBeSent()
           ->withStatistics();
       } else if($newsletter->type === Newsletter::TYPE_NOTIFICATION) {
         $newsletter

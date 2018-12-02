@@ -6,6 +6,7 @@ use MailPoet\Tasks\Sending as SendingTask;
 use MailPoet\Util\Helpers;
 use MailPoet\Util\Security;
 use MailPoet\WP\Emoji;
+use function MailPoet\Util\array_column;
 
 if(!defined('ABSPATH')) exit;
 
@@ -514,6 +515,13 @@ class Newsletter extends Model {
     return $this;
   }
 
+  function withScheduledToBeSent() {
+    $this->total_scheduled = (int)SendingQueue::findTaskByNewsletterId($this->id)
+      ->where('tasks.status', SendingQueue::STATUS_SCHEDULED)
+      ->count();
+    return $this;
+  }
+
   function withStatistics() {
     $statistics = $this->getStatistics();
     $this->statistics = $statistics;
@@ -550,7 +558,7 @@ class Newsletter extends Model {
           ))->findOne();
       }
 
-      $result[$name] = !empty($row->cnt) ? $row->cnt : 0;
+      $result[$name] = !empty($row->cnt) ? (int)$row->cnt : 0;
     }
 
     return $result;

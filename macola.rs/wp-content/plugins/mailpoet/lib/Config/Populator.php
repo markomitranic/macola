@@ -1,11 +1,12 @@
 <?php
 namespace MailPoet\Config;
 
+use MailPoet\Config\PopulatorData\DefaultForm;
 use MailPoet\Cron\CronTrigger;
 use MailPoet\Mailer\MailerLog;
-use MailPoet\Models\Newsletter;
+use MailPoet\Models\NewsletterTemplate;
+use MailPoet\Models\Form;
 use MailPoet\Models\Segment;
-use MailPoet\Models\SendingQueue;
 use MailPoet\Models\StatisticsForms;
 use MailPoet\Models\Subscriber;
 use MailPoet\Segments\WP;
@@ -23,6 +24,7 @@ class Populator {
   public $prefix;
   public $models;
   public $templates;
+  private $default_segment;
   const TEMPLATES_NAMESPACE = '\MailPoet\Config\PopulatorData\Templates\\';
 
   function __construct() {
@@ -86,9 +88,11 @@ class Populator {
     array_map(array($this, 'populate'), $this->models);
 
     $this->createDefaultSegments();
+    $this->createDefaultForm();
     $this->createDefaultSettings();
     $this->createMailPoetPage();
     $this->createSourceForSubscribers();
+    $this->updateNewsletterCategories();
   }
 
   private function createMailPoetPage() {
@@ -193,13 +197,28 @@ class Populator {
 
     // Default segment
     if(Segment::where('type', 'default')->count() === 0) {
-      $default_segment = Segment::create();
-      $default_segment->hydrate(array(
+      $this->default_segment = Segment::create();
+      $this->default_segment->hydrate([
         'name' => __('My First List', 'mailpoet'),
         'description' =>
           __('This list is automatically created when you install MailPoet.', 'mailpoet')
-      ));
-      $default_segment->save();
+      ]);
+      $this->default_segment->save();
+    }
+  }
+
+  private function createDefaultForm() {
+    if(Form::count() === 0) {
+      $factory = new DefaultForm();
+      if(!$this->default_segment) {
+        $this->default_segment = Segment::where('type', 'default')->orderByAsc('id')->limit(1)->findOne();
+      }
+      Form::createOrUpdate([
+        'name' => $factory->getName(),
+        'body' => serialize($factory->getBody()),
+        'settings' => serialize($factory->getSettings($this->default_segment)),
+        'styles' => $factory->getStyles(),
+      ]);
     }
   }
 
@@ -316,7 +335,7 @@ class Populator {
   private function rowExists($table, $columns) {
     global $wpdb;
 
-    $conditions = array_map(function($key) use ($columns) {
+    $conditions = array_map(function($key) {
       return $key . '=%s';
     }, array_keys($columns));
 
@@ -380,5 +399,19 @@ class Populator {
       ' WHERE `source` = "' . Source::UNKNOWN . '"' .
       ' AND `wp_user_id` IS NOT NULL'
     );
+  }
+
+  private function updateNewsletterCategories() {
+    global $wpdb;
+    // perform once for versions below or equal to 3.14.0
+    if(version_compare(Setting::getValue('db_version', '3.14.1'), '3.14.0', '>')) {
+      return false;
+    }
+    $query = "UPDATE `%s` SET categories = REPLACE(REPLACE(categories, ',\"blank\"', ''), ',\"sample\"', ',\"all\"')";
+    $wpdb->query(sprintf(
+      $query,
+      NewsletterTemplate::$_table
+    ));
+    return true;
   }
 }

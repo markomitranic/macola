@@ -22,11 +22,12 @@
     var mailpoet_date_storage_format = "Y-m-d";
     var mailpoet_tracking_enabled = <%= json_encode(tracking_enabled) %>;
     var mailpoet_premium_active = <%= json_encode(premium_plugin_active) %>;
+    var mailpoet_woocommerce_active = <%= json_encode(is_woocommerce_active) %>;
     var mailpoet_automatic_emails = <%= json_encode(automatic_emails) %>;
     var mailpoet_in_app_announcements = mailpoet_settings.in_app_announcements;
-    var mailpoet_free_welcome_emails_image = '<%= image_url('in_app_announcements/hello-illustration-for-welcome-emails.png') %>';
-    var mailpoet_congratulations_success_image = '<%= image_url('newsletter/congrat-illu-success.png') %>';
-    var mailpoet_congratulations_loading_image = '<%= image_url('newsletter/congratulation-page-illustration-transparent-LQ.png') %>';
+    var mailpoet_free_welcome_emails_image = '<%= cdn_url('in-app-announcements/hello-illustration-for-welcome-emails.20181121-1440.png') %>';
+    var mailpoet_congratulations_success_image = '<%= cdn_url('newsletter/congrat-illu-success.20181121-1440.png') %>';
+    var mailpoet_congratulations_loading_image = '<%= cdn_url('newsletter/congratulation-page-illustration-transparent-LQ.20181121-1440.png') %>';
     var mailpoet_main_page = '<%= mailpoet_main_page %>';
     <% set newUser = (is_new_user == true) ? 'true' : 'false' %>
     var mailpoet_is_new_user = <%= newUser %>;
@@ -104,7 +105,8 @@
     'active': __('Active'),
     'inactive': __('Not Active'),
     'newsletterQueueCompleted': __('Sent to %$1d of %$2d'),
-    'sentToXSubscribers': __('Sent to %$1d subscribers'),
+    'sentToXSubscribers': _x('%$1d sent', 'number of welcome emails sent'),
+    'scheduledToXSubscribers': _x('%$1d scheduled', 'number of welcome emails scheduled to be sent'),
     'resume': __('Resume'),
     'pause': __('Pause'),
     'paused': __('Paused'),
@@ -290,8 +292,7 @@
     'savedTemplates': __('Your saved templates'),
     'templatePreview': __('Template preview'),
     'zoom': __('Preview'),
-    'blank': _x('Blank', 'Blank newsletters templates category'),
-    'sample': _x('Sample', 'Sample newsletters templates category'),
+    'allTemplates': _x('All', 'Name of a section with all email templates'),
     'tabImportTitle': _x('Import', 'Importing template tab title'),
     'noTemplates': __('This category does not contain any template yet!'),
 

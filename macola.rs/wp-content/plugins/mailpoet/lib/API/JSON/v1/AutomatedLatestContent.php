@@ -10,13 +10,14 @@ use MailPoet\WP\Posts as WPPosts;
 if(!defined('ABSPATH')) exit;
 
 class AutomatedLatestContent extends APIEndpoint {
+  /** @var \MailPoet\Newsletter\AutomatedLatestContent  */
   public $ALC;
   public $permissions = array(
     'global' => AccessControl::PERMISSION_MANAGE_EMAILS
   );
 
-  function __construct() {
-    $this->ALC = new \MailPoet\Newsletter\AutomatedLatestContent();
+  function __construct(\MailPoet\Newsletter\AutomatedLatestContent $alc) {
+    $this->ALC = $alc;
   }
 
   function getPostTypes() {
@@ -43,7 +44,7 @@ class AutomatedLatestContent extends APIEndpoint {
   function getTerms($data = array()) {
     $taxonomies = (isset($data['taxonomies'])) ? $data['taxonomies'] : array();
     $search = (isset($data['search'])) ? $data['search'] : '';
-    $limit = (isset($data['limit'])) ? (int)$data['limit'] : 50;
+    $limit = (isset($data['limit'])) ? (int)$data['limit'] : 100;
     $page = (isset($data['page'])) ? (int)$data['page'] : 1;
     $args = array(
       'taxonomy' => $taxonomies,
@@ -56,8 +57,9 @@ class AutomatedLatestContent extends APIEndpoint {
     );
 
     $args = Hooks::applyFilters('mailpoet_search_terms_args', $args);
+    $terms = WPPosts::getTerms($args);
 
-    return $this->successResponse(WPPosts::getTerms($args));
+    return $this->successResponse(array_values($terms));
   }
 
   function getPosts($data = array()) {
@@ -74,14 +76,12 @@ class AutomatedLatestContent extends APIEndpoint {
   }
 
   function getBulkTransformedPosts($data = array()) {
-    $alc = new \MailPoet\Newsletter\AutomatedLatestContent();
-
     $used_posts = array();
     $rendered_posts = array();
 
     foreach($data['blocks'] as $block) {
-      $posts = $alc->getPosts($block, $used_posts);
-      $rendered_posts[] = $alc->transformPosts($block, $posts);
+      $posts = $this->ALC->getPosts($block, $used_posts);
+      $rendered_posts[] = $this->ALC->transformPosts($block, $posts);
 
       foreach($posts as $post) {
         $used_posts[] = $post->ID;

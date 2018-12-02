@@ -3,7 +3,7 @@ Contributors: mailpoet, wysija
 Tags: email marketing, newsletter, newsletter subscribers, email, welcome email, post notification, WooCommerce emails, newsletter builder
 Requires at least: 4.7
 Tested up to: 4.9
-Stable tag: 3.14.0
+Stable tag: 3.14.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -151,6 +151,9 @@ There are 3 ways to install this plugin:
 
 == Frequently Asked Questions ==
 
+Question: Is it MailPoet or Mail poet?
+Answer: It’s MailPoet, not mail poet. We’ll answer to either though!
+
 = Need help? =
 
 Stop by our [support site](https://www.mailpoet.com/support).
@@ -165,6 +168,18 @@ Stop by our [support site](https://www.mailpoet.com/support).
 6. WooCommerce emails
 
 == Changelog ==
+
+= 3.15.0 - 2018-11-27 =
+* Improved: plugin ZIP file size is considerably reduced;
+* Fixed: sent and scheduled welcome email counts are displayed correctly;
+* Fixed: hidden honeypot field in subscription form now also hidden in editor;
+* Fixed: email listing renders consistently in PHP 7.0.32;
+* Removed: pluggable.php requirement to avoid conflicts with other plugins.
+
+= 3.14.1 - 2018-11-20 =
+* Added: show number of sent and scheduled welcome emails on Welcome Emails listing page;
+* Improved: naming and organization of template categories;
+* Fixed: limits on number of categories and tags which may be selected for ALC increased to 100. Thanks, Radwan!;
 
 = 3.14.0 - 2018-11-13 =
 * Added: readme clarified to show we do not support multisite;
